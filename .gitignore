@@ -1,0 +1,9 @@
+*.DS_Store
+*.Rhistory
+*.Rdata
+*.rds
+*.aux
+*.bbl
+*.log
+*.synctex.gz
+*-concordance.tex
