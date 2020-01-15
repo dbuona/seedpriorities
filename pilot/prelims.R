@@ -9,7 +9,7 @@ library(tidyr)
 library(lubridate)
 
 colnames(d)
-d<-select(d,1:33)
+d<-select(d,1:45)
 colnames(d)<- c("ID","strat",  "inc" ,"replicate",
  "comp_type",   "pot_type",    "rowcol"  ,    "row"  ,      
  "col",       "seed",    "taxa",    "potnumber",
@@ -18,11 +18,15 @@ colnames(d)<- c("ID","strat",  "inc" ,"replicate",
 "12/15/2019", "12/16/2019" ,"12/17/2019", "12/18/2019",
 "12/19/2019", "12/20/2019", "12/22/2019" ,"12/23/2019",
 "12/24/2019","12/25/2019" ,"12/26/2019","12/27/2019",
-"12/29/2019")
+"12/29/2019","12/30/2019" , "12/31/2019",
+"01/01/2020" , "01/03/2020"  ,"01/05/2020",  "01/06/2020",  "01/07/2020" ,
+"01/08/2020" , "01/09/2020",  "01/10/2020" ,"01/12/2020" ,"01/13/2020")
 d<-filter(d,strat==6)
-d<-gather(d,date, germ,13:33)
+d<-gather(d,date, germ,13:45)
 
-d$date2<-as.Date(d$date, format="%m / %d/ %y")
+d$date2<-as.Date(d$date, format="%m / %d / %Y")
+unique(d$date2)
+
 
 #Germ perc
 d.sum<-d %>% group_by(ID,comp_type,taxa,inc,pot_type) %>% tally(germ)
@@ -34,10 +38,13 @@ d.sum<-filter(d.sum, !germ_perc==0)
 ###germ perc
 d.perc<-d.sum %>% group_by(comp_type,taxa,inc) %>%dplyr::summarise(mean_germ=mean(germ_perc),sd_germ=sd(germ_perc))
 
-#MGT
+#MGT have to change this to accout for the new year
+
 d$day<-yday(d$date2)
-start<-yday("2020-12-03")
-d$doe<-d$day-start
+start<-yday("2019-12-06")
+
+d$doe<-ifelse(grepl("2019",d$date2),d$day-start,25+(d$day))
+
 
 d.time<-filter(d,!is.na(germ))
 d.time<-d.time %>% group_by(ID,comp_type,taxa,inc,pot_type,doe) %>% count(germ)
