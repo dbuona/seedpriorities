@@ -7,9 +7,10 @@ d<-read.csv(file = "germination_data_sheet.csv",header = TRUE)
 library(dplyr)
 library(tidyr)
 library(lubridate)
+library(ggplot2)
 
 colnames(d)
-d<-select(d,1:45)
+d<-select(d,1:50)
 colnames(d)<- c("ID","strat",  "inc" ,"replicate",
  "comp_type",   "pot_type",    "rowcol"  ,    "row"  ,      
  "col",       "seed",    "taxa",    "potnumber",
@@ -20,47 +21,70 @@ colnames(d)<- c("ID","strat",  "inc" ,"replicate",
 "12/24/2019","12/25/2019" ,"12/26/2019","12/27/2019",
 "12/29/2019","12/30/2019" , "12/31/2019",
 "01/01/2020" , "01/03/2020"  ,"01/05/2020",  "01/06/2020",  "01/07/2020" ,
-"01/08/2020" , "01/09/2020",  "01/10/2020" ,"01/12/2020" ,"01/13/2020")
-d<-filter(d,strat==6)
-d<-gather(d,date, germ,13:45)
+"01/08/2020" , "01/09/2020",  "01/10/2020" ,"01/12/2020" ,"01/13/2020","01/14/2020","01/15/2020",
+"01/16/2020","01/17/2020","01/19/2020")
+
+d<-gather(d,date, germ,13:50)
 
 d$date2<-as.Date(d$date, format="%m / %d / %Y")
 unique(d$date2)
 
 
 #Germ perc
-d.sum<-d %>% group_by(ID,comp_type,taxa,inc,pot_type) %>% tally(germ)
+d.sum<-d %>% group_by(ID,comp_type,strat,taxa,inc,pot_type) %>% tally(germ)
 d.sum<-filter(d.sum, taxa!="A.petiolaria")
 d.sum$tot_seed<-ifelse(d.sum$comp_type=="intra",20,10)
 d.sum$germ_perc<-d.sum$n/d.sum$tot_seed
 
 d.sum<-filter(d.sum, !germ_perc==0)
 ###germ perc
-d.perc<-d.sum %>% group_by(comp_type,taxa,inc) %>%dplyr::summarise(mean_germ=mean(germ_perc),sd_germ=sd(germ_perc))
-
+d.perc<-d.sum %>% group_by(strat,taxa,inc,pot_type,ID) %>%dplyr::summarise(mean_germ=mean(germ_perc),sd_germ=sd(germ_perc))
+perc.6<-filter(d.perc,strat==6)
+perc.10<-filter(d.perc,strat==10)
 #MGT have to change this to accout for the new year
 
 d$day<-yday(d$date2)
 start<-yday("2019-12-06")
+start2<-yday("2020-01-03")
 
-d$doe<-ifelse(grepl("2019",d$date2),d$day-start,25+(d$day))
+d.6<-filter(d,strat==6)
+d.6$doe<-ifelse(grepl("2019",d.6$date2),d.6$day-start,25+(d.6$day))
 
 
-d.time<-filter(d,!is.na(germ))
-d.time<-d.time %>% group_by(ID,comp_type,taxa,inc,pot_type,doe) %>% count(germ)
-d.time$tot_seed<-ifelse(d.time$comp_type=="intra",20,10)
+d.time.6<-filter(d.6,!is.na(germ))
+d.time.6<-d.time.6 %>% group_by(ID,comp_type,taxa,inc,pot_type,doe) %>% count(germ)
+d.time.6$tot_seed<-ifelse(d.time.6$comp_type=="intra",20,10)
 
-plates<-unique(d.time$ID)
-df<-data.frame(ID=character(),inc=character(),taxa=character(),comp_type=character(), MGT=numeric())
+mgt6<-d.time.6 %>% group_by(ID,taxa,inc,pot_type) %>%summarise(MGT=mean(doe), sdGT=sd(doe))
 
-for (p in seq_along(plates)){
-  dataoneplate <- subset(d.time, ID==plates[p])
-  MGT<-(sum(dataoneplate$doe*dataoneplate$n)/sum(dataoneplate$n))
-  dfhere <- data.frame(ID=plates[p],inc=dataoneplate$inc, taxa=dataoneplate$taxa,comp_type=dataoneplate$comp_type,MGT=MGT)
-  df <- rbind(df, dfhere) ## rbind it here for safty
-}
 
-df<-df %>% distinct()
-df2<-left_join(df,d.sum)
+comps6<-left_join(perc.6,mgt6)
 
-comps<-df2 %>% group_by(taxa,inc) %>%dplyr::summarise(mean_gp=mean(germ_perc),sd_gp=sd(germ_perc),mean_MGT=mean(MGT),sd_MGT=sd(MGT))
+
+
+#####10 weeks
+d.10<-filter(d,strat==10)
+d.10<-filter(d.10, !is.na(germ))
+d.10$doe<-d.10$day-start2
+d.10$doe<-ifelse(d.10$day>=20,0,d.10$doe)
+
+d.10<-filter(d.10,!is.na(germ))
+
+d.10$tot_seed<-ifelse(d.10$comp_type=="intra",20,10)
+mgt10<-d.10 %>% group_by(ID,taxa,inc,pot_type) %>%summarise(MGT=mean(doe), sdGT=sd(doe))
+
+
+
+comps10<-left_join(perc.10,mgt10)
+
+comps<-rbind(comps6,comps10)
+
+
+
+cchm<-filter(comps,pot_type %in% c("Cc.Hm"))
+
+ccpv<-filter(comps10,pot_type %in% c("Cc.Pv"))
+a<-ggplot(ccpv,(aes(inc,mean_germ)))+stat_summary(aes(color=taxa))
+b<-ggplot(ccpv,(aes(inc,MGT)))+stat_summary(aes(color=taxa))
+
+ggpubr::ggarrange(a,b)
