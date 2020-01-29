@@ -10,7 +10,7 @@ library(lubridate)
 library(ggplot2)
 
 colnames(d)
-d<-select(d,1:50)
+d<-select(d,1:56)
 colnames(d)<- c("ID","strat",  "inc" ,"replicate",
  "comp_type",   "pot_type",    "rowcol"  ,    "row"  ,      
  "col",       "seed",    "taxa",    "potnumber",
@@ -22,9 +22,9 @@ colnames(d)<- c("ID","strat",  "inc" ,"replicate",
 "12/29/2019","12/30/2019" , "12/31/2019",
 "01/01/2020" , "01/03/2020"  ,"01/05/2020",  "01/06/2020",  "01/07/2020" ,
 "01/08/2020" , "01/09/2020",  "01/10/2020" ,"01/12/2020" ,"01/13/2020","01/14/2020","01/15/2020",
-"01/16/2020","01/17/2020","01/19/2020")
+"01/16/2020","01/17/2020","01/19/2020","01/20/2020","01/21/2020","01/22/2020","01/23/2020","01/24/2020","01/26/2020")
 
-d<-gather(d,date, germ,13:50)
+d<-gather(d,date, germ,13:56)
 
 d$date2<-as.Date(d$date, format="%m / %d / %Y")
 unique(d$date2)
@@ -38,7 +38,7 @@ d.sum$germ_perc<-d.sum$n/d.sum$tot_seed
 
 d.sum<-filter(d.sum, !germ_perc==0)
 ###germ perc
-d.perc<-d.sum %>% group_by(strat,taxa,inc,pot_type,ID) %>%dplyr::summarise(mean_germ=mean(germ_perc),sd_germ=sd(germ_perc))
+d.perc<-d.sum %>% group_by(strat,taxa,inc,pot_type) %>%dplyr::summarise(mean_germ=mean(germ_perc),sd_germ=sd(germ_perc))
 perc.6<-filter(d.perc,strat==6)
 perc.10<-filter(d.perc,strat==10)
 #MGT have to change this to accout for the new year
@@ -52,10 +52,10 @@ d.6$doe<-ifelse(grepl("2019",d.6$date2),d.6$day-start,25+(d.6$day))
 
 
 d.time.6<-filter(d.6,!is.na(germ))
-d.time.6<-d.time.6 %>% group_by(ID,comp_type,taxa,inc,pot_type,doe) %>% count(germ)
+d.time.6<-d.time.6 %>% group_by(comp_type,taxa,inc,pot_type,doe) %>% count(germ)
 d.time.6$tot_seed<-ifelse(d.time.6$comp_type=="intra",20,10)
 
-mgt6<-d.time.6 %>% group_by(ID,taxa,inc,pot_type) %>%summarise(MGT=mean(doe), sdGT=sd(doe))
+mgt6<-d.time.6 %>% group_by(taxa,inc,pot_type) %>%summarise(MGT=mean(doe), sdGT=sd(doe))
 
 
 comps6<-left_join(perc.6,mgt6)
@@ -71,7 +71,7 @@ d.10$doe<-ifelse(d.10$day>=20,0,d.10$doe)
 d.10<-filter(d.10,!is.na(germ))
 
 d.10$tot_seed<-ifelse(d.10$comp_type=="intra",20,10)
-mgt10<-d.10 %>% group_by(ID,taxa,inc,pot_type) %>%summarise(MGT=mean(doe), sdGT=sd(doe))
+mgt10<-d.10 %>% group_by(taxa,inc,pot_type) %>%summarise(MGT=mean(doe), sdGT=sd(doe))
 
 
 
@@ -81,7 +81,9 @@ comps<-rbind(comps6,comps10)
 
 
 
-cchm<-filter(comps,pot_type %in% c("Cc.Hm"))
+gooper<-filter(comps,pot_type %in% c("Cc.Hm"))
+gooper2<-filter(comps,pot_type %in% c("Cc","Hm"))
+
 
 ccpv<-filter(comps10,pot_type %in% c("Cc.Pv"))
 a<-ggplot(ccpv,(aes(inc,mean_germ)))+stat_summary(aes(color=taxa))
