@@ -91,8 +91,10 @@ for (p in seq_along(plates)){
 
 df<-df %>% distinct()
 df<-filter(df,taxa!="E.macrophylla")
-ggplot(df,aes(chillweeks,T50))+stat_summary(aes(color=taxa))+facet_wrap(~force)
 
+jpeg("prelimT50.jpeg")
+ggplot(df,aes(chillweeks,T50))+stat_summary(aes(color=taxa))+facet_wrap(~force)
+dev.off()
 
 
 
