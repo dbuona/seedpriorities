@@ -2,7 +2,7 @@
 rm(list=ls()) 
 options(stringsAsFactors = FALSE)
 
-setwd("~/Documents/git/seedpriorities/pilot")
+setwd("~/Documents/git/seedpriorities/full_exp")
 set.seed(613)
 
 replicate<-seq(1:3)
@@ -25,8 +25,8 @@ for(j in c(1:length(strat))){
 for(k in c(1:length(replicate))){ 
 for(i in c(1:length(config))){
 
-        dfhere <- data.frame(pot_type=pot_type[l],strat=strat[j],rep=replicate[k],config=names(config[i]),row=rep(c("a","b","c","d","e","f"),times=c(2,2,4,4,2,2))
-                             ,col=c(3,4,3,4,2,3,4,5,2,3,4,5,3,4,3,5), seed=sample(config[[i]],size=16))
+        dfhere <- data.frame(pot_type=pot_type[l],strat=strat[j],rep=replicate[k],config=names(config[i]),row=rep(c("a","b","c","d","e","f"),times=c(2,3,3,3,3,2))
+                             ,col=c(2,4,1,3,5,2,4,6,1,3,5,2,4,6,3,5), seed=sample(config[[i]],size=16))
         
         d <- rbind(d, dfhere) ## rbind it here for safty
 
@@ -54,8 +54,8 @@ for(l in c(1:length(pot_type))){
     for(k in c(1:length(replicate))){ 
       for(i in c(1:length(config2))){
         
-        dfhere2 <- data.frame(pot_type=pot_type[l],strat=strat[j],rep=replicate[k],config=names(config2[i]),row=rep(c("b","c","d","e","f"),times=c(2,1,2,1,2))
-                             ,col=c(2,6,4,2,6,4,2,6), seed=sample(config2[[i]],size=8))
+        dfhere2 <- data.frame(pot_type=pot_type[l],strat=strat[j],rep=replicate[k],config=names(config2[i]),row=rep(c("a","c","e"),times=c(2,3,3))
+                             ,col=c(2,5,1,3,6,1,4,6), seed=sample(config2[[i]],size=8))
         
         d2 <- rbind(d2, dfhere2) ## rbind it here for safty
         
@@ -90,13 +90,18 @@ dlate$harvest<-"late"
 
 d<-rbind(dearly,dlate)
 
-d<-d[order(d$strat),]
+d<-d[(order(d$strat)),]
 
 d<-tidyr::unite(d,ID,strat,density,config,replicate,pot_type,harvest,sep="_",remove=FALSE)
 d<-tidyr::unite(d,rowcol,row,col,sep=".",remove=FALSE)
 ids<-unique(d$ID)
 d<-transform(d,potnumber=match(ID, unique(ID)))
 unique(d$potnumber)
+write.csv(d,"full_data_sheet.csv",row.names = FALSE)
+
 486/3
+162/18
+
 486*2/3
 table(d$taxa)
+
