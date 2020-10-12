@@ -43,7 +43,7 @@ d.sum50<-filter(d.sum,germ_perc>=.50)
 
 fgp<-d.sum50 %>% group_by(taxa,strat,inc) %>% summarise(meanGP=mean(germ_perc),sdGP=sd(germ_perc))
 
-fgp<-filter(fgp,taxa!="E.macrophylla")
+#fgp<-filter(fgp,taxa!="E.macrophylla")
 colnames(fgp)<-c("taxa"  , "chillweeks" , "force"   , "meanGP", "sdGP" )
 
 
@@ -90,7 +90,7 @@ for (p in seq_along(plates)){
   }
 
 df<-df %>% distinct()
-df<-filter(df,taxa!="E.macrophylla")
+#df<-filter(df,taxa!="E.macrophylla")
 
 jpeg("prelimT50.jpeg")
 ggplot(df,aes(chillweeks,T50))+stat_summary(aes(color=taxa))+facet_wrap(~force)
@@ -109,8 +109,8 @@ for (p in seq_along(plates)){
 
 df2<-df2 %>% distinct()
 
-df2<-filter(df2,taxa!="E.macrophylla")
-df<-filter(df,taxa!="E.macrophylla")
+#df2<-filter(df2,taxa!="E.macrophylla")
+#df<-filter(df,taxa!="E.macrophylla")
 
 ggplot()+stat_summary(data=df2,aes(as.factor(chillweeks),mgt,color=taxa),shape=1)+facet_wrap(~force)+
 stat_summary(data=df,aes(as.factor(chillweeks),T50,color=taxa))+facet_wrap(~force)+ggthemes::theme_base()
@@ -124,20 +124,11 @@ recap<-df %>% group_by(taxa,chillweeks,force) %>% summarise(meant50=mean(T50),sd
 recap2<-df2 %>% group_by(taxa,chillweeks,force) %>% summarise(meanMGT=mean(mgt),sdMGT=sd(mgt))
 cap<-left_join(recap,recap2)
 cap<-left_join(cap,fgp)
+cap<-filter(cap,force=="M")
 
+dfgreenhouse<-filter(df,force=="M")
+ggplot(dfgreenhouse,aes(chillweeks,T50))+geom_smooth(method=lm, aes(color=taxa))
 
-comps10<-left_join(perc.10,mgt10)
-
-comps<-rbind(comps6,comps10)
-
-
-
-gooper<-filter(comps,pot_type %in% c("Cc.Hm"))
-gooper2<-filter(comps,pot_type %in% c("Cc","Hm"))
-
-
-ccpv<-filter(comps10,pot_type %in% c("Cc.Pv"))
-a<-ggplot(ccpv,(aes(inc,mean_germ)))+stat_summary(aes(color=taxa))
-b<-ggplot(ccpv,(aes(inc,MGT)))+stat_summary(aes(color=taxa))
-
-ggpubr::ggarrange(a,b)
+jpeg("prelimT50.jpeg")
+ggplot()+stat_summary(data=dfgreenhouse,aes(as.factor(chillweeks),T50,color=taxa))+facet_wrap(~force)+ggthemes::theme_base()
+dev.off()
