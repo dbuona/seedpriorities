@@ -105,29 +105,30 @@ write.csv(d,"full_data_sheet.csv",row.names = FALSE)
 162/18
 
 486*2/3
+d<-read.csv("full_data_sheet.csv")
+library(dplyr)
+library(ggplot2)
+d6<-dplyr::filter(d,strat!=12)
+table(d6$taxa)
+unique(d6$density)
 
-d12<-dplyr::filter(d,strat==12)
-table(d12$taxa)
-table(d12$density)
 
+d6.small<-dplyr::filter(d6,density=="high" &pot_type=="Cc.Hm")
 
-d12.small<-filter(d12,density=="high" &pot_type=="Hm.Pv")
-
-pdf("HmPv.high.12.pdf")
-ggplot(d12.small,aes(row,col))+geom_point(aes(color=taxa),size=3)+facet_wrap(~potnumber)+
-  scale_y_continuous(trans = "reverse",breaks=1:6)+
+pdf("CcHm.high.6.pdf")
+ggplot2::ggplot(d6.small,aes(row,col))+geom_point(aes(color=taxa),size=3)+facet_wrap(~potnumber)+
+  scale_y_continuous(breaks=1:6)+
 scale_x_discrete(labels = c("a","b","c","d","e","f"))+
-  scale_color_manual(values=c("darkorchid","darkgreen"))+
+  scale_color_manual(values=c("firebrick","darkorchid1"))+
   theme_bw()
 dev.off()
 
-d12.small<-filter(d12,density!="high" &pot_type=="Hm.Pv")
+d6.small<-filter(d6,density!="high" &pot_type=="Hm.Pv")
 
-pdf("HmPv.low.12.pdf")
-ggplot(d12.small,aes(row,col))+geom_point(aes(color=taxa),size=3)+facet_wrap(~potnumber)+
-  scale_y_continuous(trans = "reverse",breaks=1:6)+
+pdf("HmPv.low.6.pdf")
+ggplot(d6.small,aes(row,col))+geom_point(aes(color=taxa),size=3)+facet_wrap(~potnumber)+
+  scale_y_continuous(breaks=1:6)+
   #scale_x_discrete(labels = c("a","b","c","d","e","f"))+
-  scale_color_manual(values=c("darkorchid","darkgreen"))+
+  scale_color_manual(values=c("darkorchid1","darkgreen"))+
   theme_bw()
 dev.off()
-ß
