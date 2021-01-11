@@ -1,0 +1,33 @@
+\documentclass{article}
+
+\begin{document}
+
+<<echo=FALSE,results="asis">>=
+rm(list=ls()) 
+options(stringsAsFactors = FALSE)
+graphics.off()
+
+setwd("Documents/git/seedpriorities/full_exp/")
+library(dplyr)
+library(tibble)
+library(xtable)
+
+d<-read.csv("full_data_sheet.csv")
+
+colnames(d)
+d<-tidyr::gather(d,date,count,14:31)
+colnames(d)
+table(d$count)
+d$count<-ifelse(d$count=="x",1,d$count)
+d<-d %>% filter(!is.na(count))
+d$count<-as.numeric(d$count)
+d<-d %>% filter(count==1)
+aggregate(x = d$count, by = list(d$taxa), FUN = "mean")
+
+tab<-xtable(table(d$taxa,d$strat),caption = "Total germintion percentages per species per treatment")
+print(tab)
+@
+
+
+
+\end{document}
