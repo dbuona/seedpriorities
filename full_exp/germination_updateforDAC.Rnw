@@ -25,6 +25,14 @@ tab<-xtable(d %>% group_by(strat,pot_type,taxa) %>% tally())
 #tab<-xtable(table(d$pot_type,d$taxa,d$strat),caption = "Total germintion percentages per species per treatment")
 print(tab)
 @
+Other questions: Has to compare germination rate within/across pot?\\
+e.g. species A has 2 seeds in pot and species B has 6 seeds.\\
+vs. e.g species A has 7 seeds in pot and species B has 7 seeds.\\ For scenario 1 T50 is just the time to the first seed germination and in scenario 2 its time to 3.5 seeds germinating so chances are, scenario 1 will always have faster germination rate, even if biologically that isn't really what's happening.
+
+<<echo=FALSE ,results="asis",message=FALSE,warning=FALSE>>=
+tab2<-xtable(d %>% group_by(strat,pot_type,harvest,taxa) %>% tally())
+print(tab2)
+@
 
 
 
