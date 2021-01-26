@@ -6,13 +6,13 @@ setwd("~/Documents/git/seedpriorities/full_exp")
 library(dplyr,quietly = TRUE)
 library(xtable,quietly=TRUE)
 library(stringr)
-
-
+library(lubridate)
+library(ggplot2)
 d<-read.csv("full_data_sheet.csv")
 
 
 colnames(d)
-d<-tidyr::gather(d,date,count,14:36)
+d<-tidyr::gather(d,date,count,14:37)
 colnames(d)
 d$count<-as.numeric(d$count)
 table(d$count)
@@ -38,6 +38,17 @@ d$doe<-ifelse(d$doe==0,0.00001,d$doe)
 d$count<-ifelse(d$count==1,1,0)
 table(d$count)
 d$censored<-ifelse(d$count==1,0,1)
+
+####descritive stats plots for germ perc
+#Q1 what do the overall densities look like?
+d.small<-filter(d,count==1)
+bag<-d.small %>% group_by(taxa,strat,pot_type,config,rep,density,harvest) %>% tally(count)
+
+d.sum<-d %>% group_by(taxa,strat,pot_type,config,rep,density,harvest) %>% tally(count)
+ggplot(d.sum,aes(n))+geom_histogram(bins=24)+facet_wrap(~harvest)
+
+d.sum%>% group_by(pot_type,strat,harvest) %>% summarise(sum=sum(n))
+d.sum%>% group_by(taxa,strat) %>% summarise(sum=sum(n)) ## stillb ad for temporal
 
 # ger m %
 d.small<-filter(d,pot_type=="Cc.Hm")
