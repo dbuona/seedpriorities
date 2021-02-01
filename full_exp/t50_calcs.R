@@ -11,16 +11,30 @@ library(ggplot2)
 d<-read.csv("full_data_sheet.csv")
 
 
+
+
 colnames(d)
-d<-tidyr::gather(d,date,count,14:37)
+d<-tidyr::gather(d,date,count,14:40)
 colnames(d)
-d$count<-as.numeric(d$count)
+d$count<-d$count
 table(d$count)
 d$count<-ifelse(is.na(d$count),0,d$count)
 d$count<-ifelse(is.na(d$count),0,d$count)
 d$count<-ifelse(d$count=="x",1,d$count)
-d$count<-ifelse(d$count=="1?",1,d$count)
 d$count<-ifelse(d$count==306,1,d$count)
+
+d.small<-filter(d,count==1)
+
+
+table(d.small$taxa,d.small$strat)
+d.small$count<-as.numeric(d.small$count)
+d.small %>% group_by(pot_type,strat,taxa) %>% tally(count)
+d.small %>% group_by(pot_type,strat,harvest,taxa) %>% tally(count)
+
+
+good<-filter(d.small,pot_type=="Cc.Hm")
+good %>% group_by(strat,taxa,harvest) %>% tally(count)
+
 
 unique(d$date)
 d$date<-d$date %>% str_replace(".*X", "")
