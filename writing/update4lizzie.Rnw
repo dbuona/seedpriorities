@@ -1,0 +1,113 @@
+\documentclass{article}
+
+\begin{document}
+
+\subsection{Abandon \textit{Polygonum}}
+1320 seeds of each species were planted. How did it turn out?\\
+<<echo=FALSE,warning=FALSE,message=FALSE,results="asis">>=
+rm(list=ls()) 
+options(stringsAsFactors = FALSE)
+graphics.off()
+
+setwd("~/Documents/git/seedpriorities/full_exp")
+library(dplyr,quietly = TRUE)
+library(xtable,quietly=TRUE)
+library(stringr)
+library(lubridate)
+library(ggplot2)
+d<-read.csv("full_data_sheet.csv")
+
+
+d<-tidyr::gather(d,date,count,14:40)
+
+d$count<-d$count
+
+
+
+d$count<-ifelse(is.na(d$count),0,d$count)
+d$count<-ifelse(is.na(d$count),0,d$count)
+d$count<-ifelse(d$count=="x",1,d$count)
+d$count<-ifelse(d$count==306,1,d$count)
+tab1<-table(d$taxa,d$count)
+xtable(tab1)
+@
+
+ That means the overall germination rate for \textit{P. virginiatum} is 6\%. I don't think any real analysis is possible with this, especially because that is across all treatment combinations.\\
+\subsection{Cryptic \textit{Cryptotaenia}}
+What about the germination percentages of the \textit{C. canadensis} and \textit{H. matronalis} trials across stratification treatment?
+<<echo=FALSE,warning=FALSE,message=FALSE,results="asis">>=
+d.small<-filter(d,count==1)
+
+d.small$count<-as.numeric(d.small$count)
+
+
+
+good<-filter(d.small,pot_type=="Cc.Hm")
+
+
+perc<-table(good$strat,good$taxa)
+xtable(perc)
+
+@
+Bad germination for \textit{C. canadensis} in the 6 week stratification treatment, but maybe this can be a density effect in a model?\\
+
+Now, what about temporal effects?
+<<echo=FALSE,warning=FALSE,message=FALSE,results="asis">>=
+
+d$date<-d$date %>% str_replace(".*X", "")
+
+
+d$date2<-as.Date(d$date, format="%m . %d . %y")
+
+
+d$day<-yday(d$date2)
+start<-yday("2020-12-24")
+d$doe<-ifelse(grepl("2020",d$date2),d$day-start,7+d$day)
+
+d$doe<-ifelse(d$doe==0,0.00001,d$doe)
+d$count<-ifelse(d$count==1,1,0)
+table(d$count)
+d$censored<-ifelse(d$count==1,0,1)
+
+d.small2<-filter(d,count==1)
+d.small2<-filter(d.small2, pot_type=="Cc.Hm")
+time<-d.small2 %>% group_by(taxa, strat) %>% summarise(mean.time=mean(doe,na.rm=TRUE),sd.time=sd(doe,na.rm=TRUE))
+time<-as.data.frame(time)
+xtable(time)
+@
+ The shift in temporal offset (priority effect) is only a mean of 1.9 days with high SD. This I think is because of the strong co-variance between germination percentage and timing in this current trial.\\
+ 
+ So upshot: Maybe you can still answer a very applied question about biological and environmental factors influence Cc competing with Hm?\\
+ 
+ germperc_{(0,1)} \ = planted_{con-specific} $+$ planted_{competitor} $+$ stratification\\
+
+ growthrate \ = planted_{con-specific} $+$ planted_{competitor} $+$ stratification\\
+ 
+ Are there enough seeds for 2 harvests?\\
+<<echo=FALSE,warning=FALSE,message=FALSE,results="asis">>=
+
+harvest<-good %>% group_by(strat,taxa,harvest) %>% tally(count)
+harvest<-as.data.frame(harvest)
+xtable(harvest)
+@
+Also, should I keep the CC and Hm monocultures from Pv trials to bring more data in?\\ 
+\subsection{OR: To the Autoclave they go...}
+
+Basically, I am not sure what this experiment would add to the literature consider there have already been simular papers on Hesperis published...see attached to email.\\
+
+
+\subsection{A purpose for a pilot}
+A concept paper: Testing seasonal priority effects in temperate environments (ie seed w/ dormancy) would require some minimum amount of inter-specific variation in temperature sensitivity. A major question is does this variation exist at levels high enough to match the planting intervals that generate priority effect. Luckily, two recent papers in Restoration ecology have reviewed these studies. I could:\\
+\begin{enumerate}
+\item Revisit these review the quantify the minimum sowing interval that still produce priority effects
+\item See what sort of chilling differences are needed to reproduce these differentials (based on pilot, see plot below)
+\item Compare to interannual variation in stratification or climate change projections.
+\end{enumerate}
+
+\begin{figure}[h!]
+        \centering
+         \includegraphics[width=\textwidth]{../figure/AFTplots.jpeg}
+                 \caption{Accelerate failure time models for mean germination time for my pilot study at different stratification duration.}
+    \end{figure} 
+
+\end{document}

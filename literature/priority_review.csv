@@ -1,0 +1,45 @@
+﻿Author,Experiment,Duration,Type plant,Biome,Local,Vegetation,Sowing interval ,Found priority?,Main response variable
+Eriksson & Eriksson 1998,Greenhouse,< 1 year,Native,Temperate forest,Europe,Grassland,< 1 month,yes,Germination
+Turnbull et al. 2005,Field,1 year,Native,Temperate grassland,Europe,Grassland,12 months,yes,Aboveground biomass
+Ejrnæs et al. 2006,Mesocosm,2 years,Native,Temperate grassland,Europe,Grassland,12 months,yes,Nr species
+Chadwell & Engelhardt 2008,Field Greenhouse,< 1 year,Both,Temperate forest,North America,Wetlands,1-6 months,yes,Aboveground biomass
+Körner et al. 2008,Greenhouse Mesocosm,< 2 year,Native,Temperate grassland,Europe,Grassland,< 1 month,yes,Aboveground biomass Belowground biomass
+Abraham et al. 2009,Greenhouse,,Both,Dry grasslands,North America,Grassland,< 1 month,yes,Aboveground biomass
+Collinge & Ray 2009,Field,7 years,Native,Dry grasslands,North America,Grassland,12 months,yes,Species frequency
+Grman & Suding 2010,Greenhouse,< 1 year,Both,Dry grasslands,North America,Grassland,1-6 months,yes,Aboveground biomass
+Stevens & Fehmi 2011,Greenhouse,< 1 year,Both,Dry grasslands,North America,Grassland,< 1 month,yes,Aboveground biomass
+,,,,,,,,,Plants traits
+van de Voorde et al. 2011,Greenhouse,< 1 year,Native,Temperate grassland,Europe,Grassland,1-6 months,yes,Plant-soil effect
+Dickson et al. 2012,Greenhouse,< 1 year,Both,Temperate grassland,North America,Grassland,< 1 month,yes,Aboveground biomass 
+,,,,,,,,,Nr species
+Martin & Wilsey 2012,Field,5 years,Native,Temperate grassland,North America,Grassland,12 months,yes,Nr species
+Martin & Wilsey 2014,Field,8 years,Native,Temperate grassland,North America,Grassland,12 months,yes,Nr species
+,,,,,,,,,Diversity
+Moore & Franklin 2012,Greenhouse,< 1 year,Native,Temperate grassland,North America,Grassland,1-6 months,yes,Aboveground biomass Belowground biomass 
+Kardol et al. 2013,Mesocosm,< 1 year,Native,Temperate grassland,North America,Grassland,< 1 month,yes,Aboveground biomass Belowground biomass 
+,,,,,,,,,Species richness
+Orloff et al. 2013,Greenhouse,< 1 year,Both,Temperate grassland,North America,Grassland,when natives had 2 leaves,yes,Aboveground biomass Belowground biomass
+Ulrich & Perkins 2014,Greenhouse,< 1 year,Both,Temperate grassland,North America,Shrubs,< 1 month,yes,Aboveground biomass
+Young et al. 2014,Field,< 1 year,Both,Dry grasslands,North America,Grassland,< 1 month,yes,Cover exotics         
+,,,,,,,,,Cover natives
+Cleland et al. 2015,Field,< 1 year,Both,Temperate grassland,North America,Grassland,< 1 month,no,Aboveground biomass Other
+Vaughn & Young 2015,Field,3 years,Both,Dry grasslands,North America,,< 1 month,yes,Cover natives
+Wilsey et al. 2015,Greenhouse,< 1 year,Both,Temperate grassland,North America,Grassland,< 1 month,yes,Aboveground biomass
+,,,,,,,,,Diversity
+Sarneel et al. 2016,Field Greenhouse,1 year,Native,Temperate grassland,Europe,Grassland Trees,< 1 month,yes,Aboveground biomass 
+,,,,,,,,,Height                     
+,,,,,,,,,Priority strength
+Sikes et al. 2016,Greenhouse,< 1 year,Both,Temperate forest,North America,Grassland Shrubs,< 1 month,yes,Aboveground biomass Belowground biomass 
+Stuble et al. 2016,Mesocosm,< 1 year,Both,Temperate grassland,North America,Grassland,< 1 month,yes,Aboveground biomass
+Zuo et al. 2016,Greenhouse,< 1 year,Native,Temperate grassland,North America,Grassland,< 1 month,yes,Other
+Lang et al. 2017 ,Greenhouse,< 1 year,Both,Temperate grassland,Europe,Grassland,< 1 month,yes,Relative competition index
+Torrez et al. 2017,Field,2 years,Native,Temperate grassland,Europe,Grassland,< 1 month,yes,Evenness                 
+,,,,,,,,,Cover exotics         
+,,,,,,,,,Cover natives 
+,,,,,,,,,Diversity 
+"Weidlich, Temperton, et al. 2018",Greenhouse,< 1 year,Both,Temperate grassland,Europe,Grassland,< 1 month,yes,Aboveground biomass Belowground biomass  
+Young et al. 2017l,Field,4 years,Both,Dry grasslands,North America,Grassland,2 weeks and 12 months,yes,Cover natives
+Goodale & Wilsey 2018,Greenhouse,< 1 year,Both,Temperate grassland,North America,Grassland,< 1 month,yes,Aboveground biomass Diversity
+"Delory, Weidlich, Kunz, et al. 2019",Greenhouse,< 1 year,Both,Temperate grassland,Europe,Grassland ,< 1 month,yes,Aboveground biomass
+,,,,,,,,, Shoot N
+,,,,,,,,,Priority effect index

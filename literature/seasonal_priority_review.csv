@@ -1,0 +1,21 @@
+Author,Experiment,Duration,Type.plant,Biome,Local,Vegetation,Sowing.interval,Found.priority.,Main.response.variable,,exact_interval,extractable
+Eriksson & Eriksson 1998,Greenhouse,< 1 year,Native,Temperate forest,Europe,Grassland,< 1 month,yes,Germination,,21,N
+Körner et al. 2008,Greenhouse Mesocosm,< 2 year,Native,Temperate grassland,Europe,Grassland,< 1 month,yes,Aboveground biomass Belowground biomass,,21,Y
+Abraham et al. 2009,Greenhouse,,Both,Dry grasslands,North America,Grassland,< 1 month,yes,Aboveground biomass,,14,Y
+Stevens & Fehmi 2011,Greenhouse,< 1 year,Both,Dry grasslands,North America,Grassland,< 1 month,yes,Aboveground biomass,,21,Y
+Dickson et al. 2012,Greenhouse,< 1 year,Both,Temperate grassland,North America,Grassland,< 1 month,yes,Aboveground biomass ,,21,Y
+Kardol et al. 2013,Mesocosm,< 1 year,Native,Temperate grassland,North America,Grassland,< 1 month,yes,Aboveground biomass Belowground biomass ,,"5,10,15,20 ",Y
+Ulrich & Perkins 2014,Greenhouse,< 1 year,Both,Temperate grassland,North America,Shrubs,< 1 month,yes,Aboveground biomass,,21,Y
+Young et al. 2014,Field,< 1 year,Both,Dry grasslands,North America,Grassland,< 1 month,yes,Cover exotics         ,,14,Y
+Cleland et al. 2015,Field,< 1 year,Both,Temperate grassland,North America,Grassland,< 1 month,no,Aboveground biomass Other,,7,Y
+Vaughn & Young 2015,Field,3 years,Both,Dry grasslands,North America,,< 1 month,yes,Cover natives,,14,Y
+Wilsey et al. 2015,Greenhouse,< 1 year,Both,Temperate grassland,North America,Grassland,< 1 month,yes,Aboveground biomass,,21,Y
+Sarneel et al. 2016,Field Greenhouse,1 year,Native,Temperate grassland,Europe,Grassland Trees,< 1 month,yes,Aboveground biomass ,,21,Y
+Sikes et al. 2016,Greenhouse,< 1 year,Both,Temperate forest,North America,Grassland Shrubs,< 1 month,yes,Aboveground biomass Belowground biomass ,,14,
+Stuble et al. 2016,Mesocosm,< 1 year,Both,Temperate grassland,North America,Grassland,< 1 month,yes,Aboveground biomass,,18,
+Zuo et al. 2016,Greenhouse,< 1 year,Native,Temperate grassland,North America,Grassland,< 1 month,yes,Other,,60,
+Lang et al. 2017 ,Greenhouse,< 1 year,Both,Temperate grassland,Europe,Grassland,< 1 month,yes,Relative competition index,,"21,28",
+Torrez et al. 2017,Field,2 years,Native,Temperate grassland,Europe,Grassland,< 1 month,yes,Evenness                 ,,28,
+"Weidlich, Temperton, et al. 2018",Greenhouse,< 1 year,Both,Temperate grassland,Europe,Grassland,< 1 month,yes,Aboveground biomass Belowground biomass  ,,5,
+Goodale & Wilsey 2018,Greenhouse,< 1 year,Both,Temperate grassland,North America,Grassland,< 1 month,yes,Aboveground biomass Diversity,,28,
+"Delory, Weidlich, Kunz, et al. 2019",Greenhouse,< 1 year,Both,Temperate grassland,Europe,Grassland ,< 1 month,yes,Aboveground biomass,,21,

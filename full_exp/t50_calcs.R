@@ -10,19 +10,24 @@ library(lubridate)
 library(ggplot2)
 d<-read.csv("full_data_sheet.csv")
 
-
+table(d$taxa)
 
 
 colnames(d)
 d<-tidyr::gather(d,date,count,14:40)
 colnames(d)
 d$count<-d$count
-table(d$count)
+
+
+
 d$count<-ifelse(is.na(d$count),0,d$count)
 d$count<-ifelse(is.na(d$count),0,d$count)
 d$count<-ifelse(d$count=="x",1,d$count)
 d$count<-ifelse(d$count==306,1,d$count)
+print(xtable(table(d$taxa,d$count)))
 
+table(d$taxa,d$count)
+table(d$taxa)
 d.small<-filter(d,count==1)
 
 
@@ -55,7 +60,18 @@ d$censored<-ifelse(d$count==1,0,1)
 
 ####descritive stats plots for germ perc
 #Q1 what do the overall densities look like?
-d.small<-filter(d,count==1)
+d.small2<-filter(d,count==1)
+
+d.small2<-filter(d.small2, pot_type=="Cc.Hm")
+d.small2 %>% group_by(taxa, strat) %>% summarise(mean.time=mean(doe,na.rm=TRUE),sd.time=sd(doe,na.rm=TRUE))
+(7.9-2.94)-
+(5.33-2.06)
+
+
+
+
+stop("not an error, below is scratch")
+
 bag<-d.small %>% group_by(taxa,strat,pot_type,config,rep,density,harvest) %>% tally(count)
 
 d.sum<-d %>% group_by(taxa,strat,pot_type,config,rep,density,harvest) %>% tally(count)
