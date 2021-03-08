@@ -1,3 +1,5 @@
+## THis was code for checking the progress of the germination. IT is depreciated and 
+
 rm(list=ls()) 
 options(stringsAsFactors = FALSE)
 graphics.off()
@@ -32,6 +34,11 @@ d.small<-filter(d,count==1)
 
 
 table(d.small$taxa,d.small$strat)
+
+### select down to only CC.HM
+d.small
+
+
 d.small$count<-as.numeric(d.small$count)
 d.small %>% group_by(pot_type,strat,taxa) %>% tally(count)
 d.small %>% group_by(pot_type,strat,harvest,taxa) %>% tally(count)
