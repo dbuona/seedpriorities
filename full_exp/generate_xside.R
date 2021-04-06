@@ -1,6 +1,7 @@
 rm(list=ls()) 
 options(stringsAsFactors = FALSE)
 graphics.off()
+options(mc.cores = parallel::detectCores())
 
 setwd("~/Documents/git/seedpriorities/full_exp")
 library(dplyr,quietly = TRUE)
@@ -56,7 +57,7 @@ germies<-filter(d,count==1)
 
 dens<-germies %>% group_by(potnumber,sp,strat) %>% count()
 
-time<-germies %>% group_by(potnumber,sp,strat) %>% summarize(MGT=mean(doe))
+time<-germies %>% dplyr::group_by(potnumber,sp,strat) %>% dplyr::summarize(MGT=mean(doe))
 
 ###separate by species
 CC1<-filter(dens,sp=="Cryp")
@@ -89,16 +90,21 @@ goo$priority<-goo$MGT_Cc-goo$MGT_Hm
 goo$Cc_percap<-goo$MG_Cc/goo$n_Cc
 goo$Hm_percap<-goo$MG_Hm/goo$n_Hm
   
-ggplot(goo,aes(n_Cc,Cc_percap))+geom_point()+geom_smooth(method="lm")
-ggplot(goo,aes(n_Hm,Cc_percap))+geom_point()+geom_smooth(method="lm")
+crypplot1<-ggplot(goo,aes(n_Cc,Cc_percap))+geom_point()+geom_smooth(method="lm")
+crypplot2<-ggplot(goo,aes(n_Hm,Cc_percap))+geom_point()+geom_smooth(method="lm")+ylim(0,200)
+crypplot3<-ggplot(goo,aes(priority,Cc_percap))+geom_point()+geom_smooth(method="lm")+ylim(0,200)
 
-ggplot(goo,aes(n_Hm,Hm_percap))+geom_point()+geom_smooth(method="lm")
-ggplot(goo,aes(n_Cc,Hm_percap))+geom_point()+geom_smooth(method="lm")
+png("..//figure/cryp_plots.png")
+ggpubr::ggarrange(crypplot1,crypplot2,crypplot3, nrow=1,ncol=3)
+dev.off()
 
 
-ggplot(goo,aes(priority,Cc_percap))+geom_point()+geom_smooth(method="lm")+ylim(0,300)
-
-ggplot(goo,aes(priority,Hm_percap))+geom_point()+geom_smooth(method="lm")
+hesp1<-ggplot(goo,aes(n_Hm,Hm_percap))+geom_point()+geom_smooth(method="lm")
+hesp2<-ggplot(goo,aes(n_Cc,Hm_percap))+geom_point()+geom_smooth(method="lm")
+hesp3<-ggplot(goo,aes(priority,Hm_percap))+geom_point()+geom_smooth(method="lm")
+png("..//figure/hesp_plots.png")
+ggpubr::ggarrange(hesp1,hesp2,hesp3, nrow=1,ncol=3)
+dev.off()
 
 goo$n_Cc<-ifelse(is.na(goo$n_Cc),0,goo$n_Cc)
 goo$n_Hm<-ifelse(is.na(goo$n_Hm),0,goo$n_Hm)
@@ -117,6 +123,7 @@ goo$priority2<-ifelse(is.na(goo$priority),0,goo$priority)
 goo$priority_cent<-goo$priority2-mean(goo$priority2)
 
 summary(lm(Cc_percap~n_Cc+n_Hm+priority_cent,data=goo)) 
+
 summary(lm(Hm_percap~n_Cc+n_Hm+priority_cent,data=goo)) ##
 
 
@@ -126,12 +133,19 @@ ggplot(goo,aes(priority,Cc_percap))+geom_point()+ylim(0,200)+geom_smooth()
 ## Do we see a treatmenteffect?
 ggplot(goo,aes(strat,MGT_Cc))+geom_point()
 ggplot(goo,aes(strat,MGT_Hm))+geom_point()
-ggplot(data=goo,aes(as.factor(strat),priority))+geom_boxplot()+geom_point(alpha=0.5,color="pink")
+
+png("..//figure/priority_treat.png")
+ggplot(data=goo,aes(as.factor(strat),priority))+geom_boxplot()+geom_point(alpha=0.5,color="hotpink")
+dev.off()
 
 car::Anova(lm(priority~as.factor(strat),data=goo),type=3)
 
 summary(lm(Cc_percap~n_Cc+n_Hm+strat,data=goo)) ## this only includes rows with priority 
 summary(lm(Hm_percap~n_Cc+n_Hm+strat,data=goo)) 
+
+
+summary(lm(Cc_percap~n_Cc+n_Hm*strat,data=goo)) ## this only includes rows with priority 
+summary(lm(Hm_percap~n_Cc*strat+n_Hm,data=goo)) 
 
 
 
@@ -141,10 +155,36 @@ summary(lm(MG_Hm~n_Cc*n_Hm+priority,data=goo)) ##
 
 goo$MG_Cc<-ifelse(is.na(goo$MG_Cc),1,goo$MG_Cc)
 goo$MG_Hm<-ifelse(is.na(goo$MG_Hm),1,goo$MG_Hm)
+
+###calcuate starting seed mass
+inits<-read.csv("full_data_sheet.csv")
+inits<-filter(inits,pot_type=="Cc.Hm")
+ini.dens<-inits %>% group_by(potnumber,taxa,strat) %>% count()
+ini.dens$Cc_start<-NA
+
+#Cc 2.109 g/ 1000 seed _> 2.109 MG /seed
+#Hm 1.9432
+ini.dens$start[ini.dens$taxa=="C.canadensis"]<-ini.dens$n*2.109
+ini.dens$start[ini.dens$taxa=="H.matronalis"]<-ini.dens$n*1.9432
+###TBC
 goo$RGRD<-(log(goo$MG_Hm)-log(goo$MG_Cc))
 7*11
 
 summary(lm(RGRD~n_Cc+n_Hm+priority2,data=goo)) 
+
+mod1<-brms::brm(RGRD~n_Cc+n_Hm+priority2,data=goo)
+gooout<-as.data.frame(brms::fixef(mod1))
+gooout$factor<-rownames(gooout)
+gooout<-dplyr::filter(gooout,factor!="Intercept")
+
+png("..//figure/RGRD_muplot.png",width=6,height=6, units = "in",res=200)
+ggplot(gooout,aes(Estimate,factor))+geom_point(size=3)+geom_errorbarh(aes(xmin=Q2.5,xmax=Q97.5),height=0)+
+  geom_vline(xintercept=0,color="red",linetype="dotted")+theme_linedraw()
+dev.off()
+
+newdata<-data.frame(n_Cc=c(2,1,2,2),n_Hm= c(1,2,2,2), priority2=c(0,0,1,8))
+fitted(mod1,newdata=newdata,probs = c(.25,.75))
+
 #A positive value of bi (for i =1 or 2) means that increasing
 #species i in the initial community will enhance the difference
 #in average RGRs in favour of species 2 and
