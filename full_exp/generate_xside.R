@@ -9,30 +9,34 @@ library(xtable,quietly=TRUE)
 library(stringr)
 library(lubridate)
 library(ggplot2)
+library(tidyr)
+library(tidyselect)
+library(reshape2)
 
 d<-read.csv("full_data_sheet.csv")
 bio<-read.csv("biomass.csv")
 table(d$taxa)
+d<-filter(d,pot_type=="Cc.Hm")
 
-table(bio$potnumber)
 
-colnames(d)
-d<-tidyr::gather(d,date,count,14:40)
-colnames(d)
-d$count<-d$count
+sapply(d, class)
+cols.num <- 14:40
+d[cols.num] <- sapply(d[cols.num],as.numeric)
+
+
+d<-d%>% pivot_longer(14:40,names_to="date",values_to = "count")
+#d<-d %>% tidyr::gather(date,count,14:40) depreciated
 
 
 
 d$count<-ifelse(is.na(d$count),0,d$count)
-d$count<-ifelse(is.na(d$count),0,d$count)
-d$count<-ifelse(d$count=="x",1,d$count)
-d$count<-ifelse(d$count==306,1,d$count)
+#d$count<-ifelse(is.na(d$count),0,d$count)
+#d$count<-ifelse(d$count=="x",1,d$count)
+#d$count<-ifelse(d$count==306,1,d$count)
 print(xtable(table(d$taxa,d$count)))
 
-table(d$taxa,d$count)
-table(d$taxa)
 
-d<-filter(d,pot_type=="Cc.Hm")
+
 d$sp<-ifelse(d$taxa=="C.canadensis","Cryp","Hesp")
 colnames(bio)[2]<-"potnumber"
 
@@ -89,29 +93,31 @@ goo$priority<-goo$MGT_Cc-goo$MGT_Hm
 
 goo$Cc_percap<-goo$MG_Cc/goo$n_Cc
 goo$Hm_percap<-goo$MG_Hm/goo$n_Hm
-  
-crypplot1<-ggplot(goo,aes(n_Cc,Cc_percap))+geom_point()+geom_smooth(method="lm")
-crypplot2<-ggplot(goo,aes(n_Hm,Cc_percap))+geom_point()+geom_smooth(method="lm")+ylim(0,200)
-crypplot3<-ggplot(goo,aes(priority,Cc_percap))+geom_point()+geom_smooth(method="lm")+ylim(0,200)
+
+goo$type<-ifelse(!is.na(goo$n_Cc)& !is.na(goo$n_Hm),"competition","single species") 
+ 
+crypplot1<-ggplot(goo,aes(n_Cc,Cc_percap))+geom_point(aes(color=type))+geom_smooth(method="lm",aes(color=type))
+crypplot2<-ggplot(goo,aes(n_Hm,Cc_percap))+geom_point(aes(color=type))+geom_smooth(method="lm",aes(color=type))+ylim(0,200)
+crypplot3<-ggplot(goo,aes(priority,Cc_percap))+geom_point(aes(color=type))+geom_smooth(method="lm",aes(color=type))+ylim(0,200)
 
 png("..//figure/cryp_plots.png")
-ggpubr::ggarrange(crypplot1,crypplot2,crypplot3, nrow=1,ncol=3)
+ggpubr::ggarrange(crypplot1,crypplot2,crypplot3, nrow=1,ncol=3,common.legend = TRUE)
 dev.off()
 
 
-hesp1<-ggplot(goo,aes(n_Hm,Hm_percap))+geom_point()+geom_smooth(method="lm")
-hesp2<-ggplot(goo,aes(n_Cc,Hm_percap))+geom_point()+geom_smooth(method="lm")
-hesp3<-ggplot(goo,aes(priority,Hm_percap))+geom_point()+geom_smooth(method="lm")
+hesp1<-ggplot(goo,aes(n_Hm,Hm_percap))+geom_point(aes(color=type))+geom_smooth(method="lm",aes(color=type))
+hesp2<-ggplot(goo,aes(n_Cc,Hm_percap))+geom_point(aes(color=type))+geom_smooth(method="lm",aes(color=type))
+hesp3<-ggplot(goo,aes(priority,Hm_percap))+geom_point(aes(color=type))+geom_smooth(method="lm",aes(color=type))
 png("..//figure/hesp_plots.png")
-ggpubr::ggarrange(hesp1,hesp2,hesp3, nrow=1,ncol=3)
+ggpubr::ggarrange(hesp1,hesp2,hesp3, nrow=1,ncol=3,common.legend=TRUE)
 dev.off()
 
-goo$n_Cc<-ifelse(is.na(goo$n_Cc),0.0001,goo$n_Cc)
-goo$n_Hm<-ifelse(is.na(goo$n_Hm),0.0001,goo$n_Hm)
+goo$n_Cc<-ifelse(is.na(goo$n_Cc),0,goo$n_Cc)
+goo$n_Hm<-ifelse(is.na(goo$n_Hm),0,goo$n_Hm)
 
 #mod<-brms::brm(Cc_percap~n_Cc+n_Hm+priority,data=goo)
-summary(mod)
-brms::pp_check(mod,nsamples=100)
+#summary(mod)
+#brms::pp_check(mod,nsamples=100)
 
 
 
@@ -120,13 +126,10 @@ brms::pp_check(mod,nsamples=100)
 goo$priority2<-ifelse(is.na(goo$priority),0,goo$priority)
 goo$priority_cent<-goo$priority2-mean(goo$priority2)
 
-summary(lm(Cc_percap~n_Cc+n_Hm+priority_cent,data=goo)) 
-
-summary(lm(Hm_percap~n_Cc+n_Hm+priority_cent,data=goo)) ##
-
-
-
-ggplot(goo,aes(priority,Cc_percap))+geom_point()+ylim(0,200)+geom_smooth()
+summary(lm(Cc_percap~n_Cc+n_Hm+priority2,data=goo))
+summary(lm(Hm_percap~n_Cc+n_Hm+priority2,data=goo)) ##
+summary(lm(MG_Cc~n_Cc+n_Hm+priority2,data=goo)) 
+summary(lm(MG_Hm~n_Cc+n_Hm+priority2,data=goo))
 
 
 png("..//figure/priority_treat.png")
@@ -136,35 +139,33 @@ dev.off()
 car::Anova(lm(priority~as.factor(strat),data=goo),type=3)
 
 
-goo$MG_Cc<-ifelse(is.na(goo$MG_Cc),0001,goo$MG_Cc)
-goo$MG_Hm<-ifelse(is.na(goo$MG_Hm),.0001,goo$MG_Hm)
+#goo$MG_Cc<-ifelse(is.na(goo$MG_Cc),.0001,goo$MG_Cc)
+#goo$MG_Hm<-ifelse(is.na(goo$MG_Hm),.0001,goo$MG_Hm)
 
 ###calcuate starting seed mass
-inits<-read.csv("full_data_sheet.csv")
-inits<-filter(inits,pot_type=="Cc.Hm")
-ini.dens<-inits %>% dplyr::group_by(potnumber,taxa,strat) %>% dplyr::count()
+#inits<-read.csv("full_data_sheet.csv")
+#inits<-filter(inits,pot_type=="Cc.Hm")
+#ini.dens<-inits %>% dplyr::group_by(potnumber,taxa,strat) %>% dplyr::count()
 
 
 #Cc 2.109 g/ 1000 seed _> 2.109 MG /seed
 #Hm 1.9432
-ini.dens$start<-NA
-ini.dens$start[ini.dens$taxa=="C.canadensis"]<-ini.dens$n*2.109
-ini.dens$start[ini.dens$taxa=="H.matronalis"]<-ini.dens$n*1.9432
+#ini.dens$start<-NA
+#ini.dens$start[ini.dens$taxa=="C.canadensis"]<-ini.dens$n*2.109
+#ini.dens$start[ini.dens$taxa=="H.matronalis"]<-ini.dens$n*1.9432
+####not sure the error here, it seems like above did it right
 
-ini.dens<-dplyr::select(ini.dens,taxa,potnumber,start)
+#ni.dens<-dplyr::select(ini.dens,taxa,potnumber,start)
 
-ini.dens<-tidyr::spread(ini.dens, taxa,start)
-colnames(ini.dens)[c(3,4)]<-c("startCc","startHm")
+#ini.dens<-tidyr::spread(ini.dens, taxa,start)
+#colnames(ini.dens)[c(3,4)]<-c("startCc","startHm")
 
-goo$startCc<-ifelse(is.na(goo$startCc),0001,goo$startCc)
-goo$startHm<-ifelse(is.na(goo$startHm),.0001,goo$startHm)
+#goo<-dplyr::left_join(goo,ini.dens)
 
-goo<-dplyr::left_join(goo,ini.dens)
-
-goo$startCc<-ifelse(is.na(goo$startCc),0001,goo$startCc)
-goo$startHm<-ifelse(is.na(goo$startHm),.0001,goo$startHm)
+#goo$startCc<-ifelse(is.na(goo$startCc),.0001,goo$startCc)
+#goo$startHm<-ifelse(is.na(goo$startHm),.0001,goo$startHm)
 ###TBC
-goo$RGRD<-(log(goo$MG_Hm/goo$startHm)-log(goo$MG_Cc/goo$startCc))
+goo$RGRD<-(log(goo$MG_Hm)-log(goo$MG_Cc))
 7*11
 
 summary(lm(RGRD~n_Cc+n_Hm+priority2,data=goo)) 
