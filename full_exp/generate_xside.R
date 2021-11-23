@@ -95,7 +95,7 @@ goo$Cc_percap<-goo$MG_Cc/goo$n_Cc
 goo$Hm_percap<-goo$MG_Hm/goo$n_Hm
 
 goo$type<-ifelse(!is.na(goo$n_Cc)& !is.na(goo$n_Hm),"competition","single species") 
- 
+if (FALSE){ 
 crypplot1<-ggplot(goo,aes(n_Cc,Cc_percap))+geom_point(aes(color=type))+geom_smooth(method="lm",aes(color=type))
 crypplot2<-ggplot(goo,aes(n_Hm,Cc_percap))+geom_point(aes(color=type))+geom_smooth(method="lm",aes(color=type))+ylim(0,200)
 crypplot3<-ggplot(goo,aes(priority,Cc_percap))+geom_point(aes(color=type))+geom_smooth(method="lm",aes(color=type))+ylim(0,200)
@@ -111,11 +111,16 @@ hesp3<-ggplot(goo,aes(priority,Hm_percap))+geom_point(aes(color=type))+geom_smoo
 png("..//figure/hesp_plots.png")
 ggpubr::ggarrange(hesp1,hesp2,hesp3, nrow=1,ncol=3,common.legend=TRUE)
 dev.off()
-
+}
 goo$n_Cc<-ifelse(is.na(goo$n_Cc),0,goo$n_Cc)
 goo$n_Hm<-ifelse(is.na(goo$n_Hm),0,goo$n_Hm)
 
-#mod<-brms::brm(Cc_percap~n_Cc+n_Hm+priority,data=goo)
+#mod.cc<-brms::brm(Cc_percap~n_Cc+n_Hm+priority,data=goo)
+#mod.hm<-brms::brm(Hm_percap~n_Cc+n_Hm+priority,data=goo)
+
+brms::fixef(mod.cc)
+brms::fixef(mod.hm)
+
 #summary(mod)
 #brms::pp_check(mod,nsamples=100)
 
@@ -124,7 +129,52 @@ goo$n_Hm<-ifelse(is.na(goo$n_Hm),0,goo$n_Hm)
 ## I feel like I need a dummy varaible for priority
 #tryit
 goo$priority2<-ifelse(is.na(goo$priority),0,goo$priority)
-goo$priority_cent<-goo$priority2-mean(goo$priority2)
+
+mod.cc2<-brms::brm(Cc_percap~n_Cc+n_Hm+priority2,data=goo)
+mod.hm2<-brms::brm(Hm_percap~n_Cc+n_Hm+priority2,data=goo)
+
+if (FALSE){
+effect<-c("beta_ch","beta_hc","beta_ch","beta_hc")
+beta<-c(brms::fixef(mod.cc2)[3]/brms::fixef(mod.cc2)[2], #intra higher than inter
+brms::fixef(mod.hm2)[2]/brms::fixef(mod.hm2)[3],
+(brms::fixef(mod.cc2)[3]+brms::fixef(mod.cc2)[4])/brms::fixef(mod.cc2)[2] ,
+(brms::fixef(mod.hm2)[2]+brms::fixef(mod.hm2)[4])/brms::fixef(mod.hm2)[3]) #intra higher than inter
+priority<-c("none","none","one day","one day")
+outcome<-c("coexist","coexist","H. matronalis","H. matronis")
+data.frame(effect,beta,priority,outcome)
+}
+#Depending on K they should coexist
+library(tidybayes)
+output.cc<-mod.cc2 %>%
+  spread_draws(b_n_Cc,b_n_Hm ,b_priority2)
+
+output.hm<-mod.hm2 %>%
+  spread_draws(b_n_Cc,b_n_Hm ,b_priority2)
+
+output.cc$beta<-output.cc$b_n_Hm/output.cc$b_n_Cc
+output.cc$beta_priority<-(output.cc$b_n_Hm+output.cc$b_priority2)/output.cc$b_n_Cc
+
+output.hm$beta<-output.hm$b_n_Cc/output.hm$b_n_Hm
+output.hm$beta_priority<-(output.hm$b_n_Cc+output.hm$b_priority2)/output.hm$b_n_Hm
+
+
+
+colnames(output.cc)
+output.cc <-output.cc %>% tidyr::gather("beta","Estimate",7,8)
+output.hm <-output.hm %>% tidyr::gather("beta","Estimate",7,8)
+output.cc$species<-c("Competition coefficient \non Honewort")
+output.hm$species<-c("Competition coeficient \non Dames Rocket")
+outputbetas<-rbind(output.cc,output.hm)
+
+jpeg("..//figure/comp_coefficient.jpeg",width = 6,height=4, units="in",res=300)
+ggplot(outputbetas,aes(y = beta, x = Estimate))+
+  stat_halfeye(aes(color=species,fill=species),alpha=0.6)+ggthemes::theme_few()+scale_fill_viridis_d(begin=0,end=0.5)+
+  scale_color_viridis_d(begin=0,end=0.5)+geom_vline(xintercept =1)+xlim(-1,5)+
+  scale_y_discrete(limits=c("beta_priority","beta"),labels=c("betas with \npriority effect","betas no \npriority effect"))
+dev.off()
+
+
+#goo$priority_cent<-goo$priority2-mean(goo$priority2)
 
 summary(lm(Cc_percap~n_Cc+n_Hm+priority2,data=goo))
 summary(lm(Hm_percap~n_Cc+n_Hm+priority2,data=goo)) ##
@@ -132,9 +182,11 @@ summary(lm(MG_Cc~n_Cc+n_Hm+priority2,data=goo))
 summary(lm(MG_Hm~n_Cc+n_Hm+priority2,data=goo))
 
 
-png("..//figure/priority_treat.png")
+#png("..//figure/priority_treat.png")
+
+
 ggplot(data=goo,aes(as.factor(strat),priority))+geom_boxplot()+geom_point(alpha=0.5,color="hotpink")
-dev.off()
+
 
 car::Anova(lm(priority~as.factor(strat),data=goo),type=3)
 
@@ -143,43 +195,115 @@ car::Anova(lm(priority~as.factor(strat),data=goo),type=3)
 #goo$MG_Hm<-ifelse(is.na(goo$MG_Hm),.0001,goo$MG_Hm)
 
 ###calcuate starting seed mass
-#inits<-read.csv("full_data_sheet.csv")
-#inits<-filter(inits,pot_type=="Cc.Hm")
-#ini.dens<-inits %>% dplyr::group_by(potnumber,taxa,strat) %>% dplyr::count()
+inits<-read.csv("full_data_sheet.csv")
+inits<-filter(inits,pot_type=="Cc.Hm")
+ini.dens<-inits %>% dplyr::group_by(potnumber,taxa,strat) %>% dplyr::count()
 
 
 #Cc 2.109 g/ 1000 seed _> 2.109 MG /seed
 #Hm 1.9432
-#ini.dens$start<-NA
-#ini.dens$start[ini.dens$taxa=="C.canadensis"]<-ini.dens$n*2.109
-#ini.dens$start[ini.dens$taxa=="H.matronalis"]<-ini.dens$n*1.9432
+ini.dens$start<-NA
+ini.dens$start[ini.dens$taxa=="C.canadensis"]<-ini.dens$n*2.109
+ini.dens$start[ini.dens$taxa=="H.matronalis"]<-ini.dens$n*1.9432
 ####not sure the error here, it seems like above did it right
 
-#ni.dens<-dplyr::select(ini.dens,taxa,potnumber,start)
+ni.dens<-dplyr::select(ini.dens,taxa,potnumber,start)
 
-#ini.dens<-tidyr::spread(ini.dens, taxa,start)
-#colnames(ini.dens)[c(3,4)]<-c("startCc","startHm")
+ini.dens<-tidyr::spread(ini.dens, taxa,start)
+colnames(ini.dens)[c(3,4)]<-c("startCc","startHm")
 
-#goo<-dplyr::left_join(goo,ini.dens)
+goo<-dplyr::left_join(goo,ini.dens)
 
 #goo$startCc<-ifelse(is.na(goo$startCc),.0001,goo$startCc)
 #goo$startHm<-ifelse(is.na(goo$startHm),.0001,goo$startHm)
 ###TBC
-goo$RGRD<-(log(goo$MG_Hm)-log(goo$MG_Cc))
+goo$RGRD<-(log(goo$MG_Hm/goo$startHm)-log(goo$MG_Cc/goo$startCc))
+#hm is species 2
 7*11
 
-summary(lm(RGRD~n_Cc+n_Hm+priority2,data=goo)) 
 
-mod1<-brms::brm(RGRD~n_Cc+n_Hm+priority2,data=goo)
-gooout<-as.data.frame(brms::fixef(mod1))
-gooout$factor<-rownames(gooout)
-gooout<-dplyr::filter(gooout,factor!="Intercept")
+coef(lm(RGRD~n_Cc+n_Hm+priority,data=goo)) 
+coef(lm(RGRD~n_Cc+n_Hm+strat,data=goo)) 
+coef(lm(RGRD~n_Cc+n_Hm+as.factor(strat),data=goo)) 
 
-png("..//figure/RGRD_muplot.png",width=6,height=6, units = "in",res=200)
-ggplot(gooout,aes(Estimate,factor))+geom_point(size=3)+geom_errorbarh(aes(xmin=Q2.5,xmax=Q97.5),height=0)+
-  geom_vline(xintercept=0,color="red",linetype="dotted")+theme_linedraw()
+mod1<-brms::brm(RGRD~n_Cc+n_Hm+priority,data=goo)
+
+mod2<-brms::brm(RGRD~n_Cc+n_Hm+strat,data=goo)
+#gooout<-as.data.frame(brms::fixef(mod1))
+#gooout$factor<-rownames(gooout)
+#gooout<-dplyr::filter(gooout,factor!="Intercept")
+
+library(bayesplot)
+library(tidybayes)
+get_variables(mod1)
+output<-mod1 %>%
+  spread_draws(b_n_Cc,b_n_Hm ,b_priority)
+colnames(output)
+output <-output %>% tidyr::gather("var","Estimate",4:6)
+output$winner<-ifelse(output$var=="b_n_Cc","C. canadensis","H. matronalis")
+
+plot1<-ggplot(output,aes(y = var, x = Estimate)) +
+  stat_halfeye(aes(fill=winner),alpha=0.6)+ggthemes::theme_few()+
+  geom_vline(xintercept=0,linetype="dashed")+
+  scale_y_discrete(limits=c("b_priority","b_n_Cc","b_n_Hm"),labels=c("priority effect", expression(paste("Density ", italic(" C. canadensis"))),expression(paste("Density", italic(" H. matronalis")))))+
+  scale_fill_viridis_d(begin=0,end=.5)+theme(legend.position = "none")+ylab("")
+
+#png("..//figure/RGRD_muplot.png",width=6,height=6, units = "in",res=200)
+#ggplot(gooout,aes(Estimate,factor))+geom_point(size=3)+geom_errorbarh(aes(xmin=Q2.5,xmax=Q97.5),height=0)+
+ # geom_vline(xintercept=0,color="red",linetype="dotted")+theme_linedraw()
+
+n_Hm<-rep(c(4,6,8,10,12),10)
+n_Cc<-rep(c(4,6,8,10,12),each=10)
+priority<-rep(c(-2,0,2,4,6,8,10,12),each=50)
+
+
+newdater<-data.frame(n_Hm,n_Cc,priority)
+uber<-fitted(mod1,newdata = newdater,probs = c(.25,.75))
+
+uber<-cbind(uber,newdater)
+
+#pp_check(mod1,ndraws = 100)
+#library("scatterplot3d")
+#library("plot3D")
+#library("plotly")
+#library(rgl)
+uber$winner<-ifelse(uber$Estimate<0,"Cc","Hm")
+uber<-as.data.frame(uber)
+
+shapes<-c(16,1)
+colors<-c("#440154FF","#1F968BFF")
+jpeg("..//figure/threedpred.jpeg",width = 8,height=6, units="in",res=300)
+scatterplot3d(uber$n_Hm, uber$n_Cc, uber$priority,box = FALSE,grid=TRUE,angle=250,pch=shapes[as.factor(uber$winner)],color=colors[as.factor(uber$winner)],xlab='H. matronalis',ylab="C. canadensis", zlab='Priority')
+dev.off()
+#with(uber, scatterplot3d(n_Hm, n_Cc, priority, pch = 19,angle=65))
+
+jpeg("..//figure/mu_plots.jpeg",width = 6,height=6, units="in",res=300)
+plot1
 dev.off()
 
+plot3d(uber$n_Hm, uber$n_Cc, uber$priority, col=colors[as.factor(uber$winner)])
+scatter3D(uber$n_Hm, uber$n_Cc, uber$priority, colvar=colors[as.factor(uber$winner)])
+
+
+ 
+fig <- plot_ly(data=uber, x = ~n_Hm, y = ~n_Cc, z = ~priority,color=uber$winner,symbol=uber$winner,symbols=c("circle","o"),alpha=06)
+ fig <- fig %>% add_markers()
+ 
+ fig <- fig %>% layout(scene = list(xaxis = list(title = 'H. matronalis'),
+                                    yaxis = list(title = 'C. canadensis'),
+                                    zaxis = list(title = 'Priority effect')))
+ fig
+ 
+ devtools::install_github("AckerDWM/gg3D")
+ 
+ library("gg3D")
+ 
+ggplot(uber, aes(x=n_Hm, y=n_Cc, z=priority, color=winner)) + 
+   theme_void() +
+  labs_3D()+
+   axes_3D() +
+   stat_3D()+scale_color_viridis_d(option="inferno")
+ 
 ##simple predictiosn
 summary(lm(RGRD~n_Cc+n_Hm+priority2,data=goo)) 
 

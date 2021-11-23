@@ -3,18 +3,15 @@
 \usepackage{graphicx}
 \usepackage{tabularx}
 \usepackage{natbib}
-\usepackage{pdflscape}
 \usepackage{array}
-\usepackage{authblk}
-\usepackage{gensymb}
 \usepackage{amsmath}
 \usepackage{rotating}
 
 %\usepackage[backend=bibtex]{biblatex}
-\usepackage[small]{caption}
+
 
 \setkeys{Gin}{width=0.8\textwidth}
-\setlength{\captionmargin}{30pt}
+%\setlength{\captionmargin}{30pt}
 \setlength{\abovecaptionskip}{10pt}
 \setlength{\belowcaptionskip}{10pt}
 
@@ -26,36 +23,33 @@
  \parskip 7.2pt 
 \renewcommand{\baselinestretch}{1.6} 	
 \parindent 0pt
-\usepackage{setspace}
-\usepackage{lineno}
+
 
 \bibliographystyle{..//refs/styles/besjournals.bst}
 \usepackage{xr-hyper}
-\usepackage{hyperref}
+%\usepackage{hyperref}
 %\externaldocument{SUPP_FLS_flobud}
 
 \title{Seasonal priority effects alter the competitive dynamics of temperate forest herbs }
-\date{}
-\author{}
 
 \begin{document}
 \maketitle
-\linenumbers
+
 
 \section*{Introduction}
 \noindent A core task of community ecology is explain patterns of community assembly across a diversity of ecosystems \citep{Weiher:2011aa}. A central tenet of community assembly theory is that the order of arrival of species to a community mediates inter-specific interactions and can dictate the trajectory of community structure in the long term \citep{Fukami2015}. These historical contingencies, known as priority effects, have been shown to alter the structure and function of communities, driving communities to alternate stable states \citep{Fukami2011}.\\
 
-\noindent In many ecosystems, plant communities must re-assemble each year after a period of dormancy. In these communities, priority effects are largely the product of the rate at which dormant plants and seeds respond to their environment and resume growth or germinate when favorable conditions return \citep{Rudolf:2019aa}, rather than the the timing of the arrival of propagules, which in many cases occurs prior to the dormant season \citep{Howe:1982aa,Baskin:1988aa}.  These seasonal, or short-term priority effects (SPEs) \citep{Wainwright_2011,Young:2017aa}, may be important mediators of plant interactions, and have been invoked to explain both the invasion success and competitive dominance of some species (when strong competitors also have rapid/early germination) \citep{Gioria2018}, and inter-specific coexistance (when weaker competitors have rapid/early germination or priorty varies over time) \citep{Towers:2020aa}.\\
+\noindent In many ecosystems, plant communities must re-assemble each year after a period of dormancy. In these communities, priority effects are largely the product of the rate at which dormant plants and seeds respond to their environment and resume growth or germinate when favorable conditions return \citep{Rudolf:2019aa}, rather than the the timing of the arrival of propagules, which in many cases occurs prior to the dormant season \citep{Howe:1982aa,Baskin:1988aa}.  These seasonal, or short-term priority effects (SPEs) \citep{Wainwright_2011,Young:2017aa}, may be important mediators of plant interactions, and have been invoked to explain both the invasion success and competitive dominance of some species (when strong competitors also have rapid/early germination) \citep{Gioria2018}, and inter-specific coexistence (when weaker competitors have rapid/early germination and/or priority varies over time) \citep{Towers:2020aa}.\\
 
-\noident While this evidence suggests priority effects may be important in regulating community interactions, it is unclear to what extent these patterns are broadly generalizable. First, almost all mechanistic tests for SPEs to date have been performed using species from temperate grasslands \citep{Weidlich:2020aa}, whose germination behavior may differ substantially from taxa in other habitats \citep{Tudela-Isanta:2018aa}. Second, the evidence for SPE's comes primarly from experiments that stagger the planting time of competing species \citep{Young:2017aa,Letten:2018aa}. A recent review paper by \citet{Weidlich:2020aa} reported that of 42 out of the 43 studies they evaluated found evidence for priority effects, and 18 of those studies (42\%) included planting interval treatments of less than 1 month, approximating the time scale of SPEs. However, it is unclear if the large germination intervals (time between plantings) applied in these experiments are realistic proxies for the intervals that occur under natural conditions, where germination is primiarly dictated by the environment.\\
+\noident While this evidence suggests priority effects may be important in regulating community interactions, it is unclear to what extent these patterns are broadly generalizable. First, almost all mechanistic tests for SPEs to date have been performed using species from temperate grasslands \citep{Weidlich:2020aa}, whose germination behavior may differ substantially from taxa in other habitats \citep{Tudela-Isanta:2018aa}. Second, the evidence for SPE's comes primarly from experiments that stagger the planting time of competing species \citep{Young:2017aa,Letten:2018aa}. A recent review paper by \citet{Weidlich:2020aa} reported that of 42 out of the 43 studies they evaluated found evidence for priority effects, and 18 of those studies (42\%) included planting interval treatments of less than 1 month, approximating the time scale of SPEs. However, it is unclear if the large germination intervals (time between plantings) applied in these experiments are realistic proxies for the intervals that occur under natural conditions, where germination is primarily dictated by the environment.\\
 
-\noindent Research suggests that the timing of germination is controlled by environmental cues---temperature (both cool stratification temperatures to break dormancy and warm incubation temperatures to stimulate germination), moisture and light availability \citep{Bewley1997,Fenner2000}. Because the seed bank of any community experiences the same environment at a given time, it is possible that the species in that community have evolved similar responses to envorinmental variation, which appears to be true at the global scale \citep{Rubio-de-Casas:2017aa}. In this case, the timing between species' germinination events may differ, but this interval would remain constant in both favorable and unfavorable germination years (Fig. \ref{}a). If this the case, it is impossible to disentangle the contribution of germination priority and other competitive traits, which often co-vary with rapid germination \citep{Dickson2012}, to competetive dominance.\\ 
+\noindent Research suggests that the timing of germination is controlled by environmental cues---temperature (both cool stratification temperatures to break dormancy and warm incubation temperatures to stimulate germination), moisture and light availability \citep{Bewley1997,Fenner2000}. Because the seed bank of any community experiences the same environment at a given time, it is possible that the species in that community have evolved similar responses to environmental variation, which appears to be true at the global scale \citep{Rubio-de-Casas:2017aa}. In this case, the timing between species' germination events may differ, but this interval would remain constant in both favorable and unfavorable germination years (Fig. \ref{}a). If this the case, it is impossible to disentangle the contribution of germination priority and other competitive traits, which often co-vary with rapid germination \citep{Dickson2012}, to competitive dominance.\\ 
 
-\noindent Alternatively, while competing species may evolve to share germination cues, their sensitivity ($\Delta$ germination rate$/\Delta$ cue) to these cues may differ substantially. In this scenario, inter-annual climate viarion would generate inter-annual varaition in the strengh of SPEs (Fig. \ref{}b). These dynamics would allow researchers to quantify the contribution of the priorty effects to competition. Addiontially vartion in SPEs introduce enough temporal differences in competitor's per capita competitive abilities to suggest that sufficiently environmental variation would allow them to co-exist via the storage effect \citep{}.
+\noindent Alternatively, while competing species may evolve to share germination cues, their sensitivity ($\Delta$ germination rate$/\Delta$ cue) to these cues may differ substantially. In this scenario, inter-annual climate variation would generate inter-annual variation in the strength of SPEs (Fig. \ref{}b). These dynamics would allow researchers to quantify the contribution of the priorty effects to competition. %Additionally variation in SPEs introduce enough temporal differences in competitor's per capita competitive abilities to suggest that sufficiently environmental variation would allow them to co-exist via the storage effect \citep{}.
 
 \noindent Assessing the role of SPE's in species interactions under more realistic germination environments and is particularly important and timely as anthropogenic climatic change is altering the germination environments of species across the globe \citep{Walck2011}.  Such sustained alterations to environmental cues have potential to disrupt SPEs, shifting balances of species' interactions, and impacting population demography, community composition and ecosystem functions.\\ 
 
-\noindent To address this we performed a series of experiments to both quatify the the relationship between SPEs and environmental variation and how these climate driven differences in SPEs impact inter-specific competion. First, we quantified the differences in germination rate responses to temperature variation for a suite of herbaceous species found in temperate forests with full-factorial growth-chamber experiment in which we manipulated the duration of stratification and incubation temperatures. Second we planted two species from our first trial in competition and exposed them to two different levels of cold stratification which, generating variation SPEs among treatments. From this secondary case study were were able to quantify the contribution of SPE's to the competitive dynamics among these species, and used these results to parameterize a simple competional model to forcast the competitive dynamics of these species under varying cliamte conditions.
+\noindent To address this we performed a series of experiments to both quatify the the relationship between SPEs and environmental variation and how these climate driven differences in SPEs impact inter-specific competition. First, we quantified the differences in germination rate responses to temperature variation for a suite of herbaceous species found in temperate forests with full-factorial growth-chamber experiment in which we manipulated the duration of stratification and incubation temperatures. Second we planted two species from our first trial in competition and exposed them to two different levels of cold stratification which, generating variation SPEs among treatments. From this secondary case study were were able to quantify the contribution of SPE's to the competitive dynamics among these species, and used these results to parameterize a simple competional model to forcast the competitive dynamics of these species under varying cliamte conditions.
 
 \section*{Methods}
 \subsection{Quantifying relationship between SPE's and Environmental varition}
@@ -107,30 +101,25 @@ g
 
 \begin{figure}[h!]
     \centering
-         \includegraphics[width=\textwidth]{..//figure/AFTplots_spcomp.jpeg}
-    \caption{a) T50 estimates for all species as a function of startification week and incubation temperatures. b) Zoom on the two species included in competition trials } 
+         \includegraphics[width=\textwidth]{..//figure/crp_hesp1.jpeg}
+    \caption{Germination behavior of \textit{H. matronalis} and \texit{C. canadensis} indicate that the rate of \texit{C. canadensis} approaches that of \textit{H. matronalis} under cool temperatures and high levels of stratification. } 
     \label{fig:aft}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
-\includegraphics[width=\textwidth]{..//figure/cryp_plots.png}
-    \caption{Raw plots on the effect of con and heterospecific density and priority effects on per capita biomass of Cryptotaneia canadensis } 
+\includegraphics[width=\textwidth]{..//figure/mu_plots.jpeg}
+    \caption{Estimated effects of density influence parameters and temporal priority effect on the relaive growth rate difference between \textit{H. matronalis} and \texit{C. canadensis}.  } 
     \label{fig:Cc}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
-\includegraphics[width=\textwidth]{..//figure/hesp_plots.png}
-    \caption{Raw plots on the effect of con and heterospecific density and priority effects on per capita biomass ofHesperis matronalis } 
+\includegraphics[width=\textwidth]{..//figure/threedpred.jpeg}
+    \caption{Predicted outcome of competition under vary inter-specific densities and temporal priority. Purple is \texit{C. canadensis} and green \textit{H. matronalis}. Need to add legend here. } 
     \label{fig:Hm}
 \end{figure}
 
-\begin{figure}[h!]
-    \centering
-\includegraphics[width=\textwidth]{..//figure/RGRD_muplot.png}
-    \caption{Very incomplete muplots based on equations from Connolly and Wayne 2005 (equations 2-4.) Currently doesn't factor in inital biomass (seed weight) or time interval. Betas supposively account for the ratio of intra to inter specific competition each species experiences. Positive values tip composition towards Hesperis and negative towards Cryptotaenia. } 
-    \label{fig:Con}
-\end{figure}
+
 
 \end{document}
