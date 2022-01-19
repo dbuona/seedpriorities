@@ -70,6 +70,46 @@
 
 
 \section*{Discussion}
+\subsection*{Germination as a seasonal priority effect} 
+In this study, we found that climate driven differences in the germination timing among species has strong impacts on their competitive dynamics. Our results join a growing body of experiments demonstrating that relative germination phenology can function as a seasonal or short term priority effect, enhancing the performance of the earliest germinating species at the expense of later germinants \citep{}. While this effect has been primarily commonly demonstrated in experiments in which the planting of competing seeds is staggered at increasing intervals \citep{}, we were able to generate substantial variation in relative germination timing among our competing species though by opporationalizing their differential sensitivity to environmental cues. 
+
+In our germination assays, The germination behavior of \texit{H. matronalis} was little affected by cold stratification, while germination rate and speed of \texit{C. canadensis} was strongly enhanced with cold stratification, especially when germianted at cooler temperatures (Fig. \ref{fig:aft}). These differences are themselves not surprising as \textit{H. matronalis} seeds are considered non-dormant \citep{}, and seeds of \textit{C. canadensis} are physiologically dormant \citep{}. , These different responses generated germination dynamics in which under alternative low stratification regimes \textit{H. matronalis} cohorts germinated as much as two weeks before \textit{C. canadensis}, while under high stratification, the species germinated at approximately the same time (Fig. \ref{fig:aft}). 
+
+In our competition trials, we observed that differences in germination on the order of a few days had substantial impacts on both the per capita and plot level relative growth rate differences among species (Fig \ref{fig:Cc},\ref{fig:RGRD}). If we consider the range of variability we observed (approximately two weeks lag to simultaneously)
+
+These inter-specific dynamics we observed are comparable to treatments applied in staggered planting experiments \citep{}, but the fact that we were able to induce these effects through varying the germination environment rather than directly manipulating germination itself is an important phase for translating the estimates from priority effect experiments into natural systems.  suggests that the kinds of seasonal priority effects may be important for realz, especially in seasonal environments with high levels of inte-rannual climate variations.
+
+
+\subsection*{Considering the impacts of seasonal priority effects in forest communities}
+While most studies on seasonal priority effects focus on grassland environments with annual taxa \citep{} we explicitly conducted our experiment with forest perennials to better understand the generality of these effects to other ecological systems. While we found priority effects impacted within year dynamics of seedlings, our experiment was not designed to the longevity of these priority effects on the longer term dynamics of our focal species.  Many studies suggest that these short term priority effects many be transient, though several studies that used staggered planting methods at similar scale to the phenological lags we observed in our trials saw the influence of these initial priority effect on community composition several seasons later \citep{}. In perennial communities, these long terms dynamics are even more difficult to assess.
+
+While it is well established that plants are must vulnerable to completion early in their lives.but\\
+Ramets\\
+Our study did not have a cost.
+\\
+Yet, even with this important step towards biological realism, more research is needed to understand the importance of germination priority effects, especially among perennial plants in seasonal environments.
+
+
+Our experiment was designed to capture the dynamics on seedling competition, and we  (Mash up below paragraph into this one)
+
+. Yet, by choosing these more complicated life forms, speculating on the long term impact of germination seasonal priority effects becomes further complicated. \textit{C. canadensis} can rely heavily on vegetative reproduction, clonal plants, competition among ramets may be a strong ecological determinant than competition among seedlings \citep{}. \textit{C. canadensis} also forms a transient seed bank \citep{}, suggesting that the within year dynamics of germination and growth captured in our study, could be decoupled from the among year dynamics. It also also invasives invade communities not population, two species studies are limited to predict the invasion dynamics of a species in real tim. No cost do being early.Cite Wainwright.
+
+With these limitations, our study was not designed to predict the the long term dynamics of \textit{C. canadensis} and \textit{H. matronalis} underfield condtions. 
+
+.This stage is super critical in general, talk about germination niche.
+and we cannot assess the longevity of these priority effect, or their ulitmate impacts on fitness. We focused on species with complicated life histories and dynamics, seed banks, vegetative repro etc. 
+With that it suggest our most relevant to the plant establishment, which is relevent both in the context of plant migration, disturbance, and ecological resotoration.
+
+ 
+
+\subsection*{Phenological Diversity as a metric of something low-level jargony}
+Our pairwise competition study indicates the phenological differences in germination time can strongly influence competitive outcomes. While empirical work with more species will help, if phenology is a mechanism of competitive domianence and invasion, it can also be a mechanisms of invasion resistance or co-existance. Read a bit about the invasability literature and suggest considering phenological diversity as a metri for assessing communities may be critical. COmparing across phases and life forms. Ie germinating seeds also competed with adults. This could be particular important for design ecological restorations. 
+
+. Phenolgoical diversity. This will become more imporant with cliamte hcange as new temporal niches are created.
+\subsection*{From germination requirements to germnation responses}
+The first stage to incorperating phenological diversity
+
+
 \textbf{So many caveats:}
 \begin{enumerate}
 \item These species are perennials, seeds banks. Given our expermental constrait couldn't account for these dynamics. ie competition my happen between raments and seeds. Our simplifed experimental design doesn't address these important factors, however they add an important piece to the puzzle. 
@@ -97,7 +137,7 @@
     \centering
 \includegraphics[width=\textwidth]{..//figure/mu_plots.jpeg}
     \caption{Estimated effects of density influence parameters and temporal priority effect on the relative growth rate difference between \textit{H. matronalis} and \texit{C. canadensis}. As per Connonly and Wayne 2005, The positive estimate of priorty and density of Hesperis matronalis tip competitive balance towards it, while the negative estimate of density of C. canadensis favor that species. Like Fig. 2, this suggests that priorty effects are a key mediator of competitive sucess in H. matronalis.  } 
-    \label{fig:Cc}
+    \label{fig:RGRD}
 \end{figure}
 
 \begin{figure}[h!]
