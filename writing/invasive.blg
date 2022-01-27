@@ -1,56 +1,58 @@
 This is BibTeX, Version 0.99d (TeX Live 2021)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: invasive.aux
-I couldn't open style file ..//..//refs/bibstyles/amnat.bst.bst
----line 19 of file invasive.aux
- : \bibstyle{..//..//refs/bibstyles/amnat.bst
- :                                           }
-I'm skipping whatever remains of this command
-White space in argument---line 20 of file invasive.aux
- : \citation{wolkovich,and
- :                         other,and other}
-I'm skipping whatever remains of this command
-I found no \bibdata command---while reading file invasive.aux
-I found no style file---while reading file invasive.aux
-You've used 14 entries,
-            0 wiz_defined-function locations,
-            109 strings with 821 characters,
-and the built_in function-call counts, 0 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 0
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
-int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
-purify$ -- 0
+The style file: ..//refs/styles/besjournals.bst.bst
+Database file #1: ..///refs/germination.bib
+Warning--I didn't find a database entry for ""
+Warning--I didn't find a database entry for "Francis"
+Warning--I didn't find a database entry for "Burkner2018"
+Name 1 in "Baskin, C.C., and Baskin, J.M" has a comma at the end for entry Baskin2014
+while executing---line 1620 of file ..//refs/styles/besjournals.bst.bst
+Name 1 in "Baskin, C.C., and Baskin, J.M" has a comma at the end for entry Baskin2014
+while executing---line 1620 of file ..//refs/styles/besjournals.bst.bst
+Name 1 in "Baskin, C.C., and Baskin, J.M" has a comma at the end for entry Baskin2014
+while executing---line 1700 of file ..//refs/styles/besjournals.bst.bst
+Name 1 in "Baskin, C.C., and Baskin, J.M" has a comma at the end for entry Baskin2014
+while executing---line 1700 of file ..//refs/styles/besjournals.bst.bst
+You've used 17 entries,
+            2805 wiz_defined-function locations,
+            1201 strings with 15300 characters,
+and the built_in function-call counts, 9553 in all, are:
+= -- 845
+> -- 330
+< -- 11
++ -- 132
+- -- 112
+* -- 752
+:= -- 1529
+add.period$ -- 34
+call.type$ -- 17
+change.case$ -- 121
+chr.to.int$ -- 18
+cite$ -- 17
+duplicate$ -- 670
+empty$ -- 742
+format.name$ -- 160
+if$ -- 1895
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 139
+newline$ -- 55
+num.names$ -- 68
+pop$ -- 239
+preamble$ -- 1
+purify$ -- 105
 quote$ -- 0
-skip$ -- 0
+skip$ -- 231
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
+substring$ -- 571
+swap$ -- 347
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 147
 warning$ -- 0
-while$ -- 0
+while$ -- 74
 width$ -- 0
-write$ -- 0
+write$ -- 189
 (There were 4 error messages)
