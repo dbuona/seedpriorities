@@ -115,6 +115,8 @@ dev.off()
 goo$n_Cc<-ifelse(is.na(goo$n_Cc),0,goo$n_Cc)
 goo$n_Hm<-ifelse(is.na(goo$n_Hm),0,goo$n_Hm)
 
+
+write.csv(goo,"data_4_invasive.csv")
 #mod.cc<-brms::brm(Cc_percap~n_Cc+n_Hm+priority,data=goo)
 #mod.hm<-brms::brm(Hm_percap~n_Cc+n_Hm+priority,data=goo)
 

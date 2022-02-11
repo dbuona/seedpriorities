@@ -4,7 +4,6 @@ The top-level auxiliary file: invasive.aux
 The style file: ..//refs/styles/besjournals.bst.bst
 Database file #1: ..///refs/germination.bib
 Warning--I didn't find a database entry for ""
-Warning--I didn't find a database entry for "Francis"
 Warning--I didn't find a database entry for "Burkner2018"
 Name 1 in "Baskin, C.C., and Baskin, J.M" has a comma at the end for entry Baskin2014
 while executing---line 1620 of file ..//refs/styles/besjournals.bst.bst
@@ -14,45 +13,45 @@ Name 1 in "Baskin, C.C., and Baskin, J.M" has a comma at the end for entry Baski
 while executing---line 1700 of file ..//refs/styles/besjournals.bst.bst
 Name 1 in "Baskin, C.C., and Baskin, J.M" has a comma at the end for entry Baskin2014
 while executing---line 1700 of file ..//refs/styles/besjournals.bst.bst
-You've used 17 entries,
+You've used 24 entries,
             2805 wiz_defined-function locations,
-            1201 strings with 15300 characters,
-and the built_in function-call counts, 9553 in all, are:
-= -- 845
-> -- 330
+            1251 strings with 17244 characters,
+and the built_in function-call counts, 14350 in all, are:
+= -- 1254
+> -- 576
 < -- 11
-+ -- 132
-- -- 112
-* -- 752
-:= -- 1529
-add.period$ -- 34
-call.type$ -- 17
-change.case$ -- 121
-chr.to.int$ -- 18
-cite$ -- 17
-duplicate$ -- 670
-empty$ -- 742
-format.name$ -- 160
-if$ -- 1895
++ -- 228
+- -- 199
+* -- 1182
+:= -- 2285
+add.period$ -- 48
+call.type$ -- 24
+change.case$ -- 185
+chr.to.int$ -- 25
+cite$ -- 24
+duplicate$ -- 991
+empty$ -- 1054
+format.name$ -- 276
+if$ -- 2808
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 139
-newline$ -- 55
-num.names$ -- 68
-pop$ -- 239
+missing$ -- 208
+newline$ -- 76
+num.names$ -- 96
+pop$ -- 367
 preamble$ -- 1
-purify$ -- 105
+purify$ -- 162
 quote$ -- 0
-skip$ -- 231
+skip$ -- 336
 stack$ -- 0
-substring$ -- 571
-swap$ -- 347
+substring$ -- 810
+swap$ -- 534
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 147
+type$ -- 213
 warning$ -- 0
-while$ -- 74
+while$ -- 109
 width$ -- 0
-write$ -- 189
+write$ -- 266
 (There were 4 error messages)
