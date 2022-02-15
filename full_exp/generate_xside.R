@@ -254,10 +254,14 @@ plot1<-ggplot(output,aes(y = var, x = Estimate)) +
 #ggplot(gooout,aes(Estimate,factor))+geom_point(size=3)+geom_errorbarh(aes(xmin=Q2.5,xmax=Q97.5),height=0)+
  # geom_vline(xintercept=0,color="red",linetype="dotted")+theme_linedraw()
 
-n_Hm<-rep(c(4,6,8,10,12),10)
-n_Cc<-rep(c(4,6,8,10,12),each=10)
-priority<-rep(c(-2,0,2,4,6,8,10,12),each=50)
+n_Hm<-rep(c(3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10,10.5),16)
+n_Cc<-rep(c(3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10,10.5),each=16)
+priority<-rep(c(-1,-0.5,0,.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8),each=256)
 
+#n_Hm<-rep(seq(3,10,by=0.1),71)
+#n_Cc<-rep(seq(3,10,by=0.1),each=71)
+#priority<-rep(seq(-1,6,by=0.1),each=71)
+16^2
 
 newdater<-data.frame(n_Hm,n_Cc,priority)
 uber<-fitted(mod1,newdata = newdater,probs = c(.25,.75))
@@ -265,17 +269,17 @@ uber<-fitted(mod1,newdata = newdater,probs = c(.25,.75))
 uber<-cbind(uber,newdater)
 
 #pp_check(mod1,ndraws = 100)
-#library("scatterplot3d")
-#library("plot3D")
-#library("plotly")
-#library(rgl)
-uber$winner<-ifelse(uber$Estimate<0,"Cc","Hm")
+library("scatterplot3d")
+library("plot3D")
+library("plotly")
+library(rgl)
+uber$winner<-ifelse(uber$Estimate<0,"C. canadensis","H. matronalis")
 uber<-as.data.frame(uber)
 
-shapes<-c(16,1)
+shapes<-c(15,15)
 colors<-c("#440154FF","#1F968BFF")
 jpeg("..//figure/threedpred.jpeg",width = 8,height=6, units="in",res=300)
-scatterplot3d(uber$n_Hm, uber$n_Cc, uber$priority,box = FALSE,grid=TRUE,angle=250,pch=shapes[as.factor(uber$winner)],color=colors[as.factor(uber$winner)],xlab='H. matronalis',ylab="C. canadensis", zlab='Priority')
+scatterplot3d(uber$n_Cc,uber$n_Hm,  uber$priority,box = FALSE,grid=TRUE,angle=200,pch=shapes[as.factor(uber$winner)],color=colors[as.factor(uber$winner)],xlab='C. canadensis',ylab="H. matronalis", zlab='Advantage')
 dev.off()
 #with(uber, scatterplot3d(n_Hm, n_Cc, priority, pch = 19,angle=65))
 
@@ -283,18 +287,33 @@ jpeg("..//figure/mu_plots.jpeg",width = 6,height=6, units="in",res=300)
 plot1
 dev.off()
 
-plot3d(uber$n_Hm, uber$n_Cc, uber$priority, col=colors[as.factor(uber$winner)])
-scatter3D(uber$n_Hm, uber$n_Cc, uber$priority, colvar=colors[as.factor(uber$winner)])
 
 
  
-fig <- plot_ly(data=uber, x = ~n_Hm, y = ~n_Cc, z = ~priority,color=uber$winner,symbol=uber$winner,symbols=c("circle","o"),alpha=06)
+fig <- plot_ly(data=uber, x = ~n_Hm, y = ~n_Cc, z = ~priority,color=uber$winner,colors=c("#440154FF","#1F968BFF"),alpha=0.95,symbol = ~winner, symbols = c('o','o'))
  fig <- fig %>% add_markers()
  
  fig <- fig %>% layout(scene = list(xaxis = list(title = 'H. matronalis'),
                                     yaxis = list(title = 'C. canadensis'),
-                                    zaxis = list(title = 'Priority effect')))
+                                    zaxis = list(title = 'Advantage')))
  fig
+ 
+ 
+ 
+ library(plotly)
+ 
+ fig <- plot_ly(type = 'mesh3d',
+                x = c(0, 0, 1, 1, 0, 0, 1, 1),
+                y = c(0, 1, 1, 0, 0, 1, 1, 0),
+                z = c(0, 0, 0, 0, 1, 1, 1, 1),
+                i = c(7, 0, 0, 0, 4, 4, 6, 6, 4, 0, 3, 2),
+                j = c(3, 4, 1, 2, 5, 6, 5, 2, 0, 1, 6, 3),
+                k = c(0, 7, 2, 3, 6, 7, 1, 1, 5, 5, 7, 6)
+                )
+ )
+ 
+ fig
+ 
  
  devtools::install_github("AckerDWM/gg3D")
  

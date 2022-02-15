@@ -13,45 +13,45 @@ Name 1 in "Baskin, C.C., and Baskin, J.M" has a comma at the end for entry Baski
 while executing---line 1700 of file ..//refs/styles/besjournals.bst.bst
 Name 1 in "Baskin, C.C., and Baskin, J.M" has a comma at the end for entry Baskin2014
 while executing---line 1700 of file ..//refs/styles/besjournals.bst.bst
-You've used 24 entries,
+You've used 23 entries,
             2805 wiz_defined-function locations,
-            1251 strings with 17244 characters,
-and the built_in function-call counts, 14350 in all, are:
-= -- 1254
-> -- 576
-< -- 11
-+ -- 228
-- -- 199
-* -- 1182
-:= -- 2285
-add.period$ -- 48
-call.type$ -- 24
-change.case$ -- 185
-chr.to.int$ -- 25
-cite$ -- 24
-duplicate$ -- 991
-empty$ -- 1054
-format.name$ -- 276
-if$ -- 2808
+            1245 strings with 17001 characters,
+and the built_in function-call counts, 13482 in all, are:
+= -- 1182
+> -- 526
+< -- 12
++ -- 209
+- -- 181
+* -- 1099
+:= -- 2149
+add.period$ -- 46
+call.type$ -- 23
+change.case$ -- 173
+chr.to.int$ -- 24
+cite$ -- 23
+duplicate$ -- 936
+empty$ -- 1001
+format.name$ -- 257
+if$ -- 2645
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 208
-newline$ -- 76
-num.names$ -- 96
-pop$ -- 367
+missing$ -- 196
+newline$ -- 73
+num.names$ -- 92
+pop$ -- 349
 preamble$ -- 1
-purify$ -- 162
+purify$ -- 152
 quote$ -- 0
-skip$ -- 336
+skip$ -- 319
 stack$ -- 0
-substring$ -- 810
-swap$ -- 534
+substring$ -- 756
+swap$ -- 498
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 213
+type$ -- 201
 warning$ -- 0
-while$ -- 109
+while$ -- 103
 width$ -- 0
-write$ -- 266
+write$ -- 254
 (There were 4 error messages)

@@ -15,18 +15,19 @@ library(ggplot2)
 library(tidyr)
 library(tidyselect)
 library(reshape2)
+library(brms)
 
 d<-read.csv("data_4_invasive.csv")
 
 ###1#### competition coefficients
 
-plootI<-ggpubr::ggarrange(ggplot(d,aes(n_Cc,Cc_percap))+geom_point(aes(color=type)),
-ggplot(d,aes(n_Hm,Cc_percap))+geom_point(aes(color=type)),
-ggplot(d,aes(priority2,Cc_percap))+geom_point(aes(color=type)),common.legend=TRUE,nrow=1)
+plootI<-ggpubr::ggarrange(ggplot(d,aes(n_Cc,MG_Cc))+geom_point(aes(color=type)),
+ggplot(d,aes(n_Hm,MG_Cc))+geom_point(aes(color=type)),
+ggplot(d,aes(priority2,MG_Cc))+geom_point(aes(color=type)),common.legend=TRUE,nrow=1)
 
-plootII<-ggpubr::ggarrange(ggplot(d,aes(n_Hm,Hm_percap))+geom_point(aes(color=type)),
-ggplot(d,aes(n_Cc,Hm_percap))+geom_point(aes(color=type)),
-ggplot(d,aes(priority2,Hm_percap))+geom_point(aes(color=type)),common.legend = TRUE,nrow=1)
+plootII<-ggpubr::ggarrange(ggplot(d,aes(n_Hm,MG_Hm))+geom_point(aes(color=type)),
+ggplot(d,aes(n_Cc,MG_Hm))+geom_point(aes(color=type)),
+ggplot(d,aes(priority2,MG_Hm))+geom_point(aes(color=type)),common.legend = TRUE,nrow=1)
 
 jpeg("..//figure/LVraw.jpeg")
 ggpubr::ggarrange(plootI,plootII,nrow=2)
@@ -47,8 +48,13 @@ d$priorty3<-ifelse(d$priority2==0,0.00001,d$priority2)
 mod.cc2<-brms::brm(Cc_percap~n_Cc+n_Hm+priority2,data=d)
 mod.hm2<-brms::brm(Hm_percap~n_Cc+n_Hm+priority2,data=d)
 
+
+mod.cc<-brms::brm(MG_Cc~n_Cc+n_Hm+priority2,data=d)
+mod.hm<-brms::brm(MG_Hm~n_Cc+n_Hm+priority2,data=d)
+
+brms::pp_check(mod.cc,ndraws = 100)
 jpeg("..//figure/ppchecks.jpeg")
-ggpubr::ggarrange(pp_check(mod.cc2,ndraws = 100),
+ggpubr::ggarrange(pp_check(mod.cc,ndraws = 100),
 pp_check(mod.hm2,ndraws = 100),
 pp_check(mod1,ndraws = 100),
 pp_check(mod2,ndraws = 100),labels=c("CCpercap","HMpercap","RGRDmgt","RGRDstrat"))
@@ -59,7 +65,8 @@ d.componly<-filter(d,type=="competition")
 mod.cc.comp<-brms::brm(Cc_percap~n_Cc+n_Hm+priority2,data=d.componly)
 mod.hm.comp<-brms::brm(Hm_percap~n_Cc+n_Hm+priority2,data=d.componly)
 
-fixef(mod.cc2)
+fixef(mod.cc)
+fixef(mod.hm)
 fixef(mod.cc.comp)
 
 fixef(mod.hm2)
