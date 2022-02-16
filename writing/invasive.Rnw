@@ -21,19 +21,23 @@
 \renewcommand{\baselinestretch}{1.2} 	
 \parindent 0pt
 
-
+\usepackage{xr}
 \usepackage{xr-hyper}
-\usepackage{hyperref}
+%\usepackage{hyperref}
+\externaldocument{SUPPinvasive}
+
 \title{Competition between native Honewort (\textit{Cryptotaenia canadensis}) and invasive Dame's Rocket (\textit{Hesperis matronalis}) seedlings is mediated by relative germination timing}
 
 \begin{document}
 \maketitle
-To Do:
-Table of GP, MGT and spread\\
-Edit heavily\\
-Decide which or both modeling approaches to use.\\
 
-A thought use germination advantage to describe the time between the species and germination priorty effect to describe the influence of advantage on dynamics. The Gioria review has good language for talking about inbasive
+
+To dos:
+\begin{enumerate}
+\item Update results to include niche modification question
+\item Update methods to include afore mentioned models
+\item
+\end{enumerate}
 \section*{Abstract}
 \section*{Introduction}
  A central tenet of community assembly theory is that the order of arrival of species to a community mediates inter-specific interactions and can dictate the trajectory of community structure in the long term \citep{Fukami2015}. These historical contingencies, known as priority effects, have been shown to alter the structure and function of communities, driving communities to alternate stable states \citep{Fukami2011}. In many ecosystems, plant communities must re-assemble each year after a period of dormancy. In these communities, priority effects are the products of phenology, the timing of seasonal life cycle events, and the rate at which dormant plants and seeds respond to their environment and resume growth or germinate when favorable conditions return \citep{Rudolf:2019aa}.%, rather than the the timing of the arrival of propagules, which in many cases occurs prior to the dormant season \citep{Howe:1982aa,Baskin:1988aa}. 
@@ -171,24 +175,47 @@ where  $\beta_{1}$ and $\beta_{2}$ are the estimated effect of changing the init
 %\end{enumerate}
 \section*{Results}
 \subsection*{Germination advantage}
-Both stratification duration and incubation temperature significantly affected the germination phenology of the species in our study (). Stratification duration advanced the germination of all species in our study, but the strength of this relationship varied among species (Fig. ). The germination phenology of X species advanced with increasing incubation temperature, which for Y species it delayed germination, suggesting that for these species, our warm incubation treatment exceeded their thermal optimum.\\
+Both stratification duration and incubation temperature significantly affected the germination phenology of the species in our study (Fig. \ref{fig:musurv}, Fig. \ref{fig:AFTall}). Stratification duration advanced the germination of all species in our study, but the strength of this relationship varied among species (Fig.\ref{fig:musurv} a. ). The germination phenology of 5 species advanced with increasing incubation temperature, while for 6 species it delayed germination (Fig.\ref{fig:musurv} b. ), suggesting that for these species, our warm incubation treatment exceeded their thermal optimum.\\
 
-Considering our focal species, \textit{H. matronalis} reach 50\% germination in under five days for all environmental treatments, always exceeded 85\% germination regardless of environmental conditions (Fig. \ref{}). Increasing cold stratification duration and incubation temperature only marginally only enhanced the germination rate of this species (Fig. \ref{}). By contrast, increasing incubation temperature had a negative effect of the germination rate of \textit{C. canadensis}, suggesting that the mean 20\degree C temperatures of our warm incubation treatment are supra-optimal for the species (Fig. \ref{}). Without sufficient cold stratification (>5 weeks for low incubation and > 7 weeks for high incubation temperatures), seeds of  \textit{C. canadensis} did not reach 50\% germination during the duration of our experiment (Fig. \ref{}). However, under high levels of cold stratification, (>7 weeks with cool incubation) germination rates of \textit{C.canadensis} began to converge on those of \textit{H. matronialis}, and at levels of stratification greater than 10-12 weeks and low incubation temperatures, the germination rate and fraction of \textit{C.canadensis} was well matched to that of \textit{H. matronalis} (Fig. \ref{}).
+Considering our focal species, \textit{H. matronalis} reach 50\% germination in under five days for all environmental treatments, always exceeded 85\% germination regardless of environmental conditions (Fig. \ref{fig:aft}). Increasing cold stratification duration and incubation temperature only marginally only enhanced the germination rate of this species (Fig. \ref{fig:aft}). By contrast, increasing incubation temperature had a negative effect of the germination rate of \textit{C. canadensis}, suggesting that the mean 20\degree C temperatures of our warm incubation treatment are supra-optimal for the species (Fig. \ref{fig:aft}). Without sufficient cold stratification (>5 weeks for low incubation and > 7 weeks for high incubation temperatures), seeds of  \textit{C. canadensis} did not reach 50\% germination during the duration of our experiment (Fig. \ref{fig:aft},Tab. \ref{tab:germcomps}). However, under high levels of cold stratification, (>7 weeks with cool incubation) germination rates of \textit{C.canadensis} began to converge on those of \textit{H. matronialis}, and at levels of stratification greater than 10-12 weeks and low incubation temperatures, the germination rate and fraction of \textit{C.canadensis} was well matched to that of \textit{H. matronalis} (Fig. \ref{fig:aft}, Tab. \ref{tab:germcomps}).
 
 Given the strong inter-specific differences in phenological sensitivity to stratification and incubation, our results indicate that climate strongly shapes patterns of phenological assembly, and patterns of phenological advantage can highly variable due to climate variation.
 
 \subsection*{Germination priority effects}
 In our competition trials, both competitor density and phenological priority effects had a substantial influence on the competitive interactions between \textit{C. candensis} and \textit{H. matronalis}. 
 %When considering the effects of competition of per capita growth rates of each species, in the absance of phenological priority (ie both species germinate at the same time) competition coefficients for both species were less that 1 (\texit{C.candensis}=X, \textit{H. matronalis}=Y, Fig. \ref{fig:Cc}), suggesting that intra-specific competition was strong than inter-specific competition, suggesting co-existence between the species \citep{}. However, with just an increase in one day of phenolical priorty, the competition coefficient for describing the effect of \textit{H matronalis} on the per capita growth of \textit{C. canadensis} became positive  (Z, Fig. \ref{fig:Cc}) , suggesting the eventual competitive exclusion of \textit{C. candensis}.
-We found increasing the density of \textit{H. matronalis} seeds shifted the community relative growth rate difference towards \textit{H. matronalis}, while increasing the density of \textit{C. candensis} seed shifted the community composition towards \textit{C. candensis}, the density effect of \textit{C. canadensis} seeds was almost three times higher than that of \textit{H. matronalis} (Fig. \ref{fig:RGRD}). Priority effects shifted community composition strongly towards \textit{H. matronalis}, and this effect was approximately equal to the density effect of \textit{H. matronalis} (Fig. \ref{fig:RGRD}).
+We found increasing the density of \textit{H. matronalis} seeds shifted the community relative growth rate difference towards \textit{H. matronalis}, while increasing the density of \textit{C. candensis} seed shifted the community composition towards \textit{C. candensis}, the density effect of \textit{C. canadensis} seeds was almost three times higher than that of \textit{H. matronalis} (Fig. \ref{fig:RGRD}, Tab. \ref{tab:RGRD}). Priority effects shifted community composition strongly towards \textit{H. matronalis}, and this effect was approximately equal to the density effect of \textit{H. matronalis} (Fig. \ref{fig:RGRD}, Tab. \ref{tab:RGRD}).
+
+\subsection*{Priority effects and germination niche modification}
+(Fig. \ref{fig:nichemod})
 
 \section*{Discussion}
 
 \subsection*{Germination advantage as a seasonal priority effect} 
-In this study, we found that climate driven differences in the germination advantage among species has strong impacts on their competitive dynamics. 
+In this study, we found that climate driven differences in the germination advantage among species has strong impacts on their competitive dynamics. Our model predicts that the invasive species \textit{H. matronalis} is under the majority of species' abundance levels the competitive dominant at the seedling stage (Fig. \ref{fig:3D}). Yet at reasonably high relative abundance level, environmental conditions that reduce the phenological advantage of \textit{H. matronalis}, can facilitate the competitive success \textit{C. canadensis} by mitigating \textit{H. matronalis}'s germination priority effect (Fig. \ref{fig:3D}). We found that seasonal priority effects \textit{H. matronalis} we proportionate to its abundance influence parameter (Define this earlier in the paper) (Fig. \ref{fig:RGRD}), suggesting that precocious germination is an important mechansim for its competitive dominance, and potentially invasion success.\\
+
+While we found priority effects impacted within-year dynamics of seedlings, our experiment was not designed to the longevity of these priority effects on the longer term, among year dynamics of our focal species. Many studies suggest that these short term priority effects many be transient, though several studies that used staggered planting methods at similar scale to the phenological lags we observed in our trials saw the influence of these initial priority effect on community composition several seasons later \citep{}.  In perennial communities, these long terms dynamics are even more difficult to assess as many perennial herbs, \textit{C. canadensis} included, rely heavily on vegetative reproduction \citep{}. Because of this, the kind of seedling to seedling competition we observed in our experiment, may be less common, and therefore less important to overall community demography than competition among vegetative ramets, or between ramets and seeds \citep{}. Understanding how phenological differences across life stages of of long-lived perennial plants affects within season inter-specific competition and 
+
+Additionally, in our experiment, there was no cost to germianting too early. it is generally accepted that optimum germination phenology is driven by a tradeoff between maximizing the growing season and the risk of exposure to damaging environmental episodes when germinating too early \citep{}. In dry grassland ecosystem, it has been demonstrated that the precocious germination of invasive has a substantial cost in water availability is too low \citep{}. In temperate forest ecosystems, the primary risk of early phenology is damage from late season frost \citep{}. Future work could further clarify the contribution of seasonal priority effects to forest community interactions by experimentally manipulating this trade-off as well.
+
+Given these caveats, we cannot assert our study could accurately predict the long term outcomes of competition in plant communities, even between our focal species. However, our findings are likely to be most critical use conditions where seedling competition may be most important, including colonizing new habitats through range shifts, recovering from large scale disturbances, and perhaps most importantly ecological restorations.
+
+\subsection*{Environmental drivers of seasonal priority effect}
+Our results join a growing body of experiments demonstrating that relative germination phenology can function as a seasonal or short term priority effect, enhancing the performance of the earliest germinating species at the expense of later germinants \citep{}. While this effect has been primarily commonly demonstrated in experiments in which the planting of competing seeds is staggered at increasing intervals \citep{}, we were able to generate substantial variation in relative germination timing among our competing species though by opporationalizing their differential sensitivity to environmental cues.
+
+While we observed similar effects of stratification duration on germination phenology for \textit{H. matronalis} between our germination assays and competition trials, the effect of cold stratification on the germination phenology of \textit{C. canadensis} was distinctly less pronounced in the germination trials(approximately 20 day advance in germination assays between 6 and 10 weeks of stratification Fig. \ref{fig:aft} a) vs.  approximately 4 day advance at the same stratification difference  in in the germination trials Fig. \ref{fig:nichemods}). There are several differences among these experiments that may explain these differences.
+
+\begin{enumerate}
+\item MGT vs. T50
+\item Greenhouse temperatures
+\item Medium
+\end{enumerate}
+\subsection{Seasonal priority effects and climate change}
 
 
-In our study, it was differences in germination timing that tipped the interactions among species from potential coexistence to the path towards competitive exclusion by the invasive \textit{H. matronalis}. We found that seasonal priority effects of germination phenology were considerably stronger than density effect of competitors, suggesting that precocious germination is indeed an important mechanism for competitive advantage. 
+
+
+
 
 Our results join a growing body of experiments demonstrating that relative germination phenology can function as a seasonal or short term priority effect, enhancing the performance of the earliest germinating species at the expense of later germinants \citep{}. While this effect has been primarily commonly demonstrated in experiments in which the planting of competing seeds is staggered at increasing intervals \citep{}, we were able to generate substantial variation in relative germination timing among our competing species though by opporationalizing their differential sensitivity to environmental cues. 
 
@@ -198,16 +225,12 @@ While experiments have done this before a major uncertainty has been the fact th
 
 This link between environmental conditions, relative germination phenology and competitive dynamics suggest that shifts in environment due to anthropogenic climate change has potentially to strongly alter early stage competition among species with deeper dormancy like \textit{C. candensis} and consistent rapid germinating species like \textit{H. matronalis}. Because stratification conditions occur at intermiately low temperature ( usally 0-10  \degreeC \citep{}), global warming is likely to increase the extent of stratification conditions in some locations, while decreasing it in others \citep{}. In regions with decreasing stratification, the rapid phenology of many invasives may allow them to exploit an unoccupied phenological niche, exerting stronger seasonal priority effects on the native community and increasign the relative abundance. By contrast, in regions where stratification conditions are being maintained or increasing, native communities may be more likely to fill the early season phenological niche, more effectively resisting invasion from species with rapid germination phenology.
 
-This bears out for our focal species but in communities as large. Connect to suppliemnt.
+This bears out for our focal species but in communities as large (Fig. \ref{fig:comm}, Fig. \ref{fig:AFTall})
 
 \subsection*{Considering the impacts of seasonal priority effects in forest communities}
-While most studies on seasonal priority effects focus on grassland environments with annual taxa \citep{} we explicitly conducted our experiment with forest perennials to better understand the generality of these effects to other ecological systems. While we found priority effects impacted within-year dynamics of seedlings, our experiment was not designed to the longevity of these priority effects on the longer term, among year dynamics of our focal species. Many studies suggest that these short term priority effects many be transient, though several studies that used staggered planting methods at similar scale to the phenological lags we observed in our trials saw the influence of these initial priority effect on community composition several seasons later \citep{}.  In perennial communities, these long terms dynamics are even more difficult to assess.
+While most studies on seasonal priority effects focus on grassland environments with annual taxa \citep{} we explicitly conducted our experiment with forest perennials to better understand the generality of these effects to other ecological systems. 
 
-Many perennial forest herbs, \textit{C. canadensis} included, rely heavily on vegetative reproduction \citep{}, and as such, the kind of seedling to seedling competition we produced in our experiment, may be less common, and therefore less important to overall community demography than competition among vegetative ramets, or between ramets and seeds \citep{}. 
 
-Additionally, in our experiment, there was no cost to germianting too early. it is generally accepted that optimum germination phenology is driven by a tradeoff between maximizing the growing season and the risk of exposure to damaging environmental episodes when germinating too early \citep{}. In dry grassland ecosystem, it has been demonstrated that the precocious germination of invasisve has a substantial cost in water availability is too low \citep{}. In temperate forest ecosystems, the primary risk of early phenology is damage from late season frost \citep{}. Future work could further clarify the contribution of seasonal priority effects to forest community interactions by experimentally manipulating this trade-off as well.
-
-Given these caveats, we cannot assert our study could accurately predict the long term outcomes of competition in average forest communities, even between our focal species. However, our findings are likely to be most critical use conditions where seedling competition may be most important, including colonizing new habitats through range shifts, recovering from large scale disturbances, and perhaps most importantly ecological restorations.
 
 There has been an increasing call to increase phenological diversity in restoration planning \citep{Hess:2019vn}. Studies in  have found that including early active species in plantings can suppress the abundance of invaders in both grassland \citep{Cleland:2013wo} and forest ecosystems \citep{Schuster:2020ww}. At the same time, restoration mixes tend to lack species which fill the early season phenological niche \citep{Havens:2016vo}. The results of our study suggestion the minimizing the priority effect advantage conferred to invasive species to due rapid germination and early phenology by including species with similar, early phenological traits, could be a powerful too for managing plant invasions and restoring native ecosystems.
 
@@ -232,10 +255,18 @@ More about cliamte change implicatins
 \section*{Figures}
 \begin{figure}[h!]
     \centering
+\includegraphics[width=\textwidth]{..//figure/mus_survival.jpeg}
+   \caption{Estimated effects of weeks of cold stratification (\texitbf{a)}) and incubation temperature (\texitbf{b)} on the time to 50\% germination (T50) for a suite of temperate herbacious species. Negative estimates descibe an advance in T50 and positive values a delay, estimates are on the log scale. The points indicate the mean estimated effect of each parameter, thicker  and thinner bars the 50\% and 95\% credible intervals respectively. The full posterior distribution for each parameter is also dipicted  } 
+   \label{fig:musurv}
+\end{figure}
+
+
+\begin{figure}[h!]
+    \centering
          %\includegraphics[width=\textwidth]{..//figure/crp_hesp1.jpeg}
           \includegraphics[width=\textwidth]{..//figure/AFTsivansive.jpeg}
 %    \caption{Germination behavior of \textit{H. matronalis} and \texit{C. canadensis} indicate that the rate of \texit{C. canadensis} approaches that of \textit{H. matronalis} under cool temperatures and high levels of stratification. a) Shows germination time courses for both species at each level of incubation (H,L) and stratitification (0-13, y-axis). b) Dipicts Mean germination time for each species as a function of weeks of stratifcation and both high (H) and low (L) incubation temperature. c) Show a composite germination index for each species that account for the speed and percentage of germination for each species as a function of weeks of stratifcation and both high (H) and low (L) incubation temperature. } 
-\caption{AFT}
+\caption{The effects of weeks of cold stratification at 4\degree C on the time to 50\% germination of \textit {Cryptotaenia canadensis} and \textit{Hesperis matronalis} under a) cool and b) warm (20/10\degree C vs. 25/15\degree C day/night) incubation conditions, estimated with accelerated failure time model. Only stratification treatment levels which allowed both species to reach 50\% germination in less that 50 days are depicted here. The solid lines indicated indicated the mean estimate, while lighter line depict uncertainly with 100 random draws from the posterior distribution.}
     \label{fig:aft}
 \end{figure}
 
@@ -243,30 +274,33 @@ More about cliamte change implicatins
 \begin{figure}[h!]
     \centering
 \includegraphics[width=\textwidth]{..//figure/mu_plots.jpeg}
-    \caption{Estimated effects of density influence parameters and temporal priority effect on the relative growth rate difference between \textit{H. matronalis} and \texit{C. canadensis}. As per Connonly and Wayne 2005, The positive estimate of priorty and density of Hesperis matronalis tip competitive balance towards it, while the negative estimate of density of C. canadensis favor that species. Like Fig. 2, this suggests that priorty effects are a key mediator of competitive sucess in H. matronalis.  } 
+    \caption{Estimated effects of species' abundance and phenological advantage on the relative growth rate difference between \textit{H. matronalis} and \textit{C. canadensis}. Negative parameter estimates indicate the community biomass composition shifts to favor \textit{C. candensis} while positive estimate towards dominance by \textit{ H. matronalis}. The points indicate the mean estimated effect of each parameter, thicker  and thinner bars the 50\% and 95\% credible intervals respectively. The full posterior distribution for each parameter is also dipicted. 
+    } 
     \label{fig:RGRD}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
 \includegraphics[width=\textwidth]{..//figure/3dconnolly2.png}
-   \caption{Predicted outcome of competition under vary inter-specific densities and temporal priority. Purple is \texit{C. canadensis} and green \textit{H. matronalis}.  As can been seen C. canadensis is predicted to compete with H matronalis only at low priority effects or high densities. } 
-   \label{fig:Hm}
+   \caption{Predicted outcome of competition under differing combinations of \textit{C. canadensis} and \textit{H. matronalis} abundance and phenological advantage of \textit{H. matronalis}. Purple dots indicate conditions that favor  \texit{C. canadensis} in community biomass composition while green dot conditions favor \textit{H. matronalis}. Estimates are based on multiple regression models estimating the effect of each variable on the relative growth rate difference amoung species.} 
+   \label{fig:3D}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+\includegraphics[width=\textwidth]{..//figure/nichemodfication.jpeg}
+   \caption{Estimated effects of intra-vs. inter-specific competion on the germination dynamics of \textit{Cryptotania canadensis} under 6 (low) and 10 weeks (high) of cold stratification at 4\degree C. Panel \textbf{a)} depicts differences germination likelihood and \textbf{b)} shows the estimated mean germination time in single species mono-cultures vs. competition plot. Colored dots represent the mean estimate under each planting type and bars represent 80\% credible intervals. Within competition plots, panel \textbf{c)} indicated that the mean germination time of competitor \textit{Hesperis matronalis} is negatively associated with the mean germination time of \textit{Cryptotania canadensis}, suggesting that rapid germination of \textit{H. matronalis} may modestly delay the germination of \textit{C. canadensis}. Colored trend lines represent the mean estimates of relationship between the germination phenology of both species at low and high levels of stratification. The shaded regions depict 80\% credible intervals around these estimates.  } 
+   \label{fig:nichemod}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
 \includegraphics[width=\textwidth]{..//figure/commchange.jpeg}
-   \caption{.} 
+   \caption{Predicted germination phenology of a suite of temperate herbs under varying cold stratification (6 vs. 10 weeks at 4\degree C) and incubation (20/10\degree C  vs. 25/15\degree C day/night) levels within the first 20 days of the growing period. Longer stratification periods increased the ratio of native to invasive species (cirlces vs. squares) that germinate within 20 days of the growing period, and reduced the phenological advantage of the invasive species in this study } 
    \label{fig:comm}
 \end{figure}
 
-\begin{figure}[h!]
-    \centering
-\includegraphics[width=\textwidth]{..//figure/AFTall.jpeg}
-   \caption{.} 
-   \label{fig:AFTall}
-\end{figure}
+
 
 %In combination our germination assays,The germination behavior of \texit{H. matronalis} was little affected by cold stratification, while germination rate and speed of \texit{C. canadensis} was strongly enhanced with cold stratification, especially when germianted at cooler temperatures (Fig. \ref{fig:aft}). These differences are themselves not surprising as \textit{H. matronalis} seeds are considered non-dormant \citep{}, and seeds of \textit{C. canadensis} are physiologically dormant \citep{}. , These different responses generated germination dynamics in which under alternative low stratification regimes \textit{H. matronalis} cohorts germinated as much as two weeks before \textit{C. canadensis}, while under high stratification, the species germinated at approximately the same time (Fig. \ref{fig:aft}). 
 

@@ -181,5 +181,21 @@ jpeg("..//figure/mu_plots.jpeg",width = 6,height=6, units="in",res=300)
 plot1
 dev.off()
 
+
+gruber<-brm(MGT_Cc~MGT_Hm*as.factor(strat),data=d)
+gruberII<-brm(MGT_Cc~type*as.factor(strat),data=d)
+gruberIII<-brm(MGT_Cc~as.factor(strat),data=d)
+gruberIV<-brm(MGT_Hm~as.factor(strat),data=d)
+
+ruber<-brm(MGT_Cc~MGT_Hm,data=d)
+
+fixef(gruber,probs = c(.25,.75))
+fixef(gruberII,probs = c(.25,.75))
+
+fixef(gruberIII,probs = c(.25,.75))
+fixef(gruberIV,probs = c(.25,.75))
+fixef(ruber,probs = c(.25,.75))
+pp_check(gruber,ndraws = 100)
+
 save.image("invasivemods.Rda")
 

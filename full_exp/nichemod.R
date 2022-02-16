@@ -35,27 +35,47 @@ d2$count<-ifelse(is.na(d2$count),0,d2$count)
 unique(d2$config)
 d2$type<-ifelse(d2$config %in% c("monoA","monoB"),"single species","competition") 
 class(d2$strat)
-niche<-brm(count~taxa*type*factstrat,data=d2, family=bernoulli(link=logit))
-summary(niche1)
+d2$stratification<-ifelse(d2$strat==6,"low","high")
+#niche<-brm(count~taxa*type*factstrat,data=d2, family=bernoulli(link=logit))
 
-conditional_effects(niche)
+## Does competition reduce germination of C candensis
 
-d2$factstrat<-as.factor(d2$strat)
 d3<-filter(d2,taxa=="C.canadensis")
-niche3<-brm(count~type*factstrat,data=d3, family=bernoulli(link=logit))
-summary(niche3)
-exp(fixef(niche3))
-plot1<-conditional_effects(niche3,effects="type:factstrat")
-plot1a<-plot(plot1)[[1]] + ggplot2::ylim(0, 0.6)+ggthemes::theme_few()+
-  ggthemes::theme_few()+scale_color_viridis_d()+ylab("Germination Likelihood")+xlab("")
+niche<-brm(count~type*stratification,data=d3, family=bernoulli(link=logit))
+brms::fixef(niche,probs=c(.25,.75))
 
-  
-d4<-filter(d2,taxa!="C.canadensis")
-niche4<-brm(count~type*factstrat,data=d4, family=bernoulli(link=logit))
-plot2<-conditional_effects(niche4,effects = "type:factstrat")
-plot2a<-plot(plot2)[[1]] + ggplot2::ylim(0, 0.6)+ggthemes::theme_few()+scale_color_viridis_d()+
-ylab("")+xlab("")
+c_eff<-conditional_effects(niche,"type:stratification",prob=0.8)
+df <- as.data.frame(c_eff$`type:stratification`)
+pd=position_dodge(width=0.2)
+aplot<-ggplot(df,aes(stratification,estimate__))+geom_point(aes(color=type),size=3,position=pd)+geom_errorbar(aes(ymin=lower__,ymax=upper__,color=type),position=pd,width=0)+
+  ggthemes::theme_few()+ylab("Likelihood of Germination")+scale_color_viridis_d(option="turbo")
+
+
+dat<-read.csv("data_4_invasive.csv")
+dat$stratification<-ifelse(dat$strat==6,"low","high")
+
+gruber<-brm(MGT_Cc~type*stratification,data=dat)
+summary(gruber)
+
+c_eff2<-conditional_effects(gruber,"type:stratification",prob=.8)
+df2 <- as.data.frame(c_eff2$`type:stratification`)
+bplot<-ggplot(df2,aes(stratification,estimate__))+geom_point(aes(color=type),size=3,position=pd)+geom_errorbar(aes(ymin=lower__,ymax=upper__,color=type),width=0,position=pd)+
+  ggthemes::theme_few()+ylab("Mean Germination Time")+scale_color_viridis_d(option="turbo")
+
+
+c_eff3<-conditional_effects(compan,"MGT_Hm:stratification",prob=0.8)
+
+
+c<-plot(c_eff3, plot = FALSE)[[1]]+scale_color_viridis_d(option="plasma",,begin = 0,end=.7)+
+  scale_fill_viridis_d(option="plasma",begin = 0,end=.7)+ggthemes::theme_few()+
+  ylab("MGT Honewort")+xlab("MGT Dames Rocket")+theme(legend.position="bottom")
+
+
+
+plotaa<-ggpubr::ggarrange(aplot,bplot,common.legend=TRUE,labels =c( "a)","b)"))
+ggpubr::ggarrange(plotaa,c,nrow=2,labels=c("","c)"))
+
 
 jpeg("..//figure/nichemodfication.jpeg")
-ggpubr::ggarrange(plot1a,plot2a,common.legend = TRUE,labels=c("  Honewort","Dames Rocket"))
+ggpubr::ggarrange(plotaa,c,nrow=2,labels=c("","c)"))
 dev.off()  

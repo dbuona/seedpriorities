@@ -19,14 +19,26 @@
  \parskip 7.2pt 
 \renewcommand{\baselinestretch}{1.2} 	
 \parindent 0pt
-
-
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\usepackage{xr}
 \usepackage{xr-hyper}
-\usepackage{hyperref}
+%\usepackage{hyperref}
+\externaldocument{invasive}
+
 \title{Supporting Information: Competition between native Honewort (\textit{Cryptotaenia canadensis}) and invasive Dame's Rocket (\textit{Hesperis matronalis}) seedlings is mediated by relative germination timing}
 
 \begin{document}
 \maketitle
+\section{Figures}
+\begin{figure}[h!]
+    \centering
+\includegraphics[width=\textwidth]{..//figure/AFTall.jpeg}
+   \caption{The effects of weeks of cold stratification at 4\degree C on the time to 50\% germination of 11 herbacious perennials under a) cool and b) warm (20/10\degree C vs. 25/15\degree C day/night) incubation conditions, estimated with accelerated failure time model. The solid lines indicated indicated the mean estimate, while lighter line depict uncertainly with 100 random draws from the posterior distribution.} 
+   \label{fig:AFTall}
+\end{figure}
+
+\section{Tables}
 
 \begin{table}[ht]
 \centering
@@ -69,58 +81,10 @@
    \hline
 \end{tabular}
 \caption{Max germination percentages and mean germnation time for our species under all experimental treatment combination. H/L incubation (25 or 20\degree C) and weeks of chilling}
+\label{tab:germcomps}
 \end{table}
 
 
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrrrr}
-  \hline
- & Estimate & Est.Error & Q2.5 & Q25 & Q75 & Q97.5 \\ 
-  \hline
-Intercept & 547.96 & 45.02 & 456.60 & 519.05 & 577.71 & 633.92 \\ 
-  n\_Cc & -41.41 & 7.17 & -55.76 & -46.09 & -36.65 & -27.34 \\ 
-  n\_Hm & -30.37 & 6.94 & -44.03 & -34.96 & -25.76 & -16.75 \\ 
-  priority & -46.07 & 8.76 & -63.39 & -51.95 & -40.00 & -29.41 \\ 
-   \hline
-\end{tabular}
-\caption{Impact of intra- and inter-specific seed density and priority effect on the per capita above ground biomass of \textit{Cryptotaenia canadensis}}
-\end{table}
-
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrrrr}
-  \hline
- & Estimate & Est.Error & Q2.5 & Q25 & Q75 & Q97.5 \\ 
-  \hline
-Intercept & 530.87 & 34.78 & 463.76 & 508.07 & 553.50 & 599.14 \\ 
-  n\_Cc & -15.52 & 5.97 & -27.27 & -19.49 & -11.51 & -3.84 \\ 
-  n\_Hm & -33.70 & 3.60 & -40.79 & -36.03 & -31.32 & -26.57 \\ 
-  priority & 0.39 & 4.87 & -8.94 & -2.87 & 3.67 & 9.94 \\ 
-   \hline
-\end{tabular}
-\caption{Impact of intra- and inter-specific seed density and priority effect on the per capita above ground biomass of \textit{Hesperis matronalis}}
-\end{table}
-
-
-\begin{table}[ht]
-\centering
-\begin{tabular}{rllrr}
-  \hline
- & species & beta & mean(Estimate) & sd(Estimate) \\ 
-  \hline
-1 & Effects on 
-on Dames Rocket & beta & 0.46 & 0.17 \\ 
-  2 & Effects on 
-on Dames Rocket & beta\_priority & 0.44 & 0.18 \\ 
-  3 & Effects on 
-on Honewort & beta & 0.76 & 0.22 \\ 
-  4 & Effects on 
-on Honewort & beta\_priority & 1.90 & 0.36 \\ 
-   \hline
-\end{tabular}
-\caption{Competition coefficients, with and without priority effects}
-\end{table}
 
 
 \begin{table}[ht]
@@ -136,6 +100,7 @@ Intercept & 2.59 & 0.25 & 2.10 & 2.41 & 2.76 & 3.09 \\
    \hline
 \end{tabular}
 \caption{Estimates from the RGRD models}
+\label{tab:RGRD}
 \end{table}
 
 \end{document}
