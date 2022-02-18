@@ -60,8 +60,11 @@ summary(gruber)
 c_eff2<-conditional_effects(gruber,"type:stratification",prob=.8)
 df2 <- as.data.frame(c_eff2$`type:stratification`)
 bplot<-ggplot(df2,aes(stratification,estimate__))+geom_point(aes(color=type),size=3,position=pd)+geom_errorbar(aes(ymin=lower__,ymax=upper__,color=type),width=0,position=pd)+
-  ggthemes::theme_few()+ylab("Mean Germination Time")+scale_color_viridis_d(option="turbo")
+  ggt
+hemes::theme_few()+ylab("Mean Germination Time")+scale_color_viridis_d(option="turbo")
 
+dat.comp<-filter(dat, type=="competition")
+compan<-brm(MGT_Cc~MGT_Hm*stratification,data=dat.comp)
 
 c_eff3<-conditional_effects(compan,"MGT_Hm:stratification",prob=0.8)
 
@@ -70,12 +73,12 @@ c<-plot(c_eff3, plot = FALSE)[[1]]+scale_color_viridis_d(option="plasma",,begin 
   scale_fill_viridis_d(option="plasma",begin = 0,end=.7)+ggthemes::theme_few()+
   ylab("MGT Honewort")+xlab("MGT Dames Rocket")+theme(legend.position="bottom")
 
-
+fixef(compan)
 
 plotaa<-ggpubr::ggarrange(aplot,bplot,common.legend=TRUE,labels =c( "a)","b)"))
 ggpubr::ggarrange(plotaa,c,nrow=2,labels=c("","c)"))
 
 
 jpeg("..//figure/nichemodfication.jpeg")
-ggpubr::ggarrange(plotaa,c,nrow=2,labels=c("","c)"))
+plotaa
 dev.off()  

@@ -161,6 +161,7 @@ d$RGRD<-(log(d$MG_Hm/d$startHm)-log(d$MG_Cc/d$startCc))
 mod1<-brms::brm(RGRD~n_Cc+n_Hm+priority,data=d)
 mod2<-brms::brm(RGRD~n_Cc+n_Hm+strat,data=d)
 
+fixef(mod1)
 
 xtable(fixef(mod1,probs = c(0.025,.25,.75,0.975)))
 
