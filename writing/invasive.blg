@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: invasive.aux
+The style file: ..//refs/styles/besjournals.bst.bst
+Database file #1: ..///refs/germination.bib
+Warning--I didn't find a database entry for ""
+Name 1 in "Baskin, C.C., and Baskin, J.M" has a comma at the end for entry Baskin2014
+while executing---line 1620 of file ..//refs/styles/besjournals.bst.bst
+Name 1 in "Baskin, C.C., and Baskin, J.M" has a comma at the end for entry Baskin2014
+while executing---line 1620 of file ..//refs/styles/besjournals.bst.bst
+Name 1 in "Baskin, C.C., and Baskin, J.M" has a comma at the end for entry Baskin2014
+while executing---line 1700 of file ..//refs/styles/besjournals.bst.bst
+Name 1 in "Baskin, C.C., and Baskin, J.M" has a comma at the end for entry Baskin2014
+while executing---line 1700 of file ..//refs/styles/besjournals.bst.bst
+Warning--empty journal in Howe:1982aa
+You've used 33 entries,
+            2805 wiz_defined-function locations,
+            1325 strings with 19006 characters,
+and the built_in function-call counts, 19551 in all, are:
+= -- 1716
+> -- 772
+< -- 17
++ -- 308
+- -- 265
+* -- 1606
+:= -- 3105
+add.period$ -- 65
+call.type$ -- 33
+change.case$ -- 251
+chr.to.int$ -- 34
+cite$ -- 34
+duplicate$ -- 1354
+empty$ -- 1441
+format.name$ -- 377
+if$ -- 3829
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 284
+newline$ -- 103
+num.names$ -- 132
+pop$ -- 506
+preamble$ -- 1
+purify$ -- 220
+quote$ -- 0
+skip$ -- 456
+stack$ -- 0
+substring$ -- 1106
+swap$ -- 727
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 291
+warning$ -- 1
+while$ -- 151
+width$ -- 0
+write$ -- 363
+(There were 4 error messages)

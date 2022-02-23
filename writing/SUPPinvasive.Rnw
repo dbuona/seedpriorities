@@ -38,7 +38,38 @@
    \label{fig:AFTall}
 \end{figure}
 
+
+\begin{figure}[h!]
+    \centering
+\includegraphics[width=\textwidth]{..//figure/priority_treat.png}
+   \caption{Differences in mean germination time between \textit{Hesperis matronalis} and \textit{C. canadensis} under 6 and 12 weeks of cold stratification.} 
+   \label{fig:MGTsup}
+\end{figure}
+
 \section{Tables}
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+species & seed source & status & seed dormancy \\
+\hline
+\textit{Anemone virginiana} & Prairie Moon & native & \\
+\textit{Asclepias syriaca} & Toadshade & native & \\
+\textit{Carex grayi} & Prairie Moon & native & \\
+\textit{Cryptotaenia canadensis} & Prairie Moon & native & \\
+\textit{Eurybia divaricata} & Toadshade & native & \\
+\textit{Hesperis matronalis} & American Meadows & invasive & \\
+\textit{Oenethera biennis} & Toadshade & native & \\
+\textit{Persicaria virginiana} & Prairie Moon & native & \\
+\textit{Silene stellata} & Prairie Moon & native & \\
+\textit{Silene vulgaris} & wild collected & invasive & \\
+\textit{Thalictrum diocicum} & Prairie Moon & native & \\
+\hline
+
+\end{tabular}
+\caption{Species information for germination assays. Seed were source from a) Prairie Moon Nursery, Winona, MN b) Toadshade Wildflower Farm, Frenchtown, NJ, c) American Meadows, Shelburne VT, or d) wild collected in unmanaged section of the Arnold Arboretum, Boston MA. Dormancy catagorizations are from \citet{Baskin2015} }
+\label{tab:specs}
+\end{table}
 
 \begin{table}[ht]
 \centering
