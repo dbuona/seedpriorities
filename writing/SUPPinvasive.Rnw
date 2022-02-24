@@ -27,26 +27,11 @@
 \externaldocument{invasive}
 
 \title{Supporting Information: Competition between native Honewort (\textit{Cryptotaenia canadensis}) and invasive Dame's Rocket (\textit{Hesperis matronalis}) seedlings is mediated by relative germination timing}
-
+\date{}
 \begin{document}
 \maketitle
-\section{Figures}
-\begin{figure}[h!]
-    \centering
-\includegraphics[width=\textwidth]{..//figure/AFTall.jpeg}
-   \caption{The effects of weeks of cold stratification at 4\degree C on the time to 50\% germination of 11 herbacious perennials under a) cool and b) warm (20/10\degree C vs. 25/15\degree C day/night) incubation conditions, estimated with accelerated failure time model. The solid lines indicated indicated the mean estimate, while lighter line depict uncertainly with 100 random draws from the posterior distribution.} 
-   \label{fig:AFTall}
-\end{figure}
 
-
-\begin{figure}[h!]
-    \centering
-\includegraphics[width=\textwidth]{..//figure/priority_treat.png}
-   \caption{Differences in mean germination time between \textit{Hesperis matronalis} and \textit{C. canadensis} under 6 and 12 weeks of cold stratification.} 
-   \label{fig:MGTsup}
-\end{figure}
-
-\section{Tables}
+\section*{Tables}
 \begin{table}[ht]
 \centering
 \begin{tabular}{|l|l|l|l|}
@@ -115,9 +100,6 @@ species & seed source & status & seed dormancy \\
 \label{tab:germcomps}
 \end{table}
 
-
-
-
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrr}
@@ -133,5 +115,25 @@ Intercept & 2.59 & 0.25 & 2.10 & 2.41 & 2.76 & 3.09 \\
 \caption{Estimates from the RGRD models}
 \label{tab:RGRD}
 \end{table}
+
+\pagebreak
+
+
+\section*{Figures}
+\begin{figure}[h!]
+    \centering
+\includegraphics[width=\textwidth]{..//figure/AFTall.jpeg}
+   \caption{The effects of weeks of cold stratification at 4\degree C on the time to 50\% germination of 11 herbacious perennials under a) cool and b) warm (20/10\degree C vs. 25/15\degree C day/night) incubation conditions, estimated with accelerated failure time model. The solid lines indicated indicated the mean estimate, while lighter line depict uncertainly with 100 random draws from the posterior distribution.} 
+   \label{fig:AFTall}
+\end{figure}
+
+
+\begin{figure}[h!]
+    \centering
+\includegraphics[width=.5\textwidth]{..//figure/priority_treat.png}
+   \caption{Differences in mean germination time between \textit{Hesperis matronalis} and \textit{C. canadensis} under 6 and 12 weeks of cold stratification.} 
+   \label{fig:MGTsup}
+\end{figure}
+
 
 \end{document}
