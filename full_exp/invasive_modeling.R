@@ -161,7 +161,7 @@ d$RGRD<-(log(d$MG_Hm/d$startHm)-log(d$MG_Cc/d$startCc))
 mod1<-brms::brm(RGRD~n_Cc+n_Hm+priority,data=d)
 mod2<-brms::brm(RGRD~n_Cc+n_Hm+strat,data=d)
 
-fixef(mod1)
+fixef(mod1,probs = c(.05,.95))
 
 xtable(fixef(mod1,probs = c(0.025,.25,.75,0.975)))
 
@@ -171,14 +171,19 @@ output<-mod1 %>%
 colnames(output)
 output <-output %>% tidyr::gather("var","Estimate",4:6)
 output$winner<-ifelse(output$var=="b_n_Cc","C. canadensis","H. matronalis")
-
+install.packages("ggtext")
 plot1<-ggplot(output,aes(y = var, x = Estimate)) +
-  stat_halfeye(aes(fill=winner),alpha=0.6)+ggthemes::theme_few()+
+  stat_halfeye(aes(fill=winner),.width=c(.9),alpha=0.6)+ggthemes::theme_few()+
   geom_vline(xintercept=0,linetype="dashed")+
-  scale_y_discrete(limits=c("b_priority","b_n_Cc","b_n_Hm"),labels=c("priority effect", expression(paste("Density ", italic(" C. canadensis"))),expression(paste("Density", italic(" H. matronalis")))))+
-  scale_fill_viridis_d(begin=0,end=.5)+theme(legend.position = "none")+ylab("")+xlim(-0.6,0.6)
+  scale_y_discrete(limits=c("b_priority","b_n_Cc","b_n_Hm"),labels=c("Priority effect", expression(paste("Influence ", italic(" C. canadensis"))),expression(paste("Influence", italic(" H. matronalis")))))+
+  scale_fill_viridis_d(begin=0,end=.5)+theme(legend.position = "none")+ylab("")+xlim(-0.6,0.6)+annotate("text",x=-.15,y=.5,label=expression(paste(italic("C. canadensis") ," favored")))+
+  annotate("text",x=.15,y=.5,label=expression(paste(italic("H. matronalis") ," favored")))+
+  annotate("segment", x = -0.6, xend = -0.3, y = .5, yend = .5,
+           arrow = arrow(ends = "first", length = unit(.2,"cm")))+
+  annotate("segment", x = 0.3, xend = 0.6, y = .5, yend = .5,
+           arrow = arrow(ends = "last", length = unit(.2,"cm")))
 
-jpeg("..//figure/mu_plots.jpeg",width = 6,height=6, units="in",res=300)
+jpeg("..//figure/mu_plots.jpeg",width = 10,height=5, units="in",res=200)
 plot1
 dev.off()
 

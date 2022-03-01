@@ -24,10 +24,10 @@ d[cols.num] <- sapply(d[cols.num],as.numeric)
 
 
 d<-d%>% pivot_longer(14:40,names_to="date",values_to = "count")
-d<-select(d,-date)
+d<-dplyr::select(d,-date)
 d2<-d%>% distinct()
 
-d#2<-d2 %>% tidyr::gather(date,count,14:40) depreciated
+#2<-d2 %>% tidyr::gather(date,count,14:40) depreciated
 
 
 
@@ -44,11 +44,13 @@ d3<-filter(d2,taxa=="C.canadensis")
 niche<-brm(count~type*stratification,data=d3, family=bernoulli(link=logit))
 brms::fixef(niche,probs=c(.25,.75))
 
-c_eff<-conditional_effects(niche,"type:stratification",prob=0.8)
-df <- as.data.frame(c_eff$`type:stratification`)
-pd=position_dodge(width=0.2)
-aplot<-ggplot(df,aes(stratification,estimate__))+geom_point(aes(color=type),size=3,position=pd)+geom_errorbar(aes(ymin=lower__,ymax=upper__,color=type),position=pd,width=0)+
-  ggthemes::theme_few()+ylab("Likelihood of Germination")+scale_color_viridis_d(option="turbo")
+
+
+c_eff<-conditional_effects(niche,"type:stratification",prob=0.9)
+df <- as.data.frame(c_eff$"type:stratification")
+pd=position_dodge(width=0.4)
+aplot<-ggplot(df,aes(stratification,estimate__))+geom_point(aes(shape=type),size=3,position=pd)+geom_errorbar(aes(ymin=lower__,ymax=upper__,group=type),position=pd,width=0)+
+  ggthemes::theme_few(base_size = 11)+ylab("Likelihood of Germination")+scale_color_viridis_d(option="turbo")+theme(legend.title = element_blank())
 
 
 dat<-read.csv("data_4_invasive.csv")
@@ -57,16 +59,15 @@ dat$stratification<-ifelse(dat$strat==6,"low","high")
 gruber<-brm(MGT_Cc~type*stratification,data=dat)
 summary(gruber)
 
-c_eff2<-conditional_effects(gruber,"type:stratification",prob=.8)
+c_eff2<-conditional_effects(gruber,"type:stratification",prob=.9)
 df2 <- as.data.frame(c_eff2$`type:stratification`)
-bplot<-ggplot(df2,aes(stratification,estimate__))+geom_point(aes(color=type),size=3,position=pd)+geom_errorbar(aes(ymin=lower__,ymax=upper__,color=type),width=0,position=pd)+
-  ggt
-hemes::theme_few()+ylab("Mean Germination Time")+scale_color_viridis_d(option="turbo")
+bplot<-ggplot(df2,aes(stratification,estimate__))+geom_point(aes(shape=type),size=3,position=pd)+geom_errorbar(aes(ymin=lower__,ymax=upper__,group=type),width=0,position=pd)+
+  ggthemes::theme_few(base_size = 11)+ylab("Mean Germination Time")+scale_color_viridis_d(option="turbo")
 
 dat.comp<-filter(dat, type=="competition")
 compan<-brm(MGT_Cc~MGT_Hm*stratification,data=dat.comp)
 
-c_eff3<-conditional_effects(compan,"MGT_Hm:stratification",prob=0.8)
+c_eff3<-conditional_effects(compan,"MGT_Hm:stratification",prob=0.9)
 
 
 c<-plot(c_eff3, plot = FALSE)[[1]]+scale_color_viridis_d(option="plasma",,begin = 0,end=.7)+
@@ -79,6 +80,6 @@ plotaa<-ggpubr::ggarrange(aplot,bplot,common.legend=TRUE,labels =c( "a)","b)"))
 ggpubr::ggarrange(plotaa,c,nrow=2,labels=c("","c)"))
 
 
-jpeg("..//figure/nichemodfication.jpeg")
+jpeg("..//figure/nichemodfication.jpeg",width = 4,height=6, units="in",res=200)
 plotaa
 dev.off()  
