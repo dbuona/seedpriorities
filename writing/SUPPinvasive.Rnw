@@ -22,12 +22,14 @@
 \renewcommand{\thetable}{S\arabic{table}}
 \renewcommand{\thefigure}{S\arabic{figure}}
 %\usepackage{xr}
-\usepackage{hyperref}
-\usepackage{xr-hyper}
 %\usepackage{hyperref}
+\usepackage{xr-hyper}
+\usepackage{hyperref}
 \externaldocument{invasive}
 
-\title{Supporting Information: Competition between native Honewort (\textit{Cryptotaenia canadensis}) and invasive Dame's Rocket (\textit{Hesperis matronalis}) seedlings is mediated by relative germination timing}
+\title{Supporting Information: Seedling competition between two native %Honewort (\textit{Cryptotaenia canadensis}) 
+and invasive %Dame's Rocket (\textit{Hesperis matronalis}) 
+woodland herb species is mediated by relative germination timing}
 \date{}
 \begin{document}
 \SweaveOpts{concordance=TRUE}
@@ -35,28 +37,41 @@
 
 \maketitle
 
-\section*{Tables}
-\begin{table}[ht]
-\centering
-\begin{tabular}{|l|l|l|l|}
-\hline
-species & seed source & status & seed dormancy \\
-\hline
-\textit{Anemone virginiana} & Prairie Moon & native & \\
-\textit{Asclepias syriaca} & Toadshade & native & \\
-\textit{Carex grayi} & Prairie Moon & native & \\
-\textit{Cryptotaenia canadensis} & Prairie Moon & native & \\
-\textit{Eurybia divaricata} & Toadshade & native & \\
-\textit{Hesperis matronalis} & American Meadows & invasive & \\
-\textit{Oenethera biennis} & Toadshade & native & \\
-\textit{Persicaria virginiana} & Prairie Moon & native & \\
-\textit{Silene stellata} & Prairie Moon & native & \\
-\textit{Silene vulgaris} & wild collected & invasive & \\
-\textit{Thalictrum diocicum} & Prairie Moon & native & \\
-\hline
+\begin{figure}[!ht]
+    \centering
+\includegraphics[width=\textwidth]{..//figure/AFTall.jpeg}
+   \caption{The effects of weeks of cold stratification at 4\degree C on the time to 50\% germination of 11 herbacious perennials under a) cool and b) warm (20/10\degree C vs. 25/15\degree C day/night) incubation conditions, estimated with accelerated failure time model. The solid lines indicated indicated the mean estimate, while lighter line depict uncertainly with 100 random draws from the posterior distribution.} 
+   \label{fig:AFTall}
+\end{figure}
 
+\begin{figure}[!ht]
+    \centering
+\includegraphics[width=.7\textwidth]{..//figure/priority_treat.png}
+   \caption{Differences in mean germination time between \textit{Hesperis matronalis} and \textit{C. canadensis} under 6 and 12 weeks of cold stratification.} 
+   \label{fig:MGTsup}
+\end{figure}
+
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+species & seed source & status  \\
+\hline
+\textit{Anemone virginiana} & Prairie Moon & native  \\
+\textit{Asclepias syriaca} & Toadshade & native  \\
+\textit{Carex grayi} & Prairie Moon & native  \\
+\textit{Cryptotaenia canadensis} & Prairie Moon & native  \\
+\textit{Eurybia divaricata} & Toadshade & native  \\
+\textit{Hesperis matronalis} & American Meadows & invasive  \\
+\textit{Oenethera biennis} & Toadshade & native  \\
+\textit{Persicaria virginiana} & Prairie Moon & native  \\
+\textit{Silene stellata} & Prairie Moon & native  \\
+\textit{Silene vulgaris} & wild collected & invasive  \\
+\textit{Thalictrum diocicum} & Prairie Moon & native  \\
+\hline
 \end{tabular}
-\caption{Species information for germination assays. Seed were source from a) Prairie Moon Nursery, Winona, MN b) Toadshade Wildflower Farm, Frenchtown, NJ, c) American Meadows, Shelburne VT, or d) wild collected in unmanaged section of the Arnold Arboretum, Boston MA. Dormancy catagorizations are from \citet{Baskin2015} }
+\caption{Species information for germination assays. Seed were source from a) Prairie Moon Nursery, Winona, MN b) Toadshade Wildflower Farm, Frenchtown, NJ, c) American Meadows, Shelburne VT, or d) wild collected in unmanaged section of the Arnold Arboretum, Boston MA. }
 \label{tab:specs}
 \end{table}
 
@@ -69,35 +84,35 @@ species & seed source & status & seed dormancy \\
   \hline
   Stratification & Incubation  & C. canadensis & H. matronalis & C. canadensis & H. matronalis \\ 
   \hline
-0.00 & H & 0.07 (0.1) & 0.78 (0 & 15.25 (0 & 3.11 (0.6 \\ 
- 0.00 & L & 0 (0) & 0.75 (0.1 & --- & 4.59 (0.7 \\ 
+0 & H & 0.07 (0.1) & 0.78 (0) & 15.25 (0 & 3.11 (0.6) \\ 
+  & L & 0 (0) & 0.75 (0.1) & --- & 4.59 (0.7) \\ 
    \hline
- 2.00 & H & 0.03 (0) & 1 (0 & 9 (1 & 2.3 (0.1 \\ 
- 2.00 & L & 0.2 (0.2) & 0.82 (0.1 & 10.25 (0.3 & 2.57 (0.5 \\ 
+ 2 & H & 0.03 (0) & 1 (0) & 9 (1) & 2.3 (0.1) \\ 
+  & L & 0.2 (0.2) & 0.82 (0.1) & 10.25 (0.3) & 2.57 (0.5) \\ 
    \hline
- 4.00 & H & 0.18 (0.1) & 0.97 (0 & 9.83 (3.6 & 2.49 (0.3 \\ 
- 4.00 & L & 0.58 (0.3) & 0.82 (0.1 & 11.06 (1.1 & 3.5 (0.6 \\ 
+ 4 & H & 0.18 (0.1) & 0.97 (0) & 9.83 (3.6) & 2.49 (0.3) \\ 
+ & L & 0.58 (0.3) & 0.82 (0.1) & 11.06 (1.1) & 3.5 (0.6) \\ 
     \hline
-    5.00 & H & 0.08 (0.1) & 1 (0 & 8.44 (4.7 & 2.33 (0.4 \\ 
- 5.00 & L & 0.85 (0.1) & 0.9 (0.1 & 7.67 (0.5 & 2.62 (0.6 \\ 
+    5 & H & 0.08 (0.1) & 1 (0) & 8.44 (4.7) & 2.33 (0.4) \\ 
+ & L & 0.85 (0.1) & 0.9 (0.1) & 7.67 (0.5) & 2.62 (0.6) \\ 
    \hline
-   6.00 & H & 0.25 (0.2) & 0.98 (0 & 13.5 (6.9 & 1.91 (0.2 \\ 
- 6.00 & L & 0.77 (0.1) & 0.97 (0.1 & 8.11 (0.4 & 2.14 (0.2 \\ 
+   6 & H & 0.25 (0.2) & 0.98 (0) & 13.5 (6.9) & 1.91 (0.2) \\ 
+  & L & 0.77 (0.1) & 0.97 (0.1) & 8.11 (0.4) & 2.14 (0.2) \\ 
     \hline
-    7.00 & H & 0.6 (0) & 0.87 (0 & 5.81 (0.2 & 2 (0 \\ 
-   7.00 & L & 0.97 (0.1) & 1 (0 & 6.29 (0.2 & 2.15 (0.2 \\ 
+    7 & H & 0.6 (0) & 0.87 (0) & 5.81 (0.2) & 2 (0) \\ 
+ & L & 0.97 (0.1) & 1 (0) & 6.29 (0.2) & 2.15 (0.2) \\ 
     \hline
-    8.00 & H & 0.5 (0.1) & 1 (0 & 7.4 (0.3 & 2.06 (0.2 \\ 
-   8.00 & L & 0.98 (0) & 0.95 (0 & 6.09 (0.4 & 1.94 (0.1 \\ 
+    8 & H & 0.5 (0.1) & 1 (0) & 7.4 (0.3) & 2.06 (0.2) \\ 
+ & L & 0.98 (0) & 0.95 (0) & 6.09 (0.4) & 1.94 (0.1) \\ 
       \hline
-   9.00 & H & 0.6 (0.1) & 0.98 (0 & 5.22 (0.7 & 1.74 (0.1 \\ 
-   9.00 & L & 1 (0) & 0.93 (0.1 & 6.04 (0.5 & 1.78 (0 \\ 
+   9 & H & 0.6 (0.1) & 0.98 (0) & 5.22 (0.7 & 1.74 (0.1) \\ 
+ & L & 1 (0) & 0.93 (0.1) & 6.04 (0.5) & 1.78 (0) \\ 
       \hline
-   11.00 & H & 0.73 (0.2) & 0.98 (0 & 4.61 (0.2 & 1.86 (0.1 \\ 
-   11.00 & L & 0.93 (0.1) & 0.93 (0.1 & 5.04 (0.3 & 2.11 (0.5 \\ 
+   11 & H & 0.73 (0.2) & 0.98 (0) & 4.61 (0.2) & 1.86 (0.1) \\ 
+ & L & 0.93 (0.1) & 0.93 (0.1) & 5.04 (0.3) & 2.11 (0.5) \\ 
       \hline
-   13.00 & H & 0.77 (0.2) & 0.88 (0 & 4.14 (0.3 & 1.89 (0.9 \\ 
-   13.00 & L & 1 (0) & 0.98 (0 & 4.16 (0.2 & 1.42 (0.3 \\ 
+   13 & H & 0.77 (0.2) & 0.88 (0) & 4.14 (0.3) & 1.89 (0.9) \\ 
+ & L & 1 (0) & 0.98 (0 & 4.16 (0.2) & 1.42 (0.3) \\ 
    \hline
 \end{tabular}
 \caption{Max germination percentages and mean germnation time for our species under all experimental treatment combination. H/L incubation (25 or 20\degree C) and weeks of chilling}
@@ -121,23 +136,8 @@ Intercept & 2.59 & 0.25 & 2.10 & 2.41 & 2.76 & 3.09 \\
 \end{table}
 
 \pagebreak
-
-
-\section*{Figures}
-\begin{figure}[h!]
-    \centering
-\includegraphics[width=\textwidth]{..//figure/AFTall.jpeg}
-   \caption{The effects of weeks of cold stratification at 4\degree C on the time to 50\% germination of 11 herbacious perennials under a) cool and b) warm (20/10\degree C vs. 25/15\degree C day/night) incubation conditions, estimated with accelerated failure time model. The solid lines indicated indicated the mean estimate, while lighter line depict uncertainly with 100 random draws from the posterior distribution.} 
-   \label{fig:AFTall}
-\end{figure}
-
-
-\begin{figure}[h!]
-    \centering
-\includegraphics[width=.5\textwidth]{..//figure/priority_treat.png}
-   \caption{Differences in mean germination time between \textit{Hesperis matronalis} and \textit{C. canadensis} under 6 and 12 weeks of cold stratification.} 
-   \label{fig:MGTsup}
-\end{figure}
-
+\section*{Measures of germination speed}
+There are important differences between time to 50\% germination (t50) and mean germination time (MGT) them that make one or the other more appropriate for the two types of experiments we ran. t50 is an estimate of the time to 50\% germination of all seeds planted, while mean germinating time (MGT) is a measure of the time to 50\% germination of only individuals that actually germinated \citep{Soltani:2015aa}. In comparative germination assays, t50 is a better metric because is standardized phenological estimates across variable germination fractions. In our competition trials it would not have made sense to account for the the germination speed of individuals that did not germinate, because only germinated individuals were influencing the competitive dynamics of our species. Because MGT is sensitive to the final germination fraction, it is not surprising the MGT measurements in the competition trials  were lower than the t50 estimates in the germination assays.
+\bibliography{..///refs/germination.bib}
 
 \end{document}
