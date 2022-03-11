@@ -49,6 +49,8 @@ brms::fixef(niche,probs=c(.25,.75))
 c_eff<-conditional_effects(niche,"type:stratification",prob=0.9)
 df <- as.data.frame(c_eff$"type:stratification")
 pd=position_dodge(width=0.4)
+
+df$type <- factor(df$type, levels = rev(levels(df$type)))
 aplot<-ggplot(df,aes(stratification,estimate__))+geom_point(aes(shape=type),size=3,position=pd)+geom_errorbar(aes(ymin=lower__,ymax=upper__,group=type),position=pd,width=0)+
   ggthemes::theme_few(base_size = 11)+ylab("Likelihood of Germination")+scale_color_viridis_d(option="turbo")+theme(legend.title = element_blank())
 
@@ -61,6 +63,8 @@ summary(gruber)
 
 c_eff2<-conditional_effects(gruber,"type:stratification",prob=.9)
 df2 <- as.data.frame(c_eff2$`type:stratification`)
+
+df2$type <- factor(df2$type, levels = rev(levels(df2$type)))
 bplot<-ggplot(df2,aes(stratification,estimate__))+geom_point(aes(shape=type),size=3,position=pd)+geom_errorbar(aes(ymin=lower__,ymax=upper__,group=type),width=0,position=pd)+
   ggthemes::theme_few(base_size = 11)+ylab("Mean Germination Time")+scale_color_viridis_d(option="turbo")
 

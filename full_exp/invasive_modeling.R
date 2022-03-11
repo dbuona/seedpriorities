@@ -203,5 +203,11 @@ fixef(gruberIV,probs = c(.25,.75))
 fixef(ruber,probs = c(.25,.75))
 pp_check(gruber,ndraws = 100)
 
+###quick comparison for suppliment
+jpeg("..//figure/priority_treat.jpeg")
+ggplot(d,aes(as.factor(strat),priority))+geom_boxplot(outlier.shape=NA)+ggthemes::theme_few()+
+  xlab("weeks of cold stratification")+ylab("phenological advantage")
+dev.off()
+
 save.image("invasivemods.Rda")
 

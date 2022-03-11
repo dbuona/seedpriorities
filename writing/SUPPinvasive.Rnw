@@ -26,33 +26,19 @@
 \usepackage{xr-hyper}
 \usepackage{hyperref}
 \externaldocument{invasive}
-
-\title{Supporting Information: Seedling competition between two native %Honewort (\textit{Cryptotaenia canadensis}) 
-and invasive %Dame's Rocket (\textit{Hesperis matronalis}) 
-woodland herb species is mediated by relative germination timing}
+\pagenumbering{gobble}
+\title{Supporting Information: Seedling competition between a native %Honewort (\textit{Cryptotaenia canadensis}) 
+and an invasive %Dame's Rocket (\textit{Hesperis matronalis}) 
+woodland herb is mediated by relative germination timing}
 \date{}
 \begin{document}
 \SweaveOpts{concordance=TRUE}
 
 
 \maketitle
+\section*{Tables}
 
-\begin{figure}[!ht]
-    \centering
-\includegraphics[width=\textwidth]{..//figure/AFTall.jpeg}
-   \caption{The effects of weeks of cold stratification at 4\degree C on the time to 50\% germination of 11 herbacious perennials under a) cool and b) warm (20/10\degree C vs. 25/15\degree C day/night) incubation conditions, estimated with accelerated failure time model. The solid lines indicated indicated the mean estimate, while lighter line depict uncertainly with 100 random draws from the posterior distribution.} 
-   \label{fig:AFTall}
-\end{figure}
-
-\begin{figure}[!ht]
-    \centering
-\includegraphics[width=.7\textwidth]{..//figure/priority_treat.png}
-   \caption{Differences in mean germination time between \textit{Hesperis matronalis} and \textit{C. canadensis} under 6 and 12 weeks of cold stratification.} 
-   \label{fig:MGTsup}
-\end{figure}
-
-
-\begin{table}[!ht]
+\begin{table}[hp]
 \centering
 \begin{tabular}{|l|l|l|}
 \hline
@@ -71,11 +57,11 @@ species & seed source & status  \\
 \textit{Thalictrum diocicum} & Prairie Moon & native  \\
 \hline
 \end{tabular}
-\caption{Species information for germination assays. Seed were source from a) Prairie Moon Nursery, Winona, MN b) Toadshade Wildflower Farm, Frenchtown, NJ, c) American Meadows, Shelburne VT, or d) wild collected in unmanaged section of the Arnold Arboretum, Boston MA. }
+\caption{Species information for germination assays. Seed were sourced from a) Prairie Moon Nursery, Winona, MN b) Toadshade Wildflower Farm, Frenchtown, NJ, c) American Meadows, Shelburne VT, or d) wild collected in unmanaged sections of the Arnold Arboretum, Boston MA. }
 \label{tab:specs}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[hp]
 \centering
 \begin{tabular}{|rr|ll|ll|}
    \hline
@@ -115,11 +101,11 @@ species & seed source & status  \\
  & L & 1 (0) & 0.98 (0 & 4.16 (0.2) & 1.42 (0.3) \\ 
    \hline
 \end{tabular}
-\caption{Max germination percentages and mean germnation time for our species under all experimental treatment combination. H/L incubation (25 or 20\degree C) and weeks of chilling}
+\caption{Final germination percentages and mean germination time for focal species under all experimental treatment combination. Incubation levels (H/L) indicate mean temperature treatments of 20$^\circ$C or 15$^\circ$C respectively and stratifcation level indicates the number of weeks of cold stratification at 4$^\circ$C.}
 \label{tab:germcomps}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[hp]
 \centering
 \begin{tabular}{rrrrrrr}
   \hline
@@ -131,13 +117,30 @@ Intercept & 2.59 & 0.25 & 2.10 & 2.41 & 2.76 & 3.09 \\
   priority & 0.15 & 0.03 & 0.08 & 0.13 & 0.17 & 0.21 \\ 
    \hline
 \end{tabular}
-\caption{Estimates from the RGRD models}
+\caption{Effect size estimates from relative growth rate difference (RGRD) models with 50\% and 97.5\% uncertainty intervals}
 \label{tab:RGRD}
 \end{table}
 
 \pagebreak
+\section*{Figures}
+\begin{figure}[hp]
+    \centering
+\includegraphics[width=\textwidth]{..//figure/AFTall.jpeg}
+   \caption{Estimated effect of weeks of cold stratification at 4$^\circ$C on the time to 50\% germination of 11 herbacious perennials under cool and warm (20/10$^\circ$C vs. 25/15$^\circ$C day/night) incubation conditions. The solid lines indicate the mean estimate, while lighter line indicate uncertainty.} 
+   \label{fig:AFTall}
+\end{figure}
+
+\begin{figure}[hp]
+    \centering
+\includegraphics[width=.7\textwidth]{..//figure/priority_treat.jpeg}
+   \caption{Differences in mean germination time (phenological advantage) between \textit{Hesperis matronalis} and \textit{C. canadensis} under 6 and 12 weeks of cold stratification.} 
+   \label{fig:MGTsup}
+\end{figure}
+
+\pagebreak
 \section*{Measures of germination speed}
 There are important differences between time to 50\% germination (t50) and mean germination time (MGT) them that make one or the other more appropriate for the two types of experiments we ran. t50 is an estimate of the time to 50\% germination of all seeds planted, while mean germinating time (MGT) is a measure of the time to 50\% germination of only individuals that actually germinated \citep{Soltani:2015aa}. In comparative germination assays, t50 is a better metric because is standardized phenological estimates across variable germination fractions. In our competition trials it would not have made sense to account for the the germination speed of individuals that did not germinate, because only germinated individuals were influencing the competitive dynamics of our species. Because MGT is sensitive to the final germination fraction, it is not surprising the MGT measurements in the competition trials  were lower than the t50 estimates in the germination assays.
+
 \bibliography{..///refs/germination.bib}
 
 \end{document}
