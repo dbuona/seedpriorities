@@ -187,6 +187,20 @@ jpeg("..//figure/mu_plots.jpeg",width = 10,height=5, units="in",res=200)
 plot1
 dev.off()
 
+d.mgt<-dplyr::select(d,MGT_Cc,MGT_Hm,strat)
+colnames(d.mgt)[1:2]<-c("C. canandensis","H.matronalis")
+d.mgt %>% dplyr::group_by(strat,SPECIES) %>% summarise(meanMGT=mean(MGT,na.rm=TRUE))
+
+d.mgt<-gather(d.mgt,"SPECIES","MGT",1:2)
+ggplot(d.mgt,aes(MGT))+geom_density(aes(fill=as.factor(strat),color=SPECIES),alpha=0.6)+scale_fill_grey()+scale_color_viridis_d(begin=0,end=.5)+
+  ggthemes::theme_few()+geom_segment(x=2.06,y=1,xend=2.98,yend=1)+geom_segment(x=7.99,y=1.2,xend=5.47,yend=1.2)
+7.99-2.98
+5.47-2.06
+d.pri<-dplyr::select(d,priority,strat)
+ggplot(d.pri,aes(priority))+geom_density(aes(fill=as.factor(strat)),alpha=0.7)+#geom_histogram(position = "dodge",aes(fill=as.factor(strat)),alpha=0.6)+
+  scale_fill_grey()+
+  ggthemes::theme_few()
+ggplot(d.pri,aes(as.factor(strat),priority))+geom_boxplot()+ggthemes::theme_few()
 
 gruber<-brm(MGT_Cc~MGT_Hm*as.factor(strat),data=d)
 gruberII<-brm(MGT_Cc~type*as.factor(strat),data=d)

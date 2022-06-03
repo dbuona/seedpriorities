@@ -16,8 +16,9 @@
  \evensidemargin -0.04cm 
  \textwidth 16.59cm
  \textheight 21.94cm 
- \parskip 7.2pt 
-\renewcommand{\baselinestretch}{1.2} 	
+ \parskip 6.2pt 
+\renewcommand{\baselinestretch}{1.3} 
+\AtBeginEnvironment{thebibliography}{\linespread{1}\selectfont}
 \parindent 0pt
 \renewcommand{\thetable}{S\arabic{table}}
 \renewcommand{\thefigure}{S\arabic{figure}}
@@ -26,7 +27,6 @@
 \usepackage{xr-hyper}
 \usepackage{hyperref}
 \externaldocument{invasive}
-\pagenumbering{gobble}
 \title{Supporting Information: Seedling competition between a native %Honewort (\textit{Cryptotaenia canadensis}) 
 and an invasive %Dame's Rocket (\textit{Hesperis matronalis}) 
 woodland herb is mediated by relative germination timing}
@@ -38,40 +38,38 @@ woodland herb is mediated by relative germination timing}
 
 \maketitle
 \section*{Tables}
-
+%\begin{table}[hp]
+%\centering
+%\begin{tabular}{|l|l|l|}
+%\hline
+%species & seed source & status  \\
+%\hline
+%\textit{Anemone virginiana} & Prairie Moon & native  \\
+%\textit{Asclepias syriaca} & Toadshade & native  \\
+%\textit{Carex grayi} & Prairie Moon & native  \\
+%\textit{Cryptotaenia canadensis} & Prairie Moon & native  \\
+%\textit{Eurybia divaricata} & Toadshade & native  \\
+%\textit{Hesperis matronalis} & American Meadows & invasive  \\
+%\textit{Oenethera biennis} & Toadshade & native  \\
+%\textit{Persicaria virginiana} & Prairie Moon & native  \\
+%\textit{Silene stellata} & Prairie Moon & native  \\
+%\textit{Silene vulgaris} & wild collected & invasive  \\
+%\textit{Thalictrum diocicum} & Prairie Moon & native  \\
+%\hline
+%\end{tabular}
+%\caption{Species information for germination assays. Seed were sourced from a) Prairie Moon Nursery, Winona, MN b) Toadshade Wildflower Farm, Frenchtown, NJ, c) American Meadows, Shelburne VT, or d) wild collected in unmanaged sections of the Arnold Arboretum, Boston MA. }
+%\label{tab:specs}
+%\end{table}
 \begin{table}[hp]
 \centering
-\begin{tabular}{|l|l|l|}
-\hline
-species & seed source & status  \\
-\hline
-\textit{Anemone virginiana} & Prairie Moon & native  \\
-\textit{Asclepias syriaca} & Toadshade & native  \\
-\textit{Carex grayi} & Prairie Moon & native  \\
-\textit{Cryptotaenia canadensis} & Prairie Moon & native  \\
-\textit{Eurybia divaricata} & Toadshade & native  \\
-\textit{Hesperis matronalis} & American Meadows & invasive  \\
-\textit{Oenethera biennis} & Toadshade & native  \\
-\textit{Persicaria virginiana} & Prairie Moon & native  \\
-\textit{Silene stellata} & Prairie Moon & native  \\
-\textit{Silene vulgaris} & wild collected & invasive  \\
-\textit{Thalictrum diocicum} & Prairie Moon & native  \\
-\hline
-\end{tabular}
-\caption{Species information for germination assays. Seed were sourced from a) Prairie Moon Nursery, Winona, MN b) Toadshade Wildflower Farm, Frenchtown, NJ, c) American Meadows, Shelburne VT, or d) wild collected in unmanaged sections of the Arnold Arboretum, Boston MA. }
-\label{tab:specs}
-\end{table}
-
-\begin{table}[hp]
-\centering
-\begin{tabular}{|rr|ll|ll|}
+\begin{tabular}{|rr|cc|ll|}
    \hline
      & & Max germination (\%) & &
-   Mean germination time (days) & \\ 
+   Mean germination days & \\ 
   \hline
-  Stratification & Incubation  & C. canadensis & H. matronalis & C. canadensis & H. matronalis \\ 
+  Strat. & Inc.  & C. canadensis & H. matronalis & C. canadensis & H. matronalis \\ 
   \hline
-0 & H & 0.07 (0.1) & 0.78 (0) & 15.25 (0 & 3.11 (0.6) \\ 
+0 & H & 0.07 (0.1) & 0.78 (0) & 15.25 (0) & 3.11 (0.6) \\ 
   & L & 0 (0) & 0.75 (0.1) & --- & 4.59 (0.7) \\ 
    \hline
  2 & H & 0.03 (0) & 1 (0) & 9 (1) & 2.3 (0.1) \\ 
@@ -102,7 +100,7 @@ species & seed source & status  \\
  & L & 1 (0) & 0.98 (0 & 4.16 (0.2) & 1.42 (0.3) \\ 
    \hline
 \end{tabular}
-\caption{Final germination percentages and mean germination time for focal species under all experimental treatment combination. Incubation levels (H/L) indicate mean temperature treatments of 20$^\circ$C or 15$^\circ$C respectively and stratifcation level indicates the number of weeks of cold stratification at 4$^\circ$C.}
+\caption{Final germination percentages and mean germination time for focal species under all experimental treatment combination. Incubation levels (Inc. H/L) indicate mean temperature treatments of 20$^\circ$C or 15$^\circ$C respectively and stratifcation level (strat.) indicates the number of weeks of cold stratification at 4$^\circ$C.}
 \label{tab:germcomps}
 \end{table}
 
@@ -124,12 +122,12 @@ Intercept & 2.59 & 0.25 & 2.10 & 2.41 & 2.76 & 3.09 \\
 
 \pagebreak
 \section*{Figures}
-\begin{figure}[hp]
-    \centering
-\includegraphics[width=\textwidth]{..//figure/AFTall.jpeg}
-   \caption{Estimated effect of weeks of cold stratification at 4$^\circ$C on the time to 50\% germination of 11 herbacious perennials under cool and warm (20/10$^\circ$C vs. 25/15$^\circ$C day/night) incubation conditions. The solid lines indicate the mean estimate, while lighter line indicate uncertainty.} 
-   \label{fig:AFTall}
-\end{figure}
+%\begin{figure}[hp]
+%    \centering
+%\includegraphics[width=\textwidth]{..//figure/AFTall.jpeg}
+%   \caption{Estimated effect of weeks of cold stratification at 4$^\circ$C on the time to 50\% germination of 11 herbacious perennials under cool and warm (20/10$^\circ$C vs. 25/15$^\circ$C day/night) incubation conditions. The solid lines indicate the mean estimate, while lighter line indicate uncertainty.} 
+%   \label{fig:AFTall}
+%\end{figure}
 
 \begin{figure}[hp]
     \centering
