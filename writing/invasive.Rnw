@@ -33,7 +33,7 @@
 and an invasive %Dame's Rocket (\textit{Hesperis matronalis}) 
 woodland herb is mediated by cold stratification}
 
-\author{D.M. Buonaiuto $^{1,2,,3a}$, E.M. Wolkovich$^{2,3,4}$}
+\author{D.M. Buonaiuto $^{1,2,3a}$, E.M. Wolkovich$^{2,3,4}$}
 \date{}
 \begin{document}
 \SweaveOpts{concordance=TRUE}
@@ -47,14 +47,23 @@ $^a$Corresponding author: 617.823.0687; dbuonaiuto@umass.edu\\
 
 \pagebreak
 \section*{Abstract}
-Invasive plant species are often characterized by rapid germination and precocious phenology. Theory suggests that early germination may provide invaders with a significant competitive advantage over slower germinating natives, but the relative contribution of rapid germination vs. other intrinsic competitive traits to the success of plant invaders is poorly understood. Depending on the relationship between germination timing and competition, shifts in germination phenology due to climate change may either increase the dominance of invaders or buffer native communities against their impacts. %Predicting invasion dynamics and the structure and function of plant communities of the future requires clarifying the relationship between climate variability, phenology and competitive outcomes.
+\begin{enumerate}
+\item Invasive plant species are often characterized by rapid germination and precocious phenology. Theory suggests that early germination may provide invaders with a significant competitive advantage over slower germinating natives, but the relative contribution of rapid germination vs. other intrinsic competitive traits to the success of plant invaders is poorly understood. Depending on the relationship between germination timing and competition, shifts in germination phenology due to climate change may either increase the dominance of invaders or buffer native communities against their impacts. %Predicting invasion dynamics and the structure and function of plant communities of the future requires clarifying the relationship between climate variability, phenology and competitive outcomes.
 
-We evaluated the link between temperature variation, germination phenology and competitive interactions with a sequence of controlled environment experiments. First, we evaluated how variation in cold stratification and growing temperatures impacted the relative germination phenology of of two herbaceous woodland species, the invasive \textit{Hesperis matronalis} and native \textit{Cryptotaenia canadensis}. We then leveraged temperature-response differences to manipulate the relative germination phenology of these taxa and quantified the effects of their phenological differences on competitive outcomes.
+\item We evaluated the link between temperature variation, germination phenology and competitive interactions with a sequence of controlled environment experiments. First, we evaluated how variation in cold stratification and growing temperatures impacted the relative germination phenology of of two herbaceous woodland species, the invasive \textit{Hesperis matronalis} and native \textit{Cryptotaenia canadensis}. We then leveraged temperature-response differences to manipulate the relative germination phenology of these taxa and quantified the effects of their phenological differences on competitive outcomes.
 
-We found that precocious germination phenology doubled the competitive impact of \textit{H. matronalis} relative to its other intrinsic competitive traits, and that phenological advances of just two-three days relative to \textit{C. canadensis} were enough to secure competitive dominance at the seedling stage. %The germination phenology of most native species in our study was strongly associated with cold stratification. 
-The strong temperature dependence of the competition dynamics we observed suggest that global warming will likely increase the phenological advantage of rapidly germinating invaders due to the stronger effects of temperature variation on the phenology of native plants compared with their invasive competitors.
+\item In germination assays, seeds of \textit{Hesperis matronalis} germinated rapidly, reaching 50\% germination in under ten days under all temperature treatment combinations.\textit{Cryptotaenia candensis} did not reach 50\% germination with less than seven weeks of cold stratification, but with more than 10 weeks of cold stratification and low (20/10\degree C) incubation temperatures the germination phenology of \textit{C. canadensis} was well matched to that of \textit{H. matronalis}, suggestion that cold stratification strongly mediated phenological differences between the species.
 
-Through leveraging unique species-level responses to environmental change, our experiments constrained the magnitude of variation in phenological differences among competitors to biological realistic scenarios and allowed us to robustly estimate seasonal priority effects on plant competition in a way that is readily translatable to climate change forecasting. Through linking environmental variation to patterns of germination phenology and seasonal priority effects, our study has important implications for how climate change will re-organize community patterns of germination phenology and plant community interactions in the decades to come.
+\item When grown together in competition under contrasting stratification regimes, we found that precocious germination phenology doubled the competitive impact of \textit{H. matronalis} relative to its other intrinsic competitive traits, and that phenological advances of just two-three days relative to \textit{C. canadensis} were enough to secure competitive dominance at the seedling stage. %The germination phenology of most native species in our study was strongly associated with cold stratification. 
+%The strong temperature dependence of the competition dynamics we observed suggest that global warming will likely increase the phenological advantage of rapidly germinating invaders due to the stronger effects of temperature variation on the phenology of native plants compared with their invasive competitors.
+%work on below
+\item \textit{Synthesis and applications.} This study revealed that the mechanistic link between germination phenology of invasive plants and their competitive success can be strongly mediated by sensitivity differences to climatic variation between introduced and natives species. Warming conditions will likely exacerbate these differences, increasing the seasonal priority effects that rapidly germinating species 
+
+manage for early phenolgoy and inlucde in restoration stock
+
+revealed a mechanistic link between environmental variation, germination phenology and competition, suggesting that climate-change mediated phenological shifts will re-organize patterns of species interactions in the decades to come. Through leveraging unique species-level responses to environmental change, our experiments constrained the magnitude of variation in phenological differences among competitors to biological realistic scenarios and allowed us to robustly estimate seasonal priority effects on plant competition in a way that is readily translatable to climate change forecasting. O
+\end{enumerate}
+%319 words
 
 Keywords: competition, climate change, germination, invasion, phenology, priority effects, stratification
 
