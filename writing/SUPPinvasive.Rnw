@@ -11,13 +11,13 @@
 %\setlength{\captionmargin}{30pt}
 \setlength{\abovecaptionskip}{10pt}
 \setlength{\belowcaptionskip}{10pt}
- \topmargin -1.5cm 
+ \topmargin -1cm 
  \oddsidemargin -0.04cm 
  \evensidemargin -0.04cm 
  \textwidth 16.59cm
  \textheight 21.94cm 
  \parskip 6.2pt 
-\renewcommand{\baselinestretch}{1.3} 
+\renewcommand{\baselinestretch}{1.2} 
 \AtBeginEnvironment{thebibliography}{\linespread{1}\selectfont}
 \parindent 0pt
 \renewcommand{\thetable}{S\arabic{table}}
@@ -33,8 +33,6 @@ woodland herb is mediated by relative germination timing}
 \date{}
 \begin{document}
 \SweaveOpts{concordance=TRUE}
-
-
 \maketitle
 \section*{Tables}
 %\begin{table}[hp]
@@ -99,9 +97,11 @@ woodland herb is mediated by relative germination timing}
  & L & 1 (0) & 0.98 (0 & 4.16 (0.2) & 1.42 (0.3) \\ 
    \hline
 \end{tabular}
-\caption{Final germination percentages and mean germination time for focal species under all experimental treatment combination. Incubation levels (Inc. H/L) indicate mean temperature treatments of 20$^\circ$C or 15$^\circ$C respectively and stratifcation level (strat.) indicates the number of weeks of cold stratification at 4$^\circ$C.}
+\caption{Final germination percentages and mean germination time for focal species under all experimental treatment combination. Incubation levels (Inc.) indicate mean temperature treatments of 20$^\circ$C (H) or 15$^\circ$C (L) respectively and stratifcation level (strat.) indicates the number of weeks of cold stratification at 4$^\circ$C.}
 \label{tab:germcomps}
 \end{table}
+
+\pagebreak[4]
 
 \begin{table}[hp]
 \centering
@@ -110,16 +110,17 @@ woodland herb is mediated by relative germination timing}
  & Estimate & Est.Error & Q2.5 & Q25 & Q75 & Q97.5 \\ 
   \hline
 Intercept & 2.59 & 0.25 & 2.10 & 2.41 & 2.76 & 3.09 \\ 
-  n\_Cc & -0.41 & 0.03 & -0.47 & -0.43 & -0.38 & -0.34 \\ 
-  n\_Hm & 0.12 & 0.03 & 0.07 & 0.11 & 0.14 & 0.17 \\ 
+  $n_{Cc}$ & -0.41 & 0.03 & -0.47 & -0.43 & -0.38 & -0.34 \\ 
+  $n_{Hm}$ & 0.12 & 0.03 & 0.07 & 0.11 & 0.14 & 0.17 \\ 
   priority & 0.15 & 0.03 & 0.08 & 0.13 & 0.17 & 0.21 \\ 
    \hline
 \end{tabular}
-\caption{Effect size estimates from relative growth rate difference (RGRD) models with 50\% and 95\% uncertainty intervals}
+\caption{Mean effect size estimates of adding an additional individual of \textit{C. canadensis} (n$_{Cc}$), \textit{H. matronalis} (n$_{Hm}$), and one day difference in germination time between the two species in competition plots on relative growth rate difference (RGRD), with 50\% and 95\% uncertainty intervals.}
 \label{tab:RGRD}
 \end{table}
 
-\pagebreak
+\pagebreak[4]
+
 \section*{Figures}
 %\begin{figure}[hp]
 %    \centering

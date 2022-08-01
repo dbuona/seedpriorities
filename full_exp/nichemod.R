@@ -84,6 +84,6 @@ plotaa<-ggpubr::ggarrange(aplot,bplot,common.legend=TRUE,labels =c( "a)","b)"))
 ggpubr::ggarrange(plotaa,c,nrow=2,labels=c("","c)"))
 
 
-jpeg("..//figure/nichemodfication.jpeg",width = 4,height=6, units="in",res=200)
+jpeg("..//figure/nichemodfication.jpeg",width = 4,height=4, units="in",res=200)
 plotaa
 dev.off()  

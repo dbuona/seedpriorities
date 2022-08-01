@@ -176,11 +176,11 @@ plot1<-ggplot(output,aes(y = var, x = Estimate)) +
   stat_halfeye(aes(fill=winner),.width=c(.9),alpha=0.6)+ggthemes::theme_few()+
   geom_vline(xintercept=0,linetype="dashed")+
   scale_y_discrete(limits=c("b_priority","b_n_Cc","b_n_Hm"),labels=c("Priority effect", expression(paste("Influence ", italic(" C. canadensis"))),expression(paste("Influence", italic(" H. matronalis")))))+
-  scale_fill_viridis_d(begin=0,end=.5)+theme(legend.position = "none")+ylab("")+xlim(-0.6,0.6)+annotate("text",x=-.15,y=.5,label=expression(paste(italic("C. canadensis") ," favored")))+
-  annotate("text",x=.15,y=.5,label=expression(paste(italic("H. matronalis") ," favored")))+
-  annotate("segment", x = -0.6, xend = -0.3, y = .5, yend = .5,
+  scale_fill_viridis_d(begin=0,end=.5)+theme(legend.position = "none")+ylab("")+xlim(-0.6,0.6)+annotate("text",x=-.3,y=.5,label=expression(paste(italic("C. canadensis") ," (native) favored")))+
+  annotate("text",x=.3,y=.5,label=expression(paste(italic("H. matronalis") ," (invasive) favored")))+
+  annotate("segment", x = -0.6, xend = -0.5, y = .5, yend = .5,
            arrow = arrow(ends = "first", length = unit(.2,"cm")))+
-  annotate("segment", x = 0.3, xend = 0.6, y = .5, yend = .5,
+  annotate("segment", x = 0.5, xend = 0.6, y = .5, yend = .5,
            arrow = arrow(ends = "last", length = unit(.2,"cm")))
 
 jpeg("..//figure/mu_plots.jpeg",width = 10,height=5, units="in",res=200)
