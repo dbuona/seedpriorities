@@ -1,0 +1,37 @@
+
+\documentclass[11.5 pt]{article}
+\usepackage[margin=1.2in]{geometry}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{gensymb}
+%\begin{footnotesize}
+%\address{1300 Centre Street \\ Boston, MA, 20131}
+%\end{footnotesize}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\bibliographystyle{..//refs/styles/besjournals.bst}
+\def\labelitemi{--}
+\parindent=24pt
+\noindent\includegraphics[width=0.2\textwidth]{/Users/danielbuonaiuto/Desktop/AA_logo.jpg}
+\pagenumbering{gobble}
+\\\\
+\noindent{Dear Dr. ,}\\
+\vspace{1.5ex}
+
+\noindent Please consider this manuscript, ``Seedling competition between a native and an invasive  
+woodland herb is mediated by cold stratification", as a research article in \textit{Journal of Applied Ecology}.\\
+
+As human move organisms around the globe at unprecedented rates, the question  \textit{Which traits facilitate the success of invasive species?} is critical to their detection and management \citep{}. Rapid germination and precocious phenology are traits common to many invasive plant species that have received substantial attention because rapid phenology can serve as a seasonal priority effect, providing invaders with a competitive advantage over slower-germinating natives \citep{}. However the relative contribution of rapid germination vs. other intrinsic competitive traits to the success of plant invaders is poorly understood. Further, in many seasonal ecosystems, seasonal priority effects are controlled by climate variation, suggesting that shifts in germination phenology due to climate change may alter early season competitive dynamics \citep{}.
+
+To address these questions, we performed multiple controlled environment experiments in which we first evaluated how climate variation impacted the germination behavior of two herbaceous woodland species---one invasive to North America and one native---and then leveraged these differences to manipulate the relative germination phenology of these taxa to quantify the effects of phenological differences on competitive outcomes. W found that precocious germination doubled the competitive impact of the invader relative to its other intrinsic competitive traits, and that phenological advances of just two-three days relative to its native competitor were enough to secure competitive dominance at the seedling stage.
+
+While a number of previous studies have established the importance of seasonal priority effects through sowing competing species at different time intervals \citep{}, the novelty of our experiment is that we we manipulate the relative germination timing our focal species through varying climate treatments. With this approach we mechanistically link climate variation, phenology and competitive dynamics, which advances previous approaches because it can be directly translated into forecasting patterns of phenological assembly with climate change. These results and conceptual advance have potential to impact a number of ecological applications from the management and restoration of communities to conservation planning.
+
+\noindent The main text of this manuscript is X words in length and it contains three figures. It is co-authored by E.M. Wolkovich, and is not under consideration elsewhere. We hope that you will find it suitable for publication in \textit{Journal of Applied Ecology}, and look forward to hearing from you.\\\\ 
+\\Sincerely,\\\\\\\\\\
+
+\noindent Daniel Buonaiuto\\
+
+
+\end{document}
