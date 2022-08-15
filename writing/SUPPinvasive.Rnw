@@ -97,7 +97,7 @@ woodland herb is mediated by relative germination timing}
  & L & 1 (0) & 0.98 (0 & 4.16 (0.2) & 1.42 (0.3) \\ 
    \hline
 \end{tabular}
-\caption{Final germination percentages and mean germination time for focal species under all experimental treatment combination. Incubation levels (Inc.) indicate mean temperature treatments of 20$^\circ$C (H) or 15$^\circ$C (L) respectively and stratifcation level (strat.) indicates the number of weeks of cold stratification at 4$^\circ$C.}
+\caption{Final germination percentages and mean germination time for focal species under all experimental treatment combinations. Incubation levels (Inc.) indicate mean temperature treatments of 20$^\circ$C (H) or 15$^\circ$C (L) respectively and stratification level (strat.) indicates the number of weeks of cold stratification at 4$^\circ$C.} %EMWAug2022: What is in parentheses? (And why is this not generated in R)?
 \label{tab:germcomps}
 \end{table}
 
