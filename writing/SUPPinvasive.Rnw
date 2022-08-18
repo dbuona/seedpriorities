@@ -27,9 +27,8 @@
 \usepackage{xr-hyper}
 \usepackage{hyperref}
 \externaldocument{invasive}
-\title{Supporting Information: Seedling competition between a native %Honewort (\textit{Cryptotaenia canadensis}) 
-and an invasive %Dame's Rocket (\textit{Hesperis matronalis}) 
-woodland herb is mediated by relative germination timing}
+\title{Supporting Information: Phenological responses to climate mediate seedling competition with
+an invasive woodland herb}
 \date{}
 \begin{document}
 \SweaveOpts{concordance=TRUE}
