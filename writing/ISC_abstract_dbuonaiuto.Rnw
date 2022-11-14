@@ -1,0 +1,61 @@
+\documentclass{article}[11pt]
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{natbib}
+
+
+\usepackage{array}
+\usepackage{amsmath}
+%\usepackage[backend=bibtex]{biblatex}
+\bibliographystyle{..//refs/styles/besjournals.bst}
+\setkeys{Gin}{width=0.8\textwidth}
+%\setlength{\captionmargin}{30pt}
+\setlength{\abovecaptionskip}{10pt}
+\setlength{\belowcaptionskip}{10pt}
+\usepackage[margin=1in,headsep=.1in]{geometry}
+ \textwidth 16.59cm
+ \textheight 21.94cm 
+ \parskip 7.2pt 
+\renewcommand{\baselinestretch}{1}
+\AtBeginEnvironment{thebibliography}{\linespread{1}\selectfont}
+\parindent 0pt
+\usepackage{lineo}
+%\linenumbers % for dissertation
+%\pagenumbering{gobble}% for dissertation
+%\usepackage{xr}
+\usepackage{xr-hyper}
+\usepackage{hyperref}
+\externaldocument{SUPPinvasive}
+
+
+\date{}
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+Title: Phenological responses to climate mediate seedling competition with
+an invasive woodland herb
+
+
+Authors: \textbf{D.M. Buonaiuto} $^{1,2,3a}$, E.M. Wolkovich$^{2,3,4}$
+
+\noindent \emph{Author affiliations:}\\
+\noindent $^1$Department of Environmental Conservation, University of Massachusetts, Amherst, Massachusetts, USA. \\
+\noindent $^2$Arnold Arboretum of Harvard University, Boston, Massachusetts, USA.\\
+$^3$Department of Organismic and Evolutionary Biology, Harvard University, Cambridge, Massachusetts, USA \\
+$^4$Forest \& Conservation Sciences, Faculty of Forestry, University of British Columbia, Vancouver, British Columbia, Canada\\
+$^a$Corresponding author: 617.823.0687; dbuonaiuto@umass.edu
+
+\textbf{Abstract:}\\
+ Invasive plants are often characterized by rapid germination and precocious phenology. Theory suggests that early germination may provide invaders with competitive advantage over slower germinating natives, but the relative contribution of rapid germination vs. other intrinsic competitive traits to the success of invaders is poorly understood. Depending on the relationship between germination and competition, shifts in germination phenology due to climate change may increase the dominance of invaders or buffer communities against their impacts. %Predicting invasion dynamics and the structure and function of plant communities of the future requires clarifying the relationship between climate variability, phenology and competitive outcomes.
+
+We investigated the link between temperature variation, germination phenology and competitive interactions with a sequence of controlled environment experiments. First, we evaluated the relationships between temperature variation and germination phenology for two North American herbaceous species, the invasive \textit{Hesperis matronalis} and native \textit{Cryptotaenia canadensis}. We then leveraged temperature-response differences to manipulate the relative germination phenology of these taxa and quantified the effects of their phenological differences on competition.
+
+Seeds of the invasive \textit{H. matronalis} germinated rapidly, reaching 50\% germination in under ten days in all treatment combinations.\textit{C. candensis} did not reach 50\% germination with less than seven weeks of cold stratification. However, with more than 10 weeks of cold stratification and low (20/10$^{\circ}$C) incubation temperatures, the germination phenology of \textit{C. canadensis} was well matched to that of \textit{H. matronalis}. When grown together, we found that precocious germination phenology doubled the competitive impact of \textit{H. matronalis} relative to its other intrinsic competitive traits. Phenological advantage of just two-three days relative to \textit{C. canadensis} was enough to secure competitive dominance at the seedling stage. 
+
+%The germination phenology of most native species in our study was strongly associated with cold stratification. 
+%The strong temperature dependence of the competition dynamics we observed suggest that global warming will likely increase the phenological advantage of rapidly germinating invaders due to the stronger effects of temperature variation on the phenology of native plants compared with their invasive competitors.
+%work on below
+This study revealed that the mechanistic link between the germination phenology and competitive success of an invasive plant can be strongly mediated by climate sensitivity differences between introduced and native species. Climate change will likely exacerbate these differences, especially in regions where warming reduces the cold stratification. Our findings suggest that phenological diversity in native plant communities is an important property of invasion resistance. The relationship between environmental variation, germination dynamics and competition provide a path forward for forecasting climate change impacts on seasonal community assembly, and highlights the need to incorporate phenological diversity in restorations.
+
+\textbf{Preferred Topic Session:} Climate Change
+
+\end{document}
