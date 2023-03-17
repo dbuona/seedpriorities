@@ -1,7 +1,8 @@
-\documentclass{article}
+\documentclass{article}[11pt]
 \usepackage{graphicx}
 \usepackage{tabularx}
 \usepackage{natbib}
+
 
 \usepackage{array}
 \usepackage{amsmath}
@@ -11,52 +12,81 @@
 %\setlength{\captionmargin}{30pt}
 \setlength{\abovecaptionskip}{10pt}
 \setlength{\belowcaptionskip}{10pt}
- \topmargin -1cm 
+ \topmargin -1.5cm 
  \oddsidemargin -0.04cm 
  \evensidemargin -0.04cm 
  \textwidth 16.59cm
  \textheight 21.94cm 
- \parskip 6.2pt 
-\renewcommand{\baselinestretch}{1.2} 
+ \parskip 7.2pt 
+\renewcommand{\baselinestretch}{1.1}
 \AtBeginEnvironment{thebibliography}{\linespread{1}\selectfont}
 \parindent 0pt
-\renewcommand{\thetable}{S\arabic{table}}
-\renewcommand{\thefigure}{S\arabic{figure}}
+\usepackage{lineno}
+%\linenumbers % for dissertation
+%\pagenumbering{gobble}% for dissertation
 %\usepackage{xr}
-%\usepackage{hyperref}
 \usepackage{xr-hyper}
 \usepackage{hyperref}
+
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
 \externaldocument{invasive}
 \externaldocument{JoE_rev_resp_parII}
-\title{Supporting Information: Contrasting responses to climate variablity generate strong seasonal priority effects in determining the outcomes of competition amoung native and invasive forest herbs}
+\title{Supporting Information: Contrasting responses to climate variability generate seasonal priority effects between native and invasive forest herbs}
 \date{}
 \usepackage{Sweave}
 \begin{document}
 \input{SUPPinvasive-concordance}
 \maketitle
+\pagebreak
 \section*{Tables}
-%\begin{table}[hp]
-%\centering
-%\begin{tabular}{|l|l|l|}
-%\hline
-%species & seed source & status  \\
-%\hline
-%\textit{Anemone virginiana} & Prairie Moon & native  \\
-%\textit{Asclepias syriaca} & Toadshade & native  \\
-%\textit{Carex grayi} & Prairie Moon & native  \\
-%\textit{Cryptotaenia canadensis} & Prairie Moon & native  \\
-%\textit{Eurybia divaricata} & Toadshade & native  \\
-%\textit{Hesperis matronalis} & American Meadows & invasive  \\
-%\textit{Oenethera biennis} & Toadshade & native  \\
-%\textit{Persicaria virginiana} & Prairie Moon & native  \\
-%\textit{Silene stellata} & Prairie Moon & native  \\
-%\textit{Silene vulgaris} & wild collected & invasive  \\
-%\textit{Thalictrum diocicum} & Prairie Moon & native  \\
-%\hline
-%\end{tabular}
-%\caption{Species information for germination assays. Seed were sourced from a) Prairie Moon Nursery, Winona, MN b) Toadshade Wildflower Farm, Frenchtown, NJ, c) American Meadows, Shelburne VT, or d) wild collected in unmanaged sections of the Arnold Arboretum, Boston MA. }
-%\label{tab:specs}
-%\end{table}
+\begin{table}[hp]
+\centering
+\begin{tabular}{|r|l|c|}
+  \hline
+ Rank & Taxon & percent overlap of occurrence \\ 
+  \hline
+1 & Impatiens capensis & 0.50 \\ 
+  2 & Geum canadense & 0.48 \\ 
+  3 & Verbesina alternifolia & 0.43 \\ 
+  4 & Polygonum virginianum & 0.40 \\ 
+  5 & Solidago rugosa & 0.33 \\ 
+  6 & Boehmeria cylindrica & 0.32 \\ 
+  7 & Viola sororia & 0.32 \\ 
+  8 & Circaea lutetiana & 0.25 \\ 
+  \hline
+  \textbf{9} & \textbf{Cryptotaenia canadensis} & \textbf{0.24} \\ 
+  \hline
+  10 & Oxalis dillenii & 0.24 \\ 
+  11 & Polystichum acrostichoides & 0.23 \\ 
+  12 & Solidago gigantea & 0.23 \\ 
+  13 & Oxalis stricta & 0.22 \\ 
+  14 & Onoclea sensibilis & 0.21 \\ 
+  15 & Eurybia divaricata & 0.20 \\ 
+  16 & Lycopus virginicus & 0.20 \\ 
+  17 & Verbesina occidentalis & 0.20 \\ 
+  18 & Arisaema triphyllum & 0.19 \\ 
+  19 & Circaea lutetiana ssp. canadensis & 0.18 \\ 
+  20 & Potentilla simplex & 0.18 \\ 
+  21 & Prunella vulgaris & 0.17 \\ 
+  22 & Hypericum mutilum & 0.16 \\ 
+  23 & Packera aurea & 0.16 \\ 
+  24 & Ageratina altissima var. altissima & 0.15 \\ 
+  25 & Ambrosia artemisiifolia & 0.15 \\ 
+  26 & Eutrochium purpureum & 0.15 \\ 
+  27 & Hackelia virginiana & 0.15 \\ 
+  28 & Laportea canadensis & 0.15 \\ 
+  29 & Pilea pumila & 0.15 \\ 
+
+   \hline
+\end{tabular}
+\caption{Percent of vegetation survey plots in which \emph{Hesperis matronalis} is found co-occurring with native forbs species. \emph{Cryptotaenia candensis}, is the 9th most common native forb ti found with \emph{H. matronalis} in the eastern United States, occurring in 24\% of the plots invaded by \emph{H. matronalis}. The data presented here was calculated from \citet{Petri:2022tp}. 463 native forb species co-occur with  \emph{H. matronalis}---we only present species with 15\% or greater co-occurrences here. } 
+\label{tab:occoverlap}
+\end{table}
+
+
+
 \begin{table}[hp]
 \centering
 \begin{tabular}{|rr|cc|ll|}
@@ -137,6 +167,10 @@ Intercept & 2.59 & 0.25 & 2.10 & 2.41 & 2.76 & 3.09 \\
 \end{figure}
 
 \pagebreak
+\section*{Co-occurence of focal species}
+
+To assess how frequently our focal species co-occur in nature, we queried\linelabel{occ1a}  a recently published database of more than 80,000 plant community survey plots conducted federal and state agencies \citep{Petri:2022tp} and found that of the 136 research plots invaded by \emph{H. matronalis}, \emph{C. canadensis} was present at 24\%, suggesting interactions between these species in the wild are common, meeting our second criteria of species\linelabel{occ2a} selection.
+
 
 \section*{Measures of germination speed}
 There are important differences between time to 50\% germination (t50) and mean germination time (MGT) that make one or the other more appropriate for the two types of experiments we ran. t50 is an estimate of the time to 50\% germination of all seeds planted, while mean germinating time (MGT) is a measure of the time to 50\% germination of only individuals that actually germinated \citep{Soltani:2015aa}. In comparative germination assays, t50 is considered a better metric because it standardizes phenological estimates across variable germination fractions. In our competition trials, we only wanted to estimate the phenology of individuals that germinated, so we used MGT as our measure of germination phenology. Because MGT is sensitive to the final germination fraction, it is not surprising the MGT measurements in the competition trials  were lower than the t50 estimates in the germination assays.
