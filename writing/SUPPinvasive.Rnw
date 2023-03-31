@@ -80,10 +80,10 @@
 
    \hline
 \end{tabular}
-\caption{Percent of vegetation survey plots in which \emph{Hesperis matronalis} is found co-occurring with native forbs species. \emph{Cryptotaenia candensis}, is the 9th most common native forb ti found with \emph{H. matronalis} in the eastern United States, occurring in 24\% of the plots invaded by \emph{H. matronalis}. The data presented here was calculated from \citet{Petri:2022tp}. 463 native forb species co-occur with  \emph{H. matronalis}---we only present species with 15\% or greater co-occurrences here. } 
+\caption{Percent of vegetation survey plots in which invasive \emph{Hesperis matronalis} is found co-occurring with native forb species (`Taxon'). These results show that \emph{Cryptotaenia candensis} is the 9th most common native forb to found with \emph{H. matronalis} in the eastern United States, occurring in 24\% of the plots invaded by \emph{H. matronalis}. The data presented here was calculated from \citet{Petri:2022tp}. 463 native forb species co-occur with  \emph{H. matronalis}---we only present species with 15\% or greater co-occurrences here. } 
 \label{tab:occoverlap}
 \end{table}
-
+%emwmar31 -- Can you italicize species names? Check my edits to caption also. 
 
 
 \begin{table}[hp]
@@ -168,7 +168,7 @@ Intercept & 2.59 & 0.25 & 2.10 & 2.41 & 2.76 & 3.09 \\
 \pagebreak
 \section*{Co-occurence of focal species}
 
-To assess how frequently our focal species co-occur in nature, we queried\linelabel{occ1a}  a recently published database of more than 80,000 plant community survey plots conducted federal and state agencies \citep{Petri:2022tp} and found that of the 136 research plots invaded by \emph{H. matronalis}, \emph{C. canadensis} was present at 24\%, suggesting interactions between these species in the wild are common, meeting our second criteria of species\linelabel{occ2a} selection.
+To assess how frequently our focal species co-occur in nature, we queried\linelabel{occ1a}  a recently published database of more than 80,000 plant community survey plots conducted federal and state agencies \citep{Petri:2022tp} and found that of the 136 research plots invaded by \emph{H. matronalis}, \emph{C. canadensis} was present at 24\%, suggesting interactions between these species in the wild are common, meeting our second criteria of species\linelabel{occ2a} selection. To put this number in context we compared it with all other native forb species (TABLE REF), and found this value is quite high (9th highest) compared to all other native forb species co-occurrence rates (with none above 50\%). %emwmar31 -- check my edits here and add table ref. 
 
 
 \section*{Measures of germination speed}
