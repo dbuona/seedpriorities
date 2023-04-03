@@ -46,37 +46,37 @@
   \hline
  Rank & Taxon & percent overlap of occurrence \\ 
   \hline
-1 & Impatiens capensis & 0.50 \\ 
-  2 & Geum canadense & 0.48 \\ 
-  3 & Verbesina alternifolia & 0.43 \\ 
-  4 & Polygonum virginianum & 0.40 \\ 
-  5 & Solidago rugosa & 0.33 \\ 
-  6 & Boehmeria cylindrica & 0.32 \\ 
-  7 & Viola sororia & 0.32 \\ 
-  8 & Circaea lutetiana & 0.25 \\ 
+1 & \emph{Impatiens capensis} & 0.50 \\ 
+  2 & \emph{Geum canadense} & 0.48 \\ 
+  3 & \emph{Verbesina alternifolia} & 0.43 \\ 
+  4 & \emph{Polygonum virginianum} & 0.40 \\ 
+  5 & \emph{Solidago rugosa} & 0.33 \\ 
+  6 & \emph{Boehmeria cylindrica} & 0.32 \\ 
+  7 & \emph{Viola sororia} & 0.32 \\ 
+  8 & \emph{Circaea lutetiana} & 0.25 \\ 
   \hline
-  \textbf{9} & \textbf{Cryptotaenia canadensis} & \textbf{0.24} \\ 
+  \textbf{9} & \textbf{\emph{Cryptotaenia canadensis}} & \textbf{0.24} \\ 
   \hline
-  10 & Oxalis dillenii & 0.24 \\ 
-  11 & Polystichum acrostichoides & 0.23 \\ 
-  12 & Solidago gigantea & 0.23 \\ 
-  13 & Oxalis stricta & 0.22 \\ 
-  14 & Onoclea sensibilis & 0.21 \\ 
-  15 & Eurybia divaricata & 0.20 \\ 
-  16 & Lycopus virginicus & 0.20 \\ 
-  17 & Verbesina occidentalis & 0.20 \\ 
-  18 & Arisaema triphyllum & 0.19 \\ 
-  19 & Circaea lutetiana ssp. canadensis & 0.18 \\ 
-  20 & Potentilla simplex & 0.18 \\ 
-  21 & Prunella vulgaris & 0.17 \\ 
-  22 & Hypericum mutilum & 0.16 \\ 
-  23 & Packera aurea & 0.16 \\ 
-  24 & Ageratina altissima var. altissima & 0.15 \\ 
-  25 & Ambrosia artemisiifolia & 0.15 \\ 
-  26 & Eutrochium purpureum & 0.15 \\ 
-  27 & Hackelia virginiana & 0.15 \\ 
-  28 & Laportea canadensis & 0.15 \\ 
-  29 & Pilea pumila & 0.15 \\ 
+  10 & \emph{Oxalis dillenii} & 0.24 \\ 
+  11 & \emph{Polystichum acrostichoides} & 0.23 \\ 
+  12 & \emph{Solidago gigantea} & 0.23 \\ 
+  13 & \emph{Oxalis stricta} & 0.22 \\ 
+  14 & \emph{Onoclea sensibilis} & 0.21 \\ 
+  15 & \emph{Eurybia divaricata} & 0.20 \\ 
+  16 & \emph{Lycopus virginicus} & 0.20 \\ 
+  17 & \emph{Verbesina occidentalis} & 0.20 \\ 
+  18 & \emph{Arisaema triphyllum} & 0.19 \\ 
+  19 & \emph{Circaea lutetiana ssp. canadensis} & 0.18 \\ 
+  20 & \emph{Potentilla simplex} & 0.18 \\ 
+  21 & \emph{Prunella vulgaris} & 0.17 \\ 
+  22 & \emph{Hypericum mutilum} & 0.16 \\ 
+  23 & \emph{Packera aurea} & 0.16 \\ 
+  24 & \emph{Ageratina altissima var. altissima} & 0.15 \\ 
+  25 & \emph{Ambrosia artemisiifolia} & 0.15 \\ 
+  26 & \emph{Eutrochium purpureum} & 0.15 \\ 
+  27 & \emph{Hackelia virginiana} & 0.15 \\ 
+  28 & \emph{Laportea canadensis} & 0.15 \\ 
+  29 & \emph{Pilea pumila} & 0.15 \\ 
 
    \hline
 \end{tabular}
@@ -140,7 +140,7 @@
   \hline
 Intercept & 2.59 & 0.25 & 2.10 & 2.41 & 2.76 & 3.09 \\ 
   $n_{Cc}$ & -0.41 & 0.03 & -0.47 & -0.43 & -0.38 & -0.34 \\ 
-  $n_{Hm}$ & 0.12 & 0.03 & 0.07 & 0.11 & 0.14 & 0.17 \\ 
+  $n_{Hm}$ & 0.13 & 0.03 & 0.07 & 0.11 & 0.14 & 0.17 \\ 
   priority & 0.15 & 0.03 & 0.08 & 0.13 & 0.17 & 0.21 \\ 
    \hline
 \end{tabular}
@@ -168,7 +168,7 @@ Intercept & 2.59 & 0.25 & 2.10 & 2.41 & 2.76 & 3.09 \\
 \pagebreak
 \section*{Co-occurence of focal species}
 
-To assess how frequently our focal species co-occur in nature, we queried\linelabel{occ1a}  a recently published database of more than 80,000 plant community survey plots conducted federal and state agencies \citep{Petri:2022tp} and found that of the 136 research plots invaded by \emph{H. matronalis}, \emph{C. canadensis} was present at 24\%, suggesting interactions between these species in the wild are common, meeting our second criteria of species\linelabel{occ2a} selection. To put this number in context we compared it with all other native forb species (TABLE REF), and found this value is quite high (9th highest) compared to all other native forb species co-occurrence rates (with none above 50\%). %emwmar31 -- check my edits here and add table ref. 
+To assess how frequently our focal species co-occur in nature, we queried\linelabel{occ1a}  a recently published database of more than 80,000 plant community survey plots conducted through federal and state agencies \citep{Petri:2022tp} and found that of the 136 research plots invaded by \emph{H. matronalis}, \emph{C. canadensis} was present at 24\%, suggesting interactions between these species in the wild are common, meeting our second criteria of species\linelabel{occ2a} selection. To put this number in context, we compared it with all other native forb species (Tab. \ref{tab:occoverlap}), and found this value is quite high (9th highest) compared to all other native forb species co-occurrence rates (with none above 50\%). %emwmar31 -- check my edits here and add table ref. 
 
 
 \section*{Measures of germination speed}
