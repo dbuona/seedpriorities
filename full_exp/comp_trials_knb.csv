@@ -1,0 +1,11 @@
+col_name,units,description
+potnumber,NA,unique identifier for each experimental unit
+strat,weeks,"number of weeks of cold stratification the pot received, 6 or 12"
+n_Cc,integer,number of germinated Cryptotaenia canadensis seedlings
+MGT_Cc,days,mean germination time of the Cryptotaenia canadensis seedlings
+MG_Cc,miligrams,Dry above ground biomass of Cryptotaenia canadensis seedlings at harvest
+n_Hm,integer,number of germinated Hesperis matronalis seedlings
+MGT_Hm,days,mean germination time of the Hesperis matronalis seedlings
+MG_Hm,miligrams,Dry above ground biomass of Hesperis matronalis seedlings at harvest
+priority,days, mean germination time of Cryptotaenia canadensis- mean germination time of Hesperis matronalis -
+type,categorical,"""competition""= both species were planted in the pot, ""single species""=only one species was planted in the pot"
