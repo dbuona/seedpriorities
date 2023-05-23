@@ -1,0 +1,109 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: invasive_wbbl_4_JoE.aux
+The style file: ..//refs/styles/besjournals.bst
+I found no \bibdata command---while reading file invasive_wbbl_4_JoE.aux
+Warning--I didn't find a database entry for "Fukami2015"
+Warning--I didn't find a database entry for "Fukami2011"
+Warning--I didn't find a database entry for "Rudolf:2019aa"
+Warning--I didn't find a database entry for "Howe:1982aa"
+Warning--I didn't find a database entry for "Baskin:1988aa"
+Warning--I didn't find a database entry for "Gioria2018"
+Warning--I didn't find a database entry for "Gioria:2017wo"
+Warning--I didn't find a database entry for "Wolkovich:2011uh"
+Warning--I didn't find a database entry for "Smith:2013uj"
+Warning--I didn't find a database entry for "Marushia:2010ug"
+Warning--I didn't find a database entry for "Wainwright:2013tv"
+Warning--I didn't find a database entry for "Van-Clef:2001to"
+Warning--I didn't find a database entry for "Brink:2013wr"
+Warning--I didn't find a database entry for "Cavieres:2017aa"
+Warning--I didn't find a database entry for "Bradford:2007tj"
+Warning--I didn't find a database entry for "Kardol2013"
+Warning--I didn't find a database entry for "Wainwright_2011"
+Warning--I didn't find a database entry for "Dickson2012"
+Warning--I didn't find a database entry for "Milbau:2003vt"
+Warning--I didn't find a database entry for "HAO:2009vh"
+Warning--I didn't find a database entry for "Young:2017aa"
+Warning--I didn't find a database entry for "Weidlich:2020aa"
+Warning--I didn't find a database entry for "Walck2011"
+Warning--I didn't find a database entry for "Francis:2009wz"
+Warning--I didn't find a database entry for "Susko:2008ut"
+Warning--I didn't find a database entry for "Hawkins:2007vb"
+Warning--I didn't find a database entry for "Baskin:1988um"
+Warning--I didn't find a database entry for "Baskin2014"
+Warning--I didn't find a database entry for "Inouye2001"
+Warning--I didn't find a database entry for "Leckie:2000tb"
+Warning--I didn't find a database entry for "Bossuyt:2002un"
+Warning--I didn't find a database entry for "Decocq:2004tq"
+Warning--I didn't find a database entry for "ONOFRI:2010tl"
+Warning--I didn't find a database entry for "Soltani:2015aa"
+Warning--I didn't find a database entry for "Cottingham:2005ud"
+Warning--I didn't find a database entry for "Connolly2005"
+Warning--I didn't find a database entry for "kew"
+Warning--I didn't find a database entry for "Burkner2018"
+Warning--I didn't find a database entry for "Korner2008"
+Warning--I didn't find a database entry for "Ross1972"
+Warning--I didn't find a database entry for "Shriver:2017ud"
+Warning--I didn't find a database entry for "CHESSON:1993vx"
+Warning--I didn't find a database entry for "Chesson:2003ve"
+Warning--I didn't find a database entry for "Yang:2010ta"
+Warning--I didn't find a database entry for "Piao:2019wd"
+Warning--I didn't find a database entry for "KIMBALL:2010vg"
+Warning--I didn't find a database entry for "Inouye:2000ud"
+Warning--I didn't find a database entry for "Augspurger:2017vu"
+Warning--I didn't find a database entry for "Kollas:2014vn"
+Warning--I didn't find a database entry for "Ma:2019uf"
+Warning--I didn't find a database entry for "Donohue:2010uy"
+Warning--I didn't find a database entry for "Baughman:2019ty"
+Warning--I didn't find a database entry for "Whigham:2004wy"
+Warning--I didn't find a database entry for "Vaughn:2015wp"
+Warning--I didn't find a database entry for "Torrez:2017to"
+Warning--I didn't find a database entry for "Hawkins:2005ve"
+Warning--I didn't find a database entry for "Hess:2019vn"
+Warning--I didn't find a database entry for "Cleland:2013wo"
+Warning--I didn't find a database entry for "Schuster:2020ww"
+Warning--I didn't find a database entry for "Havens:2016vo"
+Warning--I didn't find a database entry for "D-M-Buonaiuto:2023wj"
+Warning--I didn't find a database entry for "gbif"
+You've used 0 entries,
+            2805 wiz_defined-function locations,
+            1161 strings with 13354 characters,
+and the built_in function-call counts, 27 in all, are:
+= -- 0
+> -- 0
+< -- 0
++ -- 0
+- -- 1
+* -- 2
+:= -- 10
+add.period$ -- 0
+call.type$ -- 0
+change.case$ -- 0
+chr.to.int$ -- 1
+cite$ -- 0
+duplicate$ -- 0
+empty$ -- 1
+format.name$ -- 0
+if$ -- 1
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 0
+newline$ -- 4
+num.names$ -- 0
+pop$ -- 0
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1
+stack$ -- 0
+substring$ -- 0
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 0
+width$ -- 0
+write$ -- 3
+(There was 1 error message)
